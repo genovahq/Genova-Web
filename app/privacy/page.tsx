@@ -68,10 +68,37 @@ export default function PrivacyPage() {
             if legally required to.
           </p>
 
-          <h2 className="kicker">Cookies</h2>
+          <h2 className="kicker">Cookies and analytics</h2>
           <p>
-            This site sets no advertising or tracking cookies. If we add analytics later, this page
-            will be updated to say exactly what it collects before it goes live.
+            This site uses Google Analytics 4 to count visits and see which pages people
+            actually read. It sets cookies in your browser (named <code>_ga</code> and{" "}
+            <code>_ga_*</code>) that hold a randomly generated ID. That ID tells us a browser
+            came back &mdash; it does not tell us who you are.
+          </p>
+          <p>
+            What it collects: pages viewed, roughly how long you stayed, whether you came from
+            Google or a link or typed the address in, your device and browser type, and an
+            approximate location from your IP address. Google shortens the IP address so we
+            never see the full one, and we have not turned on Google Signals, advertising
+            personalisation, or any ad remarketing.
+          </p>
+          <p>
+            We set <strong>no advertising or remarketing cookies</strong>, and we do not sell or
+            share this data. If you would rather not be counted, install Google&rsquo;s{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--purple-bright)" }}
+            >
+              opt-out browser add-on
+            </a>
+            , or turn on &ldquo;Do Not Track&rdquo; / block cookies in your browser settings.
+            Nothing on this site stops working if you do.
+          </p>
+          <p>
+            Analytics is separate from the form. If you never submit the questionnaire, we never
+            learn your name, email, or phone number.
           </p>
 
           <h2 className="kicker">Your choices</h2>

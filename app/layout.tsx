@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Michroma, Sora, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -92,6 +93,18 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+/*
+ * GA4 measurement ID. Public by design — it ships in the client HTML on every
+ * site that uses it, so there's nothing gained by hiding it in an env var.
+ *
+ * Gated to production deploys only. Without this, local dev sessions and
+ * Vercel preview builds would fire real pageviews and quietly pollute the
+ * reports with traffic that isn't customers. VERCEL_ENV is read at build time
+ * in this server component, so no client bundle is affected.
+ */
+const GA_MEASUREMENT_ID = "G-MZFP57T56W";
+const analyticsEnabled = process.env.VERCEL_ENV === "production";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -130,6 +143,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationSchema()} id="schema-org" />
         <JsonLd data={websiteSchema()} id="schema-website" />
       </body>
+      {analyticsEnabled && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   );
 }
