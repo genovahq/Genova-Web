@@ -10,14 +10,13 @@ import {
   rushOptions,
   comparisonRows,
   alternativeComparison,
-  hostingNote,
 } from "@/lib/data/plans";
 import { pricingSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Pricing — Website Packages from $750",
   description:
-    "Transparent website pricing: Starter $750, Growth $2,000, Pro $3,500. 50% up front, 50% on delivery. AI lead capture included in every plan. Care plans from $297/mo.",
+    "Transparent website pricing: Starter $750, Growth $2,000, Pro $3,500. 50% up front, 50% on delivery. AI lead capture included in every plan. Care plans from $149/mo.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing — Website Packages from $750 | Genova Web",
@@ -38,7 +37,7 @@ const faq = [
   },
   {
     q: "Do I have to take a care plan?",
-    a: "No. Every plan works as a one-time build. Care and Care+ are optional, month to month, and cancellable any time. Pro includes three months of Care+ so you can judge it before deciding.",
+    a: "No. Every plan works as a one-time build. Genova Care is optional, month to month, and cancellable any time. Pro includes three months of Genova Care so you can judge it before deciding.",
   },
   {
     q: "What if I need more than the Pro plan covers?",
@@ -46,15 +45,15 @@ const faq = [
   },
   {
     q: "Are there ongoing costs I should expect?",
-    a: "Two: your domain (typically $12–20/year, paid to the registrar in your own name) and hosting. Hosting is $50/mo on its own, or included free in Genova Care at $297/mo. Nothing else is billed unless you ask for it.",
+    a: "Two: your domain (typically $12–20/year, paid to the registrar in your own name) and hosting. Hosting is $50/mo on its own, or included free in Genova Care at $149/mo. Nothing else is billed unless you ask for it.",
   },
   {
-    q: "What's the difference between $50 hosting and the $297 care plan?",
-    a: "The $50 keeps your site online and secure — hosting, SSL, nothing more. Genova Care includes that hosting plus daily backups, security patching, uptime and lead-system monitoring, two content edits a month, a monthly report, and a quarterly strategy call. Both are month to month.",
+    q: "What's the difference between $50 hosting and the $149 care plan?",
+    a: "The $50 keeps your site online and secure — managed hosting, SSL, daily backups, and uptime monitoring, nothing more. Genova Care includes all of that plus lead-system monitoring, unlimited content edits, and a quarterly check-in on what's working and what to fix next. Both are month to month.",
   },
   {
     q: "How many pages do I get?",
-    a: "Starter is a single page. Growth covers up to 5 pages, including a dedicated page per service. Pro covers up to 10, which is what multi-location and service-area coverage needs. If you need more, we'll quote it.",
+    a: "Starter covers two pages. Growth covers up to 5 pages, including a dedicated page per service. Pro covers up to 10, which is what multi-location and service-area coverage needs. If you need more, we'll quote it.",
   },
   {
     q: "Who owns the website when it's done?",
@@ -236,16 +235,13 @@ export default function PricingPage() {
         <div className="wrap">
           <SectionHead
             kicker="Ongoing care"
-            title="Launch is day one. Care is every day after."
-            lead="Optional, month to month, cancel any time. You keep the website either way."
+            title="Launch is day one. Staying online is every day after."
+            lead="Optional, month to month, cancel any time. You own the website either way."
           />
           <PricingTiers plans={carePlans} className="care-tiers" />
           <p className="care-note reveal">
-            <b>Hosting:</b> {hostingNote}
-          </p>
-          <p className="care-note reveal">
-            <b>No guarantees, no gimmicks.</b> Every month we optimize your website, local search
-            presence, and lead system to maximize your chances of attracting qualified customers.
+            You keep the website no matter what. Both are month to month, no contract — if
+            we&rsquo;re not earning it, you leave and take everything with you.
           </p>
         </div>
       </section>

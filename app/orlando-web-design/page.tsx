@@ -21,12 +21,12 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Orlando Web Design | Websites Built to Get You Customers" },
   description:
-    "Web design in Orlando, FL for local service businesses. High-converting sites with AI lead capture and local SEO, live in about a week. From $750.",
+    "Web design in Orlando, FL for local service businesses. High-converting sites with AI lead capture and local SEO, live in under two weeks. From $750.",
   alternates: { canonical: "/orlando-web-design" },
   openGraph: {
     title: "Orlando Web Design | Genova Web",
     description:
-      "Websites for Orlando local businesses — built to convert, found on Google, live in about a week.",
+      "Websites for Orlando local businesses — built to convert, found on Google, live in under two weeks.",
     url: "/orlando-web-design",
   },
 };
@@ -38,7 +38,7 @@ const faq = [
   },
   {
     q: "Can we meet in person?",
-    a: "Everything from intake to launch runs over email, phone, and a shared preview link — that's how we keep the timeline to about a week and the price where it is. If a call would help, we'll set one up.",
+    a: "Everything from intake to launch runs over email, phone, and a shared preview link — that's how we keep the timeline to under two weeks and the price where it is. If a call would help, we'll set one up.",
   },
   {
     q: "How do I rank in the Orlando map pack?",

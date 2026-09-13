@@ -8,7 +8,11 @@ export const site = {
   legalName: "Genova Web",
   // Canonical host: genovaweb.com currently 301s www -> apex, so apex is canonical.
   url: "https://genovaweb.com",
-  email: "genovahq@outlook.com",
+  email: "eljay@genovaweb.com",
+  // Display format stays character-consistent everywhere for NAP citations;
+  // phoneHref is the tel: target. Keep both matching the Google Business Profile.
+  phone: "(321) 236-0522",
+  phoneHref: "tel:+13212360522",
   city: "Orlando",
   region: "FL",
   regionName: "Florida",
@@ -16,7 +20,7 @@ export const site = {
   founded: "2026",
   tagline: "AI-Powered Websites for Local Business",
   description:
-    "Genova Web builds high-converting websites with built-in AI lead capture for local businesses in Orlando and across Florida. Live in about a week, starting at $750.",
+    "Genova Web builds high-converting websites with built-in AI lead capture for local businesses in Orlando and across Florida. Live in under two weeks, starting at $750.",
   /*
    * NOTE: the n8n webhook URL deliberately does NOT live here any more.
    * Anything in this file is imported by client components and therefore ends

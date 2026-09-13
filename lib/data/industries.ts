@@ -23,7 +23,7 @@ export const industries: Industry[] = [
     plural: "plumbers",
     metaTitle: "Websites for Plumbers | Orlando & Central Florida",
     metaDescription:
-      "Websites for plumbing companies built to win emergency calls: click-to-call, service-area pages, instant lead alerts, and local SEO. Live in about a week.",
+      "Websites for plumbing companies built to win emergency calls: click-to-call, service-area pages, instant lead alerts, and local SEO. Live in under two weeks.",
     h1: "Websites for plumbers who want the phone to ring.",
     lead:
       "Plumbing is an emergency business. Your site has one job: be the one they call while standing in an inch of water.",

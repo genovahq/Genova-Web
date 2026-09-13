@@ -35,9 +35,9 @@ type Step = {
 };
 
 const PLAN_OPTIONS = [
-  { value: "starter", label: "Starter — $750", hint: "1 page, live in 5–7 days" },
+  { value: "starter", label: "Starter — $750", hint: "2 pages, live in 5–7 days" },
   { value: "growth", label: "Growth — $2,000", hint: "Up to 5 pages, local SEO" },
-  { value: "pro", label: "Pro — $3,500", hint: "Up to 10 pages, 3 months Care+" },
+  { value: "pro", label: "Pro — $3,500", hint: "Up to 10 pages, 3 months Care" },
 ];
 
 const steps: Step[] = [

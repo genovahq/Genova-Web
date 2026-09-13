@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site, absolute } from "@/lib/site";
 import { services } from "@/lib/data/services";
 import { industries } from "@/lib/data/industries";
+import { cities, cityPath } from "@/lib/data/cities";
 
 /**
  * Generated sitemap — served at /sitemap.xml and referenced from robots.txt.
@@ -43,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.75,
+    })),
+    ...cities.map((c) => ({
+      url: absolute(cityPath(c.slug)),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     })),
   ];
 }

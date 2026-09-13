@@ -92,7 +92,7 @@ export default function OgImage() {
             lineHeight: 1.45,
           }}
         >
-          High-converting websites with built-in AI lead capture. Live in about a week, from $750.
+          High-converting websites with built-in AI lead capture. Live in under two weeks, from $750.
         </div>
 
         <div

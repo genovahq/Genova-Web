@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHead, Crumbs, FinalCta } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
-import { caseStudies } from "@/lib/data/proof";
+import { caseStudies, portfolio } from "@/lib/data/proof";
 import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 /*
  * /work
  *
- * There are no published client case studies yet, and this page does not
- * pretend otherwise — no invented "Two-Truck Plumbing, Winter Park" tiles, no
- * fabricated "+240% leads" numbers, no stock photos captioned as our
- * portfolio. Those would be specific factual claims about work performed.
+ * Two kinds of proof, both real:
+ *   - `portfolio` (lib/data/proof.ts) — a visual showcase of genuinely live
+ *     client sites we built, each linking straight to the real thing. No stock
+ *     photos captioned as our work, no demos passed off as clients.
+ *   - `caseStudies` (still empty by design) — challenge/approach/results with
+ *     evidenced metrics. When it has real entries, they render automatically.
  *
- * Instead the page shows the anatomy of what we actually build, which is real,
- * useful, and ranks. As soon as `caseStudies` in lib/data/proof.ts has real
- * entries with evidenced metrics, they render above this automatically.
+ * There are still no fabricated numbers or invented tiles here. When both
+ * arrays are empty the page falls back to the honest "we're new" note below.
+ * The anatomy section always shows what we actually build.
  */
 
 export const metadata: Metadata = {
@@ -35,13 +38,13 @@ const anatomy = [
   },
   {
     n: "02",
-    t: "One page per thing you sell",
-    b: "Each service gets its own URL, its own title, and its own content. This is the single structural difference between a site that ranks for four searches and one that ranks for one.",
+    t: "Structure that can rank",
+    b: "The homepage is built to win your main search, and from Growth up every service gets its own page — its own URL, title, and content — so each can rank on its own instead of competing on one.",
   },
   {
     n: "03",
     t: "Proof placed where doubt happens",
-    b: "Reviews, licences, warranty terms, and guarantees sit next to the moment someone hesitates — beside the price, beside the CTA — not parked on a separate page nobody visits.",
+    b: "Licences, warranty terms, and guarantees — plus a reviews section from Growth up — sit next to the moment someone hesitates, beside the price and the CTA, not parked on a page nobody visits.",
   },
   {
     n: "04",
@@ -66,13 +69,14 @@ const anatomy = [
   {
     n: "08",
     t: "Measurement from day one",
-    b: "Analytics and Search Console connected at launch, so month two is a conversation about data instead of a conversation about opinions.",
+    b: "Analytics connected at launch — plus Search Console on Pro — so month two is a conversation about data instead of a conversation about opinions.",
   },
 ];
 
 export default function WorkPage() {
   const crumbs = [{ name: "Work", path: "/work" }];
   const hasCaseStudies = caseStudies.length > 0;
+  const hasPortfolio = portfolio.length > 0;
 
   return (
     <>
@@ -84,13 +88,12 @@ export default function WorkPage() {
           <Crumbs items={crumbs} />
           <span className="eyebrow">Our work</span>
           <h1>
-            <span className="chrome">Anyone can show you screenshots. </span>
-            <span className="chrome-purple">Here&rsquo;s what&rsquo;s underneath one.</span>
+            <span className="chrome">Real businesses. </span>
+            <span className="chrome-purple">Real sites, live right now.</span>
           </h1>
           <p className="sub">
-            A website either has the structure that produces inquiries or it doesn&rsquo;t, and you
-            can&rsquo;t tell from a thumbnail. This is the eight-part anatomy of every site we
-            build.
+            Click through to any of them — these are working sites doing the job, not mockups. Below
+            them is the eight-part anatomy that goes into every build.
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
@@ -102,6 +105,46 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
+
+      {hasPortfolio && (
+        <section className="block" id="selected-work">
+          <div className="wrap">
+            <SectionHead
+              kicker="Selected work"
+              title="Sites we built, live and working."
+              lead="Every one links straight to the real, published site — see it the way its customers do."
+            />
+            <div className={`work-grid${portfolio.length === 1 ? " solo" : ""}`}>
+              {portfolio.map((p) => (
+                <a
+                  className="work-card reveal"
+                  key={p.slug}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="work-shot">
+                    <Image
+                      src={p.image}
+                      alt={p.alt}
+                      fill
+                      sizes="(max-width: 700px) 100vw, 640px"
+                      style={{ objectFit: "contain", objectPosition: "center" }}
+                    />
+                  </div>
+                  <div className="work-meta">
+                    <span className="tag">{p.industry}</span>
+                    <h3>{p.business}</h3>
+                    <span className="work-link">
+                      Visit live site <span className="arw">→</span>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {hasCaseStudies && (
         <section className="block">
@@ -145,7 +188,7 @@ export default function WorkPage() {
           <SectionHead
             kicker="Anatomy of a build"
             title="Eight things every Genova site does."
-            lead="None of these are upsells or optional extras. They're what a website has to do before design is even worth discussing."
+            lead="The fundamentals every site needs to work, built in from the start — with the higher tiers layering more on top."
           />
           <div className="grid-2">
             {anatomy.map((a) => (
@@ -159,7 +202,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {!hasCaseStudies && (
+      {!hasCaseStudies && !hasPortfolio && (
         <section className="block block-tight">
           <div className="wrap wrap-narrow">
             <div className="reveal prose">

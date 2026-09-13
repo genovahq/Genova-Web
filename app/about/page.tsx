@@ -37,7 +37,7 @@ const beliefs = [
   },
   {
     title: "Fast is a feature, not a shortcut",
-    body: "Most sites go live in about a week — not because we cut corners, but because a tight, well-defined scope removes the eight weeks of meetings that usually pad a project.",
+    body: "Most sites go live in under two weeks — not because we cut corners, but because a tight, well-defined scope removes the eight weeks of meetings that usually pad a project.",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <span className="eyebrow">About</span>
           <h1>
             <span className="chrome">We build websites for people who </span>
-            <span className="chrome-purple">measure results in phone calls.</span>
+            <span className="chrome-purple">measure results in leads, calls, and booked jobs.</span>
           </h1>
           <p className="sub">
             Genova Web is a small studio in {site.city}, {site.region}, building conversion-focused

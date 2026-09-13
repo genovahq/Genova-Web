@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
+import { Phone } from "./Icons";
 import Wordmark from "./Wordmark";
 
 export default function Nav() {
@@ -57,6 +58,14 @@ export default function Nav() {
             </Link>
           ))}
         </div>
+
+        <a href={site.phoneHref} className="nav-call" aria-label={`Call Genova Web at ${site.phone}`}>
+          <span className="nav-call-ico" aria-hidden="true">
+            <Phone />
+          </span>
+          <span className="nav-call-full">{site.phone}</span>
+          <span className="nav-call-short">Call</span>
+        </a>
 
         <Link href="/contact" className="nav-cta">
           Start a Project

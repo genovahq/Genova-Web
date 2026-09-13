@@ -214,7 +214,7 @@ comparison table, schema, and contact-form dropdown all follow.
 
 | Build | Price | Pages | Timeline |
 |---|---|---|---|
-| Starter | $750 | 1 page | 5–7 business days |
+| Starter | $750 | 2 pages | 5–7 business days |
 | Growth | $2,000 | Up to 5 pages | 7–10 business days |
 | Pro | $3,500 | Up to 10 pages | 10–14 business days |
 
@@ -222,26 +222,23 @@ comparison table, schema, and contact-form dropdown all follow.
 
 | Plan | Price | What it is |
 |---|---|---|
-| Genova Care | $297/mo | Hosting included, plus backups, monitoring, 2 edits/mo, reporting. |
-| Genova Care+ | $597/mo | All of Care, plus 5 edits/mo, monthly SEO, reports, Search Console, AI tuning. |
+| Hosting only | $50/mo | Managed hosting & SSL, daily backups, uptime monitoring. |
+| Genova Care | $149/mo | Everything in hosting, plus lead-system monitoring, 3 edits/mo, and a quarterly check-in. |
 
-**Hosting on its own is $50/mo**, stated as a footnote under the care tiers
-(`hostingNote` in `plans.ts`) rather than as a third card — it's a floor price,
-not a product to sell against the care plans.
+Both render as cards under the care section (`carePlans` in `plans.ts`); Genova
+Care is the featured "Recommended" tier. There is no longer a Care+ tier — the
+old two-retainer model (Care $297 / Care+ $597) was collapsed into a single
+$149 Care plan plus a standalone $50 hosting card.
 
-**The Care+ member perk** ("new systems & automations as they launch — small
-improvements free, major systems at a member discount") is a `footnote` on the
-Care+ plan object only, so it can't be mistaken for a $297 Care benefit.
-
-Pro includes 3 months of Care+ ($1,791 value) — which is how Pro clients receive
-monthly reports, SEO optimization, and monitoring. The comparison table marks
-those rows "Via Care+" rather than as standalone Pro features, so the table and
-the cards can't contradict each other.
+Pro includes 3 months of Genova Care ($447 value) — which is how Pro clients
+receive ongoing lead-system monitoring and content edits. The comparison table
+marks that row "Via Care" rather than as a standalone Pro feature, so the table
+and the cards can't contradict each other.
 
 ### A note on the alternatives table
 
 The DIY column used to read "$20–$60/mo forever". That argued against Genova's
-own $297/mo care plan — if recurring cost is inherently a trap, so is the
+own $149/mo care plan — if recurring cost is inherently a trap, so is the
 retainer. The cost rows now compare *what you get for the money and whether
 it's optional* instead, which is the real distinction and doesn't undercut the
 subscription.

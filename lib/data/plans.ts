@@ -24,11 +24,11 @@ export const buildPlans: Plan[] = [
     price: 750,
     priceLabel: "$750",
     timeline: "Live in 5–7 business days",
-    scope: "1 page",
+    scope: "2 pages",
     pitch: "For businesses that need to get online and start capturing leads.",
     cta: "Start with Starter",
     footnote:
-      "Keep it running smoothly — add Genova Care for $297/mo. Hosting, security, and peace of mind so your site's always working. Cancel anytime.",
+      "Keep it running smoothly — add Genova Care for $149/mo. Hosting, security, and peace of mind so your site's always working. Cancel anytime.",
     features: [
       { text: "High-converting professional website" },
       { text: "Optimized for every device" },
@@ -81,7 +81,7 @@ export const buildPlans: Plan[] = [
       { text: "Advanced SEO foundation — technical, local & on-page setup" },
       { text: "Google Search Console setup & connection" },
       {
-        text: "3 months of Genova Care+ included, managed for you — a $1,791 value (monthly reports, SEO optimization, and monitoring run through this)",
+        text: "3 months of Genova Care included — a $447 value",
         ai: true,
       },
       { text: "Priority delivery & launch support" },
@@ -89,61 +89,45 @@ export const buildPlans: Plan[] = [
   },
 ];
 
-/** Monthly retainers. */
+/** Monthly options: hosting on its own, or full care. Both month to month. */
 export const carePlans: Plan[] = [
+  {
+    slug: "hosting",
+    name: "Hosting only",
+    price: 50,
+    priceLabel: "$50",
+    cadence: "/mo",
+    timeline: "Month to month",
+    pitch: "Keep it online and secure — nothing more.",
+    cta: "Add hosting",
+    features: [
+      { text: "Managed hosting & SSL" },
+      { text: "Daily backups" },
+      { text: "Uptime monitoring" },
+    ],
+  },
   {
     slug: "care",
     name: "Genova Care",
-    price: 297,
-    priceLabel: "$297",
+    price: 149,
+    priceLabel: "$149",
     cadence: "/mo",
     timeline: "Month to month",
-    pitch: "Maintain my website — keep it fast, secure, and online.",
-    cta: "Add Genova Care",
-    features: [
-      { text: "Managed hosting, security & daily backups" },
-      { text: "Uptime monitoring" },
-      { text: "Lead system uptime monitoring — if it breaks, we fix it", ai: true },
-      { text: "Up to 2 content edits / month" },
-      { text: "Monthly performance report — plus what we'd do next" },
-      { text: "Same-week response on anything broken" },
-      { text: "Quarterly strategy call" },
-    ],
-  },
-  {
-    slug: "care_plus",
-    name: "Genova Care+",
-    price: 597,
-    priceLabel: "$597",
-    cadence: "/mo",
-    timeline: "Month to month",
-    pitch: "Maintain and grow my website — active optimization every month.",
+    pitch: "Keep it online, secure, and handled — so you never think about it.",
     featured: true,
     badge: "Recommended",
-    cta: "Add Genova Care+",
-    // Care+ only — this perk is not part of the $297 Care plan.
-    footnote:
-      "New systems & automations as they launch: small improvements included free, major new systems at an exclusive member discount. Available while your Care+ membership is active.",
+    cta: "Add Genova Care",
     features: [
-      { text: "Everything in Genova Care" },
-      { text: "Up to 5 content edits / month" },
-      { text: "Monthly SEO optimization" },
-      { text: "Monthly performance reports" },
-      { text: "Google Search Console monitoring" },
-      { text: "AI Lead Assistant monitoring & tuning", ai: true },
-      { text: "Website health audit" },
-      { text: "Performance optimization" },
-      { text: "Priority support" },
+      { text: "Everything in hosting — managed hosting, SSL, daily backups, uptime monitoring" },
+      {
+        text: "Lead-system monitoring — if your AI lead capture breaks, we catch it and fix it",
+        ai: true,
+      },
+      { text: "Unlimited content edits" },
+      { text: "Quarterly check-in — a quick look at what's working and what to fix next" },
     ],
   },
 ];
-
-/**
- * Hosting, stated as a footnote under the care plans. Every site needs it, and
- * a client should never discover the number after they've signed off.
- */
-export const hostingNote =
-  "Hosting is $50/mo on its own if you'd rather not take a care plan — both Genova Care and Care+ include it at no extra cost.";
 
 export const rushOptions = [
   { plan: "Starter", surcharge: "+$200", timeline: "3–4 days" },
@@ -164,7 +148,7 @@ export const comparisonRows: {
     rows: [
       { label: "Custom-built, mobile-first site", starter: true, growth: true, pro: true },
       { label: "Conversion-focused page structure", starter: true, growth: true, pro: true },
-      { label: "Pages included", starter: "1 page", growth: "Up to 5 pages", pro: "Up to 10 pages" },
+      { label: "Pages included", starter: "2 pages", growth: "Up to 5 pages", pro: "Up to 10 pages" },
       { label: "A page per service you offer", starter: false, growth: true, pro: true },
       { label: "Conversion copywriting", starter: false, growth: true, pro: true },
       { label: "Premium custom design & brand polish", starter: false, growth: false, pro: true },
@@ -195,11 +179,10 @@ export const comparisonRows: {
     rows: [
       { label: "Post-launch support", starter: "14 days", growth: "30 days", pro: "Priority" },
       { label: "Visitor analytics", starter: true, growth: true, pro: true },
-      { label: "Genova Care+ included", starter: false, growth: false, pro: "3 months" },
-      // Reports/SEO/monitoring reach Pro clients through the included Care+,
-      // not as separate Pro line items — reflected here so the table matches.
-      { label: "Monthly performance reports", starter: false, growth: false, pro: "Via Care+" },
-      { label: "Ongoing monthly SEO optimization", starter: false, growth: false, pro: "Via Care+" },
+      { label: "Genova Care included", starter: false, growth: false, pro: "3 months" },
+      // Ongoing monitoring and content edits reach Pro clients through the
+      // included 3 months of Genova Care, not as separate Pro line items.
+      { label: "Lead-system monitoring", starter: false, growth: false, pro: "Via Care" },
       { label: "Hosting after launch", starter: "$50/mo or Care", growth: "$50/mo or Care", pro: "Included 3 mo" },
     ],
   },
@@ -210,7 +193,7 @@ export const comparisonRows: {
  * structured, not about results.
  *
  * NOTE: the cost rows deliberately avoid framing a monthly fee as the bad
- * outcome ("$20–$60/mo forever" used to sit here). Genova sells a $297/mo care
+ * outcome ("$20–$60/mo forever" used to sit here). Genova sells a $149/mo care
  * plan, so an argument that recurring cost is inherently a trap argues against
  * our own product. The real distinction is what you get for it and whether
  * it's optional — so that's what these rows compare.
@@ -224,7 +207,7 @@ export const alternativeComparison = [
   },
   {
     label: "Typical time to launch",
-    genova: "About a week",
+    genova: "Under two weeks",
     diy: "However long you have spare",
     agency: "6–12 weeks",
   },

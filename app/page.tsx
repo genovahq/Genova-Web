@@ -42,7 +42,7 @@ const benefits = [
   {
     Icon: Rocket,
     title: "Launches Fast",
-    body: "Most sites go live in about a week. The sooner you're online and converting, the sooner you start getting more calls.",
+    body: "Most sites go live in under two weeks. The sooner you're online and converting, the sooner you start getting more calls.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function HomePage() {
           </h1>
           <p className="sub">
             We build high-converting websites with built-in AI lead capture — so your business turns
-            more visitors into leads, calls, and booked jobs. Live in about a week.
+            more visitors into leads, calls, and booked jobs. Live in under two weeks.
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
@@ -157,7 +157,7 @@ export default function HomePage() {
               <div className="p-lbl">To Convert</div>
             </div>
             <div className="principle">
-              <div className="p-num chrome-purple">~1 wk</div>
+              <div className="p-num chrome-purple">&lt;2 weeks</div>
               <div className="p-lbl">To Launch</div>
             </div>
           </div>

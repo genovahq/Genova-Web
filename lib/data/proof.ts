@@ -56,6 +56,39 @@ export const testimonials: Testimonial[] = [];
 export const caseStudies: CaseStudy[] = [];
 
 /**
+ * PORTFOLIO / SELECTED WORK
+ * ---------------------------------------------------------------------------
+ * A lighter, visual showcase than `caseStudies`: a screenshot, the business
+ * name, an industry tag, and a link to the genuinely live site. No metrics to
+ * substantiate, so it's safe the moment an entry is real.
+ *
+ * SAME RULE AS ABOVE: only real clients who have given permission to be named
+ * and linked, and only sites that are actually live. No demos or spec builds
+ * presented as client work. Screenshots live in /public/work/<slug>.png.
+ */
+export type Project = {
+  slug: string;
+  business: string;
+  industry: string;
+  /** Live site, absolute https URL. Opens in a new tab. */
+  url: string;
+  /** Screenshot path under /public, e.g. "/work/showroom-shine.png". */
+  image: string;
+  alt: string;
+};
+
+export const portfolio: Project[] = [
+  {
+    slug: "showroom-shine",
+    business: "Showroom Shine",
+    industry: "Mobile detailing",
+    url: "https://showroomshine.online",
+    image: "/work/showroom-shine.png",
+    alt: "Showroom Shine home page — a veteran-owned mobile detailing site serving Tennessee, Kentucky, and Central Florida.",
+  },
+];
+
+/**
  * The honest fallback: terms Genova Web sets itself. Every line here is a
  * promise about how the business operates, which is verifiable and safe to
  * publish on day one.
@@ -84,7 +117,7 @@ export const commitments: { title: string; body: string }[] = [
   {
     title: "No lock-in on care plans",
     body:
-      "Care and Care+ are month to month. Cancel any time and keep the website. Retainers should be earned monthly, not enforced by contract.",
+      "Genova Care is month to month. Cancel any time and keep the website. Retainers should be earned monthly, not enforced by contract.",
   },
   {
     title: "No ranking guarantees",
@@ -98,7 +131,7 @@ export const commitments: { title: string; body: string }[] = [
  * history or results. Safe to publish immediately.
  */
 export const specs = [
-  { value: "~1 wk", label: "Typical build time" },
+  { value: "<2 weeks", label: "Typical build time" },
   { value: "24 hr", label: "Reply to every inquiry" },
   { value: "50/50", label: "Payment split" },
   { value: "$750", label: "Starting price" },

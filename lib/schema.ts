@@ -25,6 +25,7 @@ export function organizationSchema() {
     legalName: site.legalName,
     url: site.url,
     email: site.email,
+    telephone: site.phoneHref.replace("tel:", ""),
     description: site.description,
     slogan: "Turn more visitors into paying customers.",
     foundingDate: site.founded,
@@ -66,6 +67,7 @@ export function organizationSchema() {
       "@type": "ContactPoint",
       contactType: "sales",
       email: site.email,
+      telephone: site.phoneHref.replace("tel:", ""),
       areaServed: site.country,
       availableLanguage: "English",
     },
@@ -115,6 +117,8 @@ export function serviceSchema(opts: {
   description: string;
   path: string;
   serviceType: string;
+  /** Override the served city (defaults to the HQ city) — used by city pages. */
+  areaServedCity?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -126,7 +130,7 @@ export function serviceSchema(opts: {
     provider: { "@id": ORG_ID },
     areaServed: {
       "@type": "City",
-      name: site.city,
+      name: opts.areaServedCity ?? site.city,
       containedInPlace: { "@type": "State", name: site.regionName },
     },
     audience: {

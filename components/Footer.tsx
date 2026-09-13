@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { services } from "@/lib/data/services";
 import { industries } from "@/lib/data/industries";
+import { cities, cityPath } from "@/lib/data/cities";
 import Wordmark from "./Wordmark";
 
 export default function Footer() {
@@ -17,9 +18,14 @@ export default function Footer() {
               High-converting websites with built-in AI lead capture for local businesses in{" "}
               {site.city} and across {site.regionName}.
             </p>
-            <a href={`mailto:${site.email}`} className="btn-ghost" style={{ fontSize: "0.82rem" }}>
-              {site.email}
-            </a>
+            <div className="footer-contact">
+              <a href={site.phoneHref} className="btn-ghost" style={{ fontSize: "0.82rem" }}>
+                {site.phone}
+              </a>
+              <a href={`mailto:${site.email}`} className="btn-ghost" style={{ fontSize: "0.82rem" }}>
+                {site.email}
+              </a>
+            </div>
           </div>
 
           <div>
@@ -68,6 +74,20 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
+        <nav className="footer-areas" aria-label="Service areas">
+          <span className="footer-areas-label">Service areas</span>
+          <ul>
+            <li>
+              <Link href="/orlando-web-design">Orlando</Link>
+            </li>
+            {cities.map((c) => (
+              <li key={c.slug}>
+                <Link href={cityPath(c.slug)}>{c.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="footer-bottom">
           <p className="f-meta">

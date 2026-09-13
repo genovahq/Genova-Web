@@ -23,7 +23,7 @@ export const services: Service[] = [
     title: "Website Design & Development",
     metaTitle: "Small Business Website Design | Orlando, FL",
     metaDescription:
-      "Custom small-business website design built to convert, not just look good. Mobile-first, fast, and live in about a week. Orlando, FL and across Florida.",
+      "Custom small-business website design built to convert, not just look good. Mobile-first, fast, and live in under two weeks. Orlando, FL and across Florida.",
     kicker: "Website design",
     h1: "Websites built to sell, not just to sit there.",
     lead:
@@ -129,11 +129,6 @@ export const services: Service[] = [
         body:
           "On a Care plan we watch the lead pipeline itself. If it ever stops delivering, we find out before you lose a week of inquiries.",
       },
-      {
-        title: "Tuned over time",
-        body:
-          "On Care+ we adjust what the assistant asks for based on which questions actually correlate with booked work.",
-      },
     ],
     outcomes: [
       "Leads reach you in seconds, not hours",
@@ -202,7 +197,7 @@ export const services: Service[] = [
       {
         title: "Search Console monitoring",
         body:
-          "We connect it, watch what you're actually ranking for, and act on it monthly on Care+. Guessing is not a strategy.",
+          "We connect it and watch what you're actually ranking for, so you can see which searches bring real inquiries. Guessing is not a strategy.",
       },
     ],
     outcomes: [
@@ -233,7 +228,7 @@ export const services: Service[] = [
     title: "Website Care Plans",
     metaTitle: "Website Maintenance & Care Plans | Genova Web",
     metaDescription:
-      "Managed hosting, security, backups, uptime monitoring, content edits, and monthly SEO optimization. Genova Care from $297/mo, Care+ from $597/mo.",
+      "Managed hosting, SSL, daily backups, uptime and lead-system monitoring, and unlimited content edits. Hosting from $50/mo, Genova Care from $149/mo — month to month.",
     kicker: "Ongoing care",
     h1: "Launch is day one. Care is every day after.",
     lead:
@@ -246,7 +241,8 @@ export const services: Service[] = [
     included: [
       {
         title: "Managed hosting & backups",
-        body: "Fast hosting, daily backups, SSL, and security patching handled — not your problem.",
+        body:
+          "Fast managed hosting, SSL, daily backups, and security patching handled — not your problem. Available on its own for $50/mo, or included in Genova Care.",
       },
       {
         title: "Uptime & lead monitoring",
@@ -256,33 +252,19 @@ export const services: Service[] = [
       {
         title: "Content edits",
         body:
-          "Two edits a month on Care, five on Care+. New service, new price, new hours — send it, we ship it.",
+          "Unlimited content edits on Genova Care — new service, new price, new hours, a swapped photo. Send it, we ship it.",
       },
       {
-        title: "Monthly reporting",
+        title: "Quarterly check-in",
         body:
-          "What traffic did, where leads came from, and what we'd do next. Plain English, not a 40-page PDF.",
-      },
-      {
-        title: "Monthly SEO optimization",
-        body:
-          "On Care+: ongoing on-page work, Search Console monitoring, and acting on the searches you're nearly ranking for.",
-      },
-      {
-        title: "Strategy time",
-        body: "Quarterly call on Care, priority access on Care+. Someone who knows your site, on hand.",
-      },
-      {
-        title: "New systems as they launch",
-        body:
-          "Small improvements and automations are included free while your membership is active. Major new systems come at an exclusive member discount.",
+          "A quick quarterly look at what's working on your site and what to fix next. Plain English, not a 40-page PDF.",
       },
     ],
     outcomes: [
       "Site stays fast, secure, and online",
       "Broken lead capture gets caught in hours, not months",
       "Your content stays current without you touching code",
-      "Steady SEO progress instead of a one-time push",
+      "You never think about hosting, security, or uptime again",
     ],
     faq: [
       {
@@ -291,7 +273,7 @@ export const services: Service[] = [
       },
       {
         q: "Do I have to take a care plan?",
-        a: "No. It's optional on every build. If you just need the site online, hosting on its own is $50/mo. Genova Care at $297/mo includes that hosting plus maintenance, monitoring, edits, and reporting. Pro includes three months of Care+ so you can judge it before deciding.",
+        a: "No. It's optional on every build. If you just need the site online, hosting on its own is $50/mo. Genova Care at $149/mo adds lead-system monitoring, unlimited content edits, and a quarterly check-in. Pro includes three months of Genova Care so you can judge it before deciding.",
       },
       {
         q: "What does hosting cost if I don't want a care plan?",
@@ -302,7 +284,7 @@ export const services: Service[] = [
         a: "Text changes, swapping photos, updating hours or prices, adding a service, publishing a promo. Structural redesigns are quoted separately.",
       },
     ],
-    inPlans: "Optional on all plans. 3 months of Care+ included with Pro.",
+    inPlans: "Optional on all plans. 3 months of Genova Care included with Pro.",
   },
 ];
 
