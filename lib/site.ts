@@ -6,8 +6,10 @@
 export const site = {
   name: "Genova Web",
   legalName: "Genova Web",
-  // Canonical host: genovaweb.com currently 301s www -> apex, so apex is canonical.
-  url: "https://genovaweb.com",
+  // Canonical host: the apex genovaweb.com 308-redirects to www, so www is the
+  // host actually served. Canonicals/sitemap/schema/OG all derive from this, so
+  // it must match the live redirect target to avoid a canonical→redirect loop.
+  url: "https://www.genovaweb.com",
   email: "eljay@genovaweb.com",
   // Display format stays character-consistent everywhere for NAP citations;
   // phoneHref is the tel: target. Keep both matching the Google Business Profile.
