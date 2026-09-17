@@ -86,6 +86,14 @@ export const portfolio: Project[] = [
     image: "/work/showroom-shine.png",
     alt: "Showroom Shine home page — a veteran-owned mobile detailing site serving Tennessee, Kentucky, and Central Florida.",
   },
+  {
+    slug: "bonsai-tea",
+    business: "Bonsai Tea",
+    industry: "Boba tea shop",
+    url: "https://bonjourbonsai.com",
+    image: "/work/bonjour-bonsai.png",
+    alt: "Bonsai Tea home page — a Winter Park craft tea and boba shop where every cup is made by hand.",
+  },
 ];
 
 /**
