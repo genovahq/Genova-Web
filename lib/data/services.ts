@@ -93,7 +93,7 @@ export const services: Service[] = [
     title: "AI Lead Capture",
     metaTitle: "AI Lead Capture for Local Businesses | Genova Web",
     metaDescription:
-      "Never let an inquiry go cold. Our AI Lead Capture Assistant sends every website lead to your phone and inbox instantly, organized and ready to call back.",
+      "Never let an inquiry go cold. Our AI Lead Capture Assistant sends every website lead to your inbox instantly, organized and ready to call back.",
     kicker: "AI lead capture",
     h1: "The lead you answer first is usually the lead you win.",
     lead:
@@ -107,7 +107,7 @@ export const services: Service[] = [
       {
         title: "Instant routing",
         body:
-          "The moment someone submits, the details hit your phone and your inbox. No dashboard to remember to log into.",
+          "The moment someone submits, the details hit your inbox. No dashboard to remember to log into.",
       },
       {
         title: "Structured, not messy",

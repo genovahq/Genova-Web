@@ -33,7 +33,7 @@ export const buildPlans: Plan[] = [
       { text: "High-converting professional website" },
       { text: "Optimized for every device" },
       {
-        text: "AI Lead Capture Assistant — inquiries sent straight to your phone & email",
+        text: "AI Lead Capture Assistant — inquiries sent straight to your email",
         ai: true,
       },
       { text: "Click-to-call & Google Maps" },
@@ -168,7 +168,7 @@ export const comparisonRows: {
     group: "Turning visits into leads",
     rows: [
       { label: "AI Lead Capture Assistant", starter: true, growth: true, pro: true },
-      { label: "Instant phone + email alerts", starter: true, growth: true, pro: true },
+      { label: "Instant email alerts", starter: true, growth: true, pro: true },
       { label: "Click-to-call & Google Maps", starter: true, growth: true, pro: true },
       { label: "Organized lead inbox", starter: false, growth: true, pro: true },
       { label: "Customer reviews section", starter: false, growth: true, pro: true },

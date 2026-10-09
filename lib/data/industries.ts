@@ -54,7 +54,7 @@ export const industries: Industry[] = [
       {
         title: "Instant after-hours alerts",
         body:
-          "Overnight form fills hit your phone immediately. First callback in the morning usually wins the job.",
+          "Overnight form fills hit your inbox immediately. First callback in the morning usually wins the job.",
       },
     ],
     searchTerms: [

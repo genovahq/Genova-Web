@@ -49,7 +49,7 @@ const anatomy = [
   {
     n: "04",
     t: "A single, unmissable lead path",
-    b: "Click-to-call in the header, a short form that only asks what you'll actually use, and the AI assistant routing it to your phone the moment it lands.",
+    b: "Click-to-call in the header, a short form that only asks what you'll actually use, and the AI assistant routing it to your inbox the moment it lands.",
   },
   {
     n: "05",

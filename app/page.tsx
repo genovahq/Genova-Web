@@ -21,7 +21,7 @@ const benefits = [
   {
     Icon: Bolt,
     title: "AI Lead Capture Assistant",
-    body: "The moment someone reaches out, their details land on your phone and in your inbox instantly — so you never miss a job or let a lead go cold.",
+    body: "The moment someone reaches out, their details land in your inbox instantly — so you never miss a job or let a lead go cold.",
     tag: "Included in every plan",
   },
   {
