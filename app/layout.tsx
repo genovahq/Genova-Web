@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { Michroma, Sora, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -143,7 +143,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationSchema()} id="schema-org" />
         <JsonLd data={websiteSchema()} id="schema-website" />
       </body>
-      {analyticsEnabled && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
+      {/*
+       * GA loads with lazyOnload: after the page has finished loading and the
+       * browser is idle. The @next/third-parties component fetched the 180KB
+       * gtag.js at high priority alongside the CSS and fonts, which on a
+       * throttled phone connection pushed first paint back. Pageviews still
+       * record; only a visitor who leaves before the page finishes loading is
+       * missed, which is an acceptable trade for a faster first screen.
+       */}
+      {analyticsEnabled && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            strategy="lazyOnload"
+          />
+          <Script id="ga-init" strategy="lazyOnload">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`}
+          </Script>
+        </>
+      )}
     </html>
   );
 }

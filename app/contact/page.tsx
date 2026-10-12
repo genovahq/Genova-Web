@@ -49,7 +49,13 @@ export default function ContactPage() {
         <div className="wrap">
           <Crumbs items={crumbs} />
           <div className="contact-grid">
-            <div className="contact-copy reveal">
+            {/*
+             * No `reveal` on anything above the fold. The reveal start state is
+             * opacity:0 until JS hydrates, which on a mid-range phone kept the
+             * headline and form invisible for ~4.6s and tanked LCP (PageSpeed 77).
+             * First-screen content must paint with the HTML, not after JS.
+             */}
+            <div className="contact-copy">
               <span className="kicker">Get started</span>
               <h1
                 style={{
@@ -97,7 +103,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="reveal">
+            <div>
               {/* useSearchParams needs a Suspense boundary to stay statically rendered. */}
               <Suspense fallback={<div className="quiz" style={{ minHeight: 520 }} />}>
                 <Questionnaire />
