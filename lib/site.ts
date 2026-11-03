@@ -50,11 +50,12 @@ export const site = {
 
 export const nav = [
   { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/roi-calculator", label: "ROI Calculator" },
   { href: "/industries", label: "Industries" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
 ] as const;
+
+/** Booking link used by the "Book a call" / audit CTAs. */
+export const calLink = "https://cal.com/genovaweb/discovery";
 
 export const absolute = (path: string) => new URL(path, site.url).toString();

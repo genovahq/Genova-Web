@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, site } from "@/lib/site";
+import { nav, site, calLink } from "@/lib/site";
 import { Phone } from "./Icons";
 import Wordmark from "./Wordmark";
 
@@ -67,9 +67,9 @@ export default function Nav() {
           <span className="nav-call-short">Call</span>
         </a>
 
-        <Link href="/contact" className="nav-cta">
-          Start a Project
-        </Link>
+        <a href={calLink} className="nav-cta">
+          Get a free audit
+        </a>
 
         <button
           type="button"
@@ -95,13 +95,13 @@ export default function Nav() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
+          <a
+            href={calLink}
             className="menu-cta"
             style={{ "--i": nav.length } as React.CSSProperties}
           >
-            Start a Project
-          </Link>
+            Get a free audit
+          </a>
         </div>
       )}
     </>

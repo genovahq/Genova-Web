@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Michroma, Sora, Inter } from "next/font/google";
+import { Michroma, Sora, Inter, Poppins, IBM_Plex_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RevealProvider from "@/components/RevealProvider";
@@ -31,10 +31,25 @@ const sora = Sora({
 });
 
 const inter = Inter({
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+/* New agency brand (2026 rebuild): Poppins headings, Inter body, Plex Mono labels. */
+const poppins = Poppins({
+  weight: ["500", "600", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const plexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plex",
 });
 
 export const metadata: Metadata = {
@@ -109,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${michroma.variable} ${sora.variable} ${inter.variable}`}
+      className={`${michroma.variable} ${sora.variable} ${inter.variable} ${poppins.variable} ${plexMono.variable}`}
       /*
        * The inline script below adds `js` to this element's class list before
        * React hydrates, so the client className legitimately differs from the
