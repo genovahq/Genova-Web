@@ -13,8 +13,8 @@ export const site = {
   email: "eljay@genovaweb.com",
   // Display format stays character-consistent everywhere for NAP citations;
   // phoneHref is the tel: target. Keep both matching the Google Business Profile.
-  phone: "(321) 236-0522",
-  phoneHref: "tel:+13212360522",
+  phone: "(321) 340-7943",
+  phoneHref: "tel:+13213407943",
   city: "Orlando",
   region: "FL",
   regionName: "Florida",
