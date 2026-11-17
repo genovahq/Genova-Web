@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { site } from "@/lib/site";
+import { track } from "@/lib/track";
 import { industries } from "@/lib/data/industries";
 
 /**
@@ -255,6 +256,11 @@ export default function Questionnaire() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(String(res.status));
+      track("generate_lead", {
+        form: "questionnaire",
+        package: typeof answers.package === "string" ? answers.package : undefined,
+        page: window.location.pathname,
+      });
       try {
         sessionStorage.removeItem(STORAGE_KEY);
       } catch {

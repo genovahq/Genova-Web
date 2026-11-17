@@ -4,6 +4,7 @@ import { Michroma, Sora, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RevealProvider from "@/components/RevealProvider";
+import { ContactTracking } from "@/components/ContactTracking";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <RevealProvider />
+        <ContactTracking />
         <JsonLd data={organizationSchema()} id="schema-org" />
         <JsonLd data={websiteSchema()} id="schema-website" />
       </body>
