@@ -94,6 +94,22 @@ export const portfolio: Project[] = [
     image: "/work/bonjour-bonsai.png",
     alt: "Bonsai Tea home page — a Winter Park craft tea and boba shop where every cup is made by hand.",
   },
+  {
+    slug: "ss-equipment-solutions",
+    business: "S&S Equipment Solutions",
+    industry: "Fitness & rehab equipment",
+    url: "https://www.ssequipsolutions.com",
+    image: "/work/ss-equipment-solutions.png",
+    alt: "S&S Equipment Solutions home page — commercial and rehab fitness equipment from an authorized Spirit Fitness supplier, delivered and installed.",
+  },
+  {
+    slug: "madamo",
+    business: "Madamo",
+    industry: "Island sweets & desserts",
+    url: "https://madamo-genova-s-projects.vercel.app",
+    image: "/work/madamo.png",
+    alt: "Madamo home page — handmade peanut tablet and island sweets, with a coming-soon launch notice.",
+  },
 ];
 
 /**
