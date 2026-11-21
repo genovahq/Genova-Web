@@ -7,11 +7,11 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries We Build For — Trades, Home Services & Local Business",
+  title: "Industries We Market — Home Services, Trades & Local Business",
   description:
-    "Websites built for plumbers, HVAC, roofers, landscapers, med spas, and auto detailers across Orlando and Florida. Every trade converts differently.",
+    "Marketing for plumbers, HVAC, roofers, landscapers, med spas and auto detailers across Orlando and Florida — SEO, ads, content and speed-to-lead, tuned to each trade.",
   alternates: { canonical: "/industries" },
-  openGraph: { url: "/industries", title: "Industries We Build For | Genova Web" },
+  openGraph: { url: "/industries", title: "Industries We Market | Genova Web" },
 };
 
 export default function IndustriesPage() {
@@ -33,11 +33,11 @@ export default function IndustriesPage() {
           </h1>
           <p className="sub">
             One is an emergency, the other is a decision someone has been sitting on for six months.
-            Building both the same way is why so many small-business sites underperform.
+            Marketing both the same way is why so many local businesses overpay for leads.
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
               See pricing <span className="arw">→</span>
@@ -59,7 +59,7 @@ export default function IndustriesPage() {
                 <h3>{i.name}</h3>
                 <p>{i.lead}</p>
                 <span className="more">
-                  Websites for {i.plural} <span className="arw">→</span>
+                  Marketing for {i.plural} <span className="arw">→</span>
                 </span>
               </Link>
             ))}
@@ -75,7 +75,7 @@ export default function IndustriesPage() {
           </>
         }
         sub="If your customers find you by searching and decide by looking, we can help — whatever the industry. Tell us what you do."
-        cta="Start a Project"
+        cta="Get a Free Audit"
         secondary={{ label: "See our services", href: "/services" }}
       />
     </>

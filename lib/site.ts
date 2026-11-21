@@ -20,9 +20,9 @@ export const site = {
   regionName: "Florida",
   country: "US",
   founded: "2026",
-  tagline: "AI-Powered Websites for Local Business",
+  tagline: "Home-Service Marketing That Books Jobs",
   description:
-    "Genova Web builds high-converting websites with built-in AI lead capture for local businesses in Orlando and across Florida. Live in under two weeks, starting at $750.",
+    "Genova Web is an Orlando marketing agency for home-service contractors and local businesses — local SEO, Google and Local Services Ads, content and websites, measured in booked jobs.",
   /*
    * NOTE: the n8n webhook URL deliberately does NOT live here any more.
    * Anything in this file is imported by client components and therefore ends

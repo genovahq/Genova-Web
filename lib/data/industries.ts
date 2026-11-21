@@ -10,10 +10,11 @@ export type Industry = {
   /** What the customer is feeling at the moment they search. */
   moment: string;
   painPoints: string[];
-  /** Sections the build emphasizes for this trade. */
+  /** What the marketing emphasizes for this trade. */
   emphasis: { title: string; body: string }[];
   searchTerms: string[];
-  recommendedPlan: "starter" | "growth" | "pro";
+  /** Slug of any package in lib/data/plans.ts (retainer, build or project). */
+  recommendedPlan: string;
 };
 
 export const industries: Industry[] = [
@@ -21,12 +22,12 @@ export const industries: Industry[] = [
     slug: "plumbers",
     name: "Plumbing",
     plural: "plumbers",
-    metaTitle: "Websites for Plumbers | Orlando & Central Florida",
+    metaTitle: "Marketing for Plumbers | Orlando & Central Florida",
     metaDescription:
-      "Websites for plumbing companies built to win emergency calls: click-to-call, service-area pages, instant lead alerts, and local SEO. Live in under two weeks.",
-    h1: "Websites for plumbers who want the phone to ring.",
+      "Plumbing marketing built to win emergency calls: Local Services Ads, Google Search Ads, map-pack SEO and missed-call text-back. Orlando and Central Florida.",
+    h1: "Marketing for plumbers who want the phone to ring.",
     lead:
-      "Plumbing is an emergency business. Your site has one job: be the one they call while standing in an inch of water.",
+      "Plumbing is an emergency business. The job goes to whoever shows up first on Google and answers first on the phone — we make that you.",
     moment:
       "It's 8pm, there's water on the floor, and they're searching on a phone with wet hands. They will call the first credible result — not the best-looking one, the fastest and clearest one.",
     painPoints: [
@@ -37,24 +38,24 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "Emergency-first layout",
+        title: "Local Services Ads first",
         body:
-          "Tap-to-call in the header, in the hero, and fixed on mobile. Hours and service area above the fold. Nothing between a panicked customer and your phone number.",
+          "Emergency searchers tap the Google Guaranteed badge before anything else. We set up, manage and dispute bad leads so the budget goes to real jobs.",
       },
       {
-        title: "A page per job type",
+        title: "Search Ads by job type",
         body:
-          "Water heater replacement, drain cleaning, repiping, leak detection, sewer line. Each one ranks separately because each one is a different search.",
+          "Water heater, drain, repipe, leak detection — separate campaigns and landing pages, because each one is a different search with a different value.",
       },
       {
-        title: "Service-area coverage",
+        title: "Missed-call text-back",
         body:
-          "Real pages for the towns on your route, so you show up for \"plumber in Winter Park\" and not just your home city.",
+          "You're under a sink when the phone rings. Every missed call gets a text in seconds, so the customer waits for you instead of calling the next plumber.",
       },
       {
-        title: "Instant after-hours alerts",
+        title: "Map-pack coverage",
         body:
-          "Overnight form fills hit your inbox immediately. First callback in the morning usually wins the job.",
+          "A managed Google profile and real pages for the towns on your route, so you show up for \"plumber in Winter Park\" and not just your home city.",
       },
     ],
     searchTerms: [
@@ -63,18 +64,18 @@ export const industries: Industry[] = [
       "drain cleaning [city]",
       "repipe specialist [city]",
     ],
-    recommendedPlan: "growth",
+    recommendedPlan: "booked",
   },
   {
     slug: "hvac",
     name: "HVAC",
     plural: "HVAC companies",
-    metaTitle: "Websites for HVAC Companies | Orlando, FL",
+    metaTitle: "Marketing for HVAC Companies | Orlando, FL",
     metaDescription:
-      "HVAC websites built for Florida's season: fast quotes, financing-friendly layout, maintenance plan signups, service-area pages, and instant lead alerts.",
-    h1: "Websites for HVAC companies built for Florida heat.",
+      "HVAC marketing built for Florida's season: Local Services Ads, Google Ads, map-pack SEO, maintenance-plan funnels and instant speed-to-lead. Orlando, FL.",
+    h1: "Marketing for HVAC companies built for Florida heat.",
     lead:
-      "In Central Florida, AC is not a comfort purchase — it's an emergency purchase, nine months a year. Your site should be built for the day it hits 96 degrees.",
+      "In Central Florida, AC is an emergency purchase nine months a year. Your marketing should be ready for the day it hits 96 degrees — and scale back when it doesn't.",
     moment:
       "The unit died, the house is climbing through 85, and they're comparing three companies on a phone. Whoever answers fastest and looks most legitimate gets the appointment.",
     painPoints: [
@@ -85,24 +86,24 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "Repair vs. replace paths",
+        title: "Seasonal ad pacing",
         body:
-          "Two different customers with two different budgets. We split the journey so the $180 repair and the $9,000 system change-out each get the page they need.",
+          "Budgets that ramp with the heat and pull back in the shoulder months, so you're not paying peak prices for January clicks.",
       },
       {
-        title: "Maintenance plan conversion",
+        title: "Repair vs. replacement funnels",
         body:
-          "Recurring revenue is the healthiest thing in an HVAC business. We give the plan its own page and put signup where people actually are.",
+          "The $180 repair and the $9,000 change-out get separate campaigns and landing pages — and separate cost-per-job numbers.",
       },
       {
-        title: "Peak-season lead handling",
+        title: "Maintenance-plan growth",
         body:
-          "Structured, instantly-routed leads so a hot week doesn't turn into fifty unread emails.",
+          "Recurring revenue is the healthiest thing in an HVAC business. We market the plan as its own product, not a footnote.",
       },
       {
-        title: "Trust signals up front",
+        title: "Speed-to-lead at peak",
         body:
-          "License number, brands you service, warranty terms, and financing availability — the four things people check before booking a big job.",
+          "Instant text-back on every call and form, so a hot week doesn't turn into fifty unanswered leads.",
       },
     ],
     searchTerms: [
@@ -111,18 +112,18 @@ export const industries: Industry[] = [
       "emergency hvac [city]",
       "ac maintenance plan [city]",
     ],
-    recommendedPlan: "growth",
+    recommendedPlan: "full-engine",
   },
   {
     slug: "roofing",
     name: "Roofing",
     plural: "roofers",
-    metaTitle: "Websites for Roofing Companies | Florida",
+    metaTitle: "Marketing for Roofing Companies | Florida",
     metaDescription:
-      "Roofing websites built for high-ticket Florida leads: storm and insurance pages, free inspection funnels, gallery-ready layouts, and instant lead alerts.",
-    h1: "Websites for roofers chasing high-ticket work.",
+      "Roofing marketing for high-ticket Florida leads: Google and LSA ads, storm and insurance SEO, real job-site content and speed-to-lead. Orlando and across Florida.",
+    h1: "Marketing for roofers chasing high-ticket work.",
     lead:
-      "A roofing lead can be worth twenty thousand dollars. That changes what your website needs to be — and how much a bad one is costing you.",
+      "A roofing lead can be worth twenty thousand dollars. That changes how much it's worth spending to win one — and how much a slow callback is costing you.",
     moment:
       "After a storm, or after a ceiling stain appears. They're nervous about cost, insurance, and whether you're a storm-chaser who'll vanish. Credibility is the whole game.",
     painPoints: [
@@ -133,24 +134,24 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "Insurance claim guidance",
+        title: "Storm-ready ads",
         body:
-          "A real page explaining how a Florida claim works. Being the company that explained it is often the reason you get called.",
+          "Campaigns and landing pages that can switch on the day weather hits, with lead routing that can handle the spike.",
       },
       {
-        title: "Inspection funnel",
+        title: "Insurance-claim content",
         body:
-          "A low-friction path to the free inspection, because that's your actual product at the top of the funnel.",
+          "Pages and videos explaining how a Florida claim works. Being the company that explained it is often why you get called.",
       },
       {
-        title: "Proof-heavy design",
+        title: "Real job-site footage",
         body:
-          "Layouts built to carry job photos, licenses, warranty terms, and manufacturer certifications — the things that separate you from a truck with a magnet on it.",
+          "Drone shots, tear-offs and finished roofs from your actual jobs — the proof that separates you from a truck with a magnet on it.",
       },
       {
-        title: "Storm-response readiness",
+        title: "Reviews that keep climbing",
         body:
-          "Pages that can be updated fast when weather creates demand, and lead routing that can handle a spike.",
+          "Automated requests after every job, because roofing buyers read reviews harder than almost anyone.",
       },
     ],
     searchTerms: [
@@ -159,18 +160,18 @@ export const industries: Industry[] = [
       "storm damage roof [city]",
       "roofing insurance claim [city]",
     ],
-    recommendedPlan: "pro",
+    recommendedPlan: "full-engine",
   },
   {
     slug: "landscaping",
     name: "Landscaping & Lawn Care",
     plural: "landscapers",
-    metaTitle: "Websites for Landscapers & Lawn Care | Orlando, FL",
+    metaTitle: "Marketing for Landscapers & Lawn Care | Orlando, FL",
     metaDescription:
-      "Landscaping and lawn care websites built for recurring contracts: service-area coverage, visual portfolios, quote funnels, and instant lead alerts.",
-    h1: "Websites for landscapers who want contracts, not one-offs.",
+      "Landscaping and lawn care marketing built for recurring contracts: map-pack SEO, service-area targeting, before-and-after content and review generation. Orlando, FL.",
+    h1: "Marketing for landscapers who want contracts, not one-offs.",
     lead:
-      "Lawn care lives on recurring revenue. Your website should be selling the route, not just the single cleanup.",
+      "Lawn care lives on route density and recurring revenue. Your marketing should fill the neighborhoods you already drive through — not send you forty minutes away.",
     moment:
       "Usually a homeowner who's tired of doing it themselves, or a property manager who needs a reliable vendor. Both want to know: do you cover me, what does it cost, and will you show up.",
     painPoints: [
@@ -181,22 +182,22 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "Recurring plan pricing",
+        title: "Route-density SEO",
         body:
-          "Monthly maintenance packaged and priced on the page, so the recurring option is the obvious one.",
+          "Service-area pages and Google profile targeting for the neighborhoods you want, quietly filtering out the drives you don't.",
       },
       {
-        title: "Visual-first layout",
+        title: "Recurring-first offers",
         body:
-          "Your work is the sales pitch. Fast-loading, properly optimized galleries that survive on a phone connection.",
+          "Monthly maintenance packaged and promoted as the obvious choice, not the one-time cleanup.",
       },
       {
-        title: "Clear service radius",
+        title: "Before-and-after content",
         body:
-          "Area pages that pull in the neighborhoods you want and quietly filter out the drives you don't.",
+          "Your work is the sales pitch. Short videos and photos that make a yard transformation impossible to scroll past.",
       },
       {
-        title: "Commercial vs. residential split",
+        title: "Commercial vs. residential",
         body:
           "Two audiences, two paths. Property managers need different proof than homeowners do.",
       },
@@ -207,18 +208,18 @@ export const industries: Industry[] = [
       "commercial landscaping [city]",
       "sod installation [city]",
     ],
-    recommendedPlan: "growth",
+    recommendedPlan: "found",
   },
   {
     slug: "med-spas",
     name: "Med Spas & Aesthetics",
     plural: "med spas",
-    metaTitle: "Websites for Med Spas & Aesthetic Clinics | Florida",
+    metaTitle: "Marketing for Med Spas & Aesthetic Clinics | Florida",
     metaDescription:
-      "Med spa websites built to book consultations: treatment pages, transparent pricing, booking-first layout, and instant lead alerts. Elegant and fast.",
-    h1: "Websites for med spas that fill the calendar.",
+      "Med spa marketing built to book consultations: polished content, Instagram and Meta ads, treatment-page SEO and review management. Orlando and across Florida.",
+    h1: "Marketing for med spas that fill the calendar.",
     lead:
-      "Aesthetics is a considered, high-trust purchase. Your site is doing the reassuring long before anyone walks in.",
+      "Aesthetics is a considered, high-trust purchase. Your feed and your reviews are doing the reassuring long before anyone books a consult.",
     moment:
       "They've been thinking about it for months. They're comparing clinics, reading about the treatment, and quietly worried about looking overdone or getting hurt.",
     painPoints: [
@@ -229,24 +230,24 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "A page per treatment",
+        title: "Content that reassures",
         body:
-          "What it is, what happens, downtime, who it suits, and what it costs. This is the content that ranks and the content that converts.",
+          "Treatment explainers, provider intros and the space itself — shot well, so people can picture walking in.",
       },
       {
-        title: "Booking-first structure",
+        title: "Meta & Instagram ads",
         body:
-          "Consultation booking reachable from anywhere on the site, in one tap, with no phone call required.",
+          "Consultation campaigns aimed at the people already thinking about it, with offers that respect a premium price point.",
       },
       {
-        title: "Price transparency",
+        title: "Treatment-page SEO",
         body:
-          "Even a starting-from range dramatically reduces the drop-off from people who assume they can't afford it.",
+          "A page per treatment that explains what actually happens, so you rank for the research searches, not just your name.",
       },
       {
-        title: "Design that matches the price",
+        title: "Review management",
         body:
-          "If you charge premium rates, a template betrays you. The visual quality of the site is part of the clinical impression.",
+          "Every review answered, every happy client asked. Trust is the product.",
       },
     ],
     searchTerms: [
@@ -255,18 +256,18 @@ export const industries: Industry[] = [
       "laser hair removal [city]",
       "filler consultation [city]",
     ],
-    recommendedPlan: "pro",
+    recommendedPlan: "seen",
   },
   {
     slug: "auto-detailing",
     name: "Auto Detailing",
     plural: "detailers",
-    metaTitle: "Websites for Auto Detailers & Ceramic Coating | Florida",
+    metaTitle: "Marketing for Auto Detailers | Orlando, FL",
     metaDescription:
-      "Auto detailing websites built to book jobs: package pricing, ceramic coating and PPF pages, mobile-service areas, portfolio layouts, and instant alerts.",
-    h1: "Websites for detailers selling more than a wash.",
+      "Auto detailing marketing: short-form video of your best work, Google profile and map-pack SEO, booking-first funnels and review generation. Orlando, FL.",
+    h1: "Marketing for detailers whose work sells itself on video.",
     lead:
-      "Ceramic coating and paint correction are four-figure services. If your site looks like a car wash, you'll get car-wash prices.",
+      "Detailing is the most visual service there is. The right fifteen-second clip does more selling than any page of copy.",
     moment:
       "Either a new car owner protecting an investment, or an enthusiast who already knows the terminology and is judging whether you do too.",
     painPoints: [
@@ -277,24 +278,24 @@ export const industries: Industry[] = [
     ],
     emphasis: [
       {
-        title: "Tiered package pricing",
+        title: "Short-form video",
         body:
-          "Good/better/best on the page. It anchors value, filters tire-kickers, and stops you quoting from scratch every time.",
+          "Paint correction, ceramic coats and interior resets filmed and edited for Reels and TikTok — the before-and-after is the ad.",
       },
       {
-        title: "Pages for the high-ticket work",
+        title: "Package-first offers",
         body:
-          "Ceramic coating, paint correction, PPF, interior restoration — each one is its own search with its own buyer.",
+          "Clear packages and prices promoted everywhere, so people book the tier instead of asking for a quote.",
       },
       {
-        title: "Mobile service radius",
+        title: "Map-pack visibility",
         body:
-          "If you come to them, say exactly where. It's the first question and it should never require a phone call.",
+          "A managed Google profile with fresh photos every week, so you show up when someone searches \"detailing near me\".",
       },
       {
-        title: "Work that ranks",
+        title: "Reviews on autopilot",
         body:
-          "Your before/afters on your own domain, optimized, instead of only on a platform you don't own.",
+          "An automated request after every detail, while the car still looks perfect.",
       },
     ],
     searchTerms: [
@@ -303,7 +304,7 @@ export const industries: Industry[] = [
       "paint correction [city]",
       "ppf installer [city]",
     ],
-    recommendedPlan: "growth",
+    recommendedPlan: "seen-lite",
   },
 ];
 

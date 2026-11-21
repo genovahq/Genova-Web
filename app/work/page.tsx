@@ -97,7 +97,7 @@ export default function WorkPage() {
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
               See pricing <span className="arw">→</span>
@@ -267,7 +267,7 @@ export default function WorkPage() {
           </>
         }
         sub={`Free quote, no obligation, reply within 24 hours. Serving ${site.city} and all of ${site.regionName}.`}
-        cta="Start a Project"
+        cta="Get a Free Audit"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
     </>

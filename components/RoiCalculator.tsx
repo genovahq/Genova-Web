@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { buildPlans } from "@/lib/data/plans";
+import { buildPlans, retainerPlans, liteRetainerPlans, fullEngine } from "@/lib/data/plans";
+
+// Retainers first (the core offer), then one-time website builds.
+const ROI_PLANS = [...retainerPlans, fullEngine, ...liteRetainerPlans, ...buildPlans];
 
 /**
  * ROI calculator.
@@ -72,17 +75,21 @@ export default function RoiCalculator() {
   const [jobValue, setJobValue] = useState(1200);
   const [extraLeads, setExtraLeads] = useState(6);
   const [closeRate, setCloseRate] = useState(35);
-  const [planSlug, setPlanSlug] = useState("growth");
+  const [planSlug, setPlanSlug] = useState("booked");
 
-  const plan = buildPlans.find((p) => p.slug === planSlug) ?? buildPlans[1];
+  const plan = ROI_PLANS.find((p) => p.slug === planSlug) ?? retainerPlans[1];
+  const monthlyPlan = Boolean(plan.cadence);
 
   const result = useMemo(() => {
     const wonPerMonth = extraLeads * (closeRate / 100);
     const monthly = wonPerMonth * jobValue;
     const annual = monthly * 12;
-    // Months until the one-time build cost is covered. Infinity if monthly is 0.
+    // One-time builds: months until the build cost is covered (Infinity if 0).
     const payback = monthly > 0 ? plan.price / monthly : Infinity;
-    return { wonPerMonth, monthly, annual, payback };
+    // Retainers: revenue returned per $1 of monthly fee (ad spend excluded —
+    // the user enters leads, not spend, so we can't model it honestly).
+    const multiple = plan.price > 0 ? monthly / plan.price : 0;
+    return { wonPerMonth, monthly, annual, payback, multiple };
   }, [jobValue, extraLeads, closeRate, plan.price]);
 
   const animatedAnnual = useAnimatedNumber(result.annual);
@@ -129,7 +136,7 @@ export default function RoiCalculator() {
             onChange={(e) => setExtraLeads(Number(e.target.value))}
           />
           <p className="hint">
-            Your estimate — how many more inquiries a site that actually converts would bring in.
+            Your estimate — how many more calls and forms better marketing would bring in.
             We don&rsquo;t assume a number for you.
           </p>
         </div>
@@ -160,9 +167,10 @@ export default function RoiCalculator() {
               value={planSlug}
               onChange={(e) => setPlanSlug(e.target.value)}
             >
-              {buildPlans.map((p) => (
+              {ROI_PLANS.map((p) => (
                 <option key={p.slug} value={p.slug}>
                   {p.name} — {p.priceLabel}
+                  {p.cadence ?? ""}
                 </option>
               ))}
             </select>
@@ -189,20 +197,35 @@ export default function RoiCalculator() {
             <span>Added revenue / month</span>
             <b>{currency(animatedMonthly)}</b>
           </li>
-          <li>
-            <span>{plan.name} build cost</span>
-            <b>{plan.priceLabel}</b>
-          </li>
-          <li>
-            <span>Pays for itself in</span>
-            <b>
-              {result.payback === Infinity
-                ? "—"
-                : result.payback < 1
-                  ? "under a month"
-                  : `${result.payback.toFixed(1)} months`}
-            </b>
-          </li>
+          {monthlyPlan ? (
+            <>
+              <li>
+                <span>{plan.name} fee / month</span>
+                <b>{plan.priceLabel}</b>
+              </li>
+              <li>
+                <span>Revenue per $1 of fee</span>
+                <b>{result.multiple > 0 ? `$${result.multiple.toFixed(1)}` : "—"}</b>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <span>{plan.name} build cost</span>
+                <b>{plan.priceLabel}</b>
+              </li>
+              <li>
+                <span>Pays for itself in</span>
+                <b>
+                  {result.payback === Infinity
+                    ? "—"
+                    : result.payback < 1
+                      ? "under a month"
+                      : `${result.payback.toFixed(1)} months`}
+                </b>
+              </li>
+            </>
+          )}
         </ul>
 
         <Link href={`/contact?plan=${plan.slug}`} className="tier-btn solid">
@@ -212,7 +235,8 @@ export default function RoiCalculator() {
         <p className="calc-disclaimer" style={{ marginTop: 16 }}>
           This is a planning estimate built entirely from the numbers you entered — not a
           projection, forecast, or guarantee of results. We don&rsquo;t assume a conversion lift on
-          your behalf, because no honest agency can know one in advance.
+          your behalf, because no honest agency can know one in advance. Retainer figures exclude
+          ad spend, which you pay to Google and Meta directly.
         </p>
       </div>
     </div>

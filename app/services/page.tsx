@@ -8,9 +8,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — Web Design, AI Lead Capture & Local SEO",
+  title: "Services — Local SEO, Google & LSA Ads, Content, Websites",
   description:
-    "Website design, AI lead capture, local SEO, and ongoing care plans for local businesses in Orlando and across Florida. Four disciplines, one system.",
+    "Home-service marketing in Orlando: local SEO, Google Search and Local Services Ads, content and social, speed-to-lead automation and websites. One system, measured in booked jobs.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services", title: "Services | Genova Web" },
 };
@@ -29,16 +29,17 @@ export default function ServicesPage() {
           <Crumbs items={[{ name: "Services", path: "/services" }]} />
           <span className="eyebrow">Services</span>
           <h1>
-            <span className="chrome">A website is four jobs </span>
-            <span className="chrome-purple">pretending to be one.</span>
+            <span className="chrome">Every channel, </span>
+            <span className="chrome-purple">one pipeline of booked jobs.</span>
           </h1>
           <p className="sub">
-            Getting found, converting the visit, capturing the lead, and staying alive afterwards.
-            Most sites do one of those well and quietly fail the other three.
+            Getting found on Google, buying the calls you can&rsquo;t wait for, looking like the
+            obvious choice, and answering every lead first. Most businesses have one of those
+            working. We run all of them.
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
               See pricing <span className="arw">→</span>
@@ -51,13 +52,16 @@ export default function ServicesPage() {
         <div className="wrap">
           <SectionHead
             kicker="What we do"
-            title="Four disciplines that add up to one working system."
-            lead={`Every Genova build touches all four. What changes between plans is how far each one goes — and every one is available to businesses across ${site.regionName}.`}
+            title="Six services that add up to one working system."
+            lead={`Take one, or run them together. Every one is available to businesses across ${site.regionName}.`}
           />
           <div className="grid-2">
             {services.map((s) => (
               <Link href={`/services/${s.slug}`} className="svc reveal" key={s.slug}>
-                <h3>{s.title}</h3>
+                <h3>
+                  {s.title}
+                  {s.packageName && <> · {s.packageName}</>}
+                </h3>
                 <p>{s.lead}</p>
                 <span className="tag">{s.inPlans}</span>
                 <span className="more">

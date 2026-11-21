@@ -121,27 +121,27 @@ export const commitments: { title: string; body: string }[] = [
   {
     title: "You own everything",
     body:
-      "The site, the domain, the content, the code. No proprietary builder, no platform you have to keep renting. If you ever leave, you leave with all of it.",
+      "Ad accounts, Google Business Profile, website, domain, photos and video — all in your name. If you ever leave, you leave with all of it.",
   },
   {
-    title: "50% up front, 50% on delivery",
+    title: "Ad spend never marked up",
     body:
-      "You don't pay the balance until you've seen the finished site and signed off on it. The risk is split, not stacked on you.",
+      "Google and Meta bill you directly. Our fee is for the work, and it's published on the pricing page — not a percentage hidden inside your budget.",
+  },
+  {
+    title: "Reported in booked jobs",
+    body:
+      "Every month you see leads, cost per lead and what turned into work. Not impressions, not \"reach\", not a 40-page PDF.",
   },
   {
     title: "A reply within 24 hours",
     body:
-      "On every inquiry, before you're a customer and after. If we're going to sell you fast response times, we should be able to demonstrate one.",
+      "On every inquiry, before you're a client and after. If we're going to sell you speed to lead, we should be able to demonstrate it.",
   },
   {
-    title: "Revisions until it's right",
+    title: "Short minimums",
     body:
-      "The review round isn't a formality with a change limit. We adjust until the site is one you'd actually send someone to.",
-  },
-  {
-    title: "No lock-in on care plans",
-    body:
-      "Genova Care is month to month. Cancel any time and keep the website. Retainers should be earned monthly, not enforced by contract.",
+      "3 months on ads and content, 6 on SEO — then month to month. Retainers should be earned every month, not enforced by a 12-month contract.",
   },
   {
     title: "No ranking guarantees",
@@ -155,8 +155,8 @@ export const commitments: { title: string; body: string }[] = [
  * history or results. Safe to publish immediately.
  */
 export const specs = [
-  { value: "<2 weeks", label: "Typical build time" },
+  { value: "0%", label: "Markup on ad spend" },
   { value: "24 hr", label: "Reply to every inquiry" },
-  { value: "50/50", label: "Payment split" },
-  { value: "$750", label: "Starting price" },
+  { value: "3 mo", label: "Minimum on ads & content" },
+  { value: "$750/mo", label: "Retainers from" },
 ];

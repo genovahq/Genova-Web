@@ -68,7 +68,7 @@ export function FaqList({ items, id }: { items: { q: string; a: string }[]; id?:
 export function FinalCta({
   title,
   sub,
-  cta = "Start a Project",
+  cta = "Get a Free Audit",
   href = "/contact",
   secondary,
 }: {

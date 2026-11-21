@@ -74,7 +74,7 @@ export default async function CityPage({ params }: Params) {
     ...city.faq,
     {
       q: `How much does a website cost in ${city.name}?`,
-      a: "Our packages run $750 to $3,500 as a one-time build, split 50% up front and 50% on delivery. Local agencies typically quote $5,000–$15,000 for comparable scope with a longer timeline.",
+      a: "Our packages run $1,250 to $4,950 as a one-time build, split 50% up front and 50% on delivery. Local agencies typically quote $5,000–$15,000 for comparable scope with a longer timeline.",
     },
     {
       q: `How do I show up in ${city.name} on Google?`,

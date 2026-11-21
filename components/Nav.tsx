@@ -68,7 +68,7 @@ export default function Nav() {
         </a>
 
         <Link href="/contact" className="nav-cta">
-          Start a Project
+          Get a Free Audit
         </Link>
 
         <button
@@ -100,7 +100,7 @@ export default function Nav() {
             className="menu-cta"
             style={{ "--i": nav.length } as React.CSSProperties}
           >
-            Start a Project
+            Get a Free Audit
           </Link>
         </div>
       )}

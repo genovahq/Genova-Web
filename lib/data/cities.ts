@@ -36,7 +36,7 @@ export const cities: City[] = [
     county: "Orange County",
     metaTitle: "Winter Park Web Design | Sites Built to Convert",
     metaDescription:
-      "Web design for Winter Park, FL businesses — polished, high-converting sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Winter Park, FL businesses — polished, high-converting sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Winter Park customers expect a certain level of polish — from Park Avenue boutiques to the professional offices along 17-92. Your site has to match that standard and still turn visits into booked work.",
     why: [
@@ -57,7 +57,7 @@ export const cities: City[] = [
     county: "Osceola County",
     metaTitle: "Kissimmee Web Design | Websites Built to Get Calls",
     metaDescription:
-      "Web design for Kissimmee, FL service businesses — mobile-first sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Kissimmee, FL service businesses — mobile-first sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Kissimmee runs on a mix of tourism traffic and everyday local trade. If you serve residents and businesses off the 192 corridor, your site has to win the local search — not compete with theme-park noise.",
     why: [
@@ -78,7 +78,7 @@ export const cities: City[] = [
     county: "Seminole County",
     metaTitle: "Altamonte Springs Web Design | Genova Web",
     metaDescription:
-      "Web design for Altamonte Springs, FL businesses — high-converting sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Altamonte Springs, FL businesses — high-converting sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Altamonte sits right on the I-4 commercial spine of Seminole County — dense, competitive, and full of businesses fighting for the same clicks. A clear, fast site is how you stand out.",
     why: [
@@ -99,7 +99,7 @@ export const cities: City[] = [
     county: "Seminole County",
     metaTitle: "Sanford Web Design | Genova Web",
     metaDescription:
-      "Web design for Sanford, FL businesses — conversion-focused sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Sanford, FL businesses — conversion-focused sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Sanford is having a moment — a revitalized historic downtown and steady growth around the airport and Lake Monroe. A modern website is how a local business rides that momentum instead of watching it pass.",
     why: [
@@ -120,7 +120,7 @@ export const cities: City[] = [
     county: "Seminole County",
     metaTitle: "Lake Mary Web Design | Genova Web",
     metaDescription:
-      "Web design for Lake Mary, FL businesses — polished, professional sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Lake Mary, FL businesses — polished, professional sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Lake Mary is corporate Central Florida — Heathrow office parks, finance and tech, and an affluent residential base. Your site has to read as professional as the market it's in.",
     why: [
@@ -141,7 +141,7 @@ export const cities: City[] = [
     county: "Seminole County",
     metaTitle: "Oviedo Web Design | Genova Web",
     metaDescription:
-      "Web design for Oviedo, FL businesses — mobile-first sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Oviedo, FL businesses — mobile-first sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Oviedo is a growing family suburb near UCF — the kind of place where word-of-mouth and “near me” searches decide who gets the job. Your site has to show up for both.",
     why: [
@@ -162,7 +162,7 @@ export const cities: City[] = [
     county: "Orange County",
     metaTitle: "Winter Garden Web Design | Genova Web",
     metaDescription:
-      "Web design for Winter Garden, FL businesses — high-converting sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Winter Garden, FL businesses — high-converting sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Winter Garden is one of the fastest-growing corners of West Orange County — historic Plant Street, Winter Garden Village, and thousands of new households arriving. A strong site is how you reach them first.",
     why: [
@@ -183,7 +183,7 @@ export const cities: City[] = [
     county: "Orange County",
     metaTitle: "Apopka Web Design | Genova Web",
     metaDescription:
-      "Web design for Apopka, FL businesses — conversion-focused sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Apopka, FL businesses — conversion-focused sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Apopka is growing fast on the northwest side of the metro, with deep roots in nurseries, trades, and home services. Your site has to reach both the old base and the new rooftops.",
     why: [
@@ -204,7 +204,7 @@ export const cities: City[] = [
     county: "Lake County",
     metaTitle: "Clermont Web Design | Genova Web",
     metaDescription:
-      "Web design for Clermont, FL businesses — mobile-first sites with AI lead capture and local SEO. Live in under two weeks, from $750.",
+      "Web design for Clermont, FL businesses — mobile-first sites with speed-to-lead built in, plus the local SEO and ads to fill them. From $1,250.",
     heroLead:
       "Clermont has grown from a quiet Lake County town into a booming corner of the metro — rolling hills, the chain of lakes, and thousands of new families. A modern site is how you get found there.",
     why: [

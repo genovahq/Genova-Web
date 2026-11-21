@@ -7,14 +7,14 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Website ROI Calculator — What Is a Lead Actually Worth?",
+  title: "Marketing ROI Calculator — What Is a Lead Actually Worth?",
   description:
-    "Free ROI calculator for local businesses. Enter your average job value and close rate to see what extra inquiries are worth per year, and how fast a website pays for itself.",
+    "Free marketing ROI calculator for contractors and local businesses. Enter your average job value and close rate to see what extra leads are worth per year — against a retainer or a website build.",
   alternates: { canonical: "/roi-calculator" },
   openGraph: {
-    title: "Website ROI Calculator | Genova Web",
+    title: "Marketing ROI Calculator | Genova Web",
     description:
-      "Work out what one extra customer a month is worth to your business — and how quickly a website pays for itself.",
+      "Work out what one extra booked job a month is worth to your business — and what it takes to cover a retainer.",
     url: "/roi-calculator",
   },
 };
@@ -77,8 +77,8 @@ export default function RoiCalculatorPage() {
         <div className="wrap">
           <SectionHead
             kicker="How to read this"
-            title="Three numbers that decide whether a website is worth it."
-            lead="Most website conversations skip straight to price. These are the figures that actually determine whether the price is a good one."
+            title="Three numbers that decide whether marketing is worth it."
+            lead="Most marketing conversations skip straight to price. These are the figures that actually determine whether the price is a good one."
           />
           <div className="grid-3">
             <div className="svc reveal">
@@ -124,7 +124,7 @@ export default function RoiCalculatorPage() {
               position: "relative",
             }}
           >
-            We&rsquo;d rather turn down a project than sell a $3,500 site to a business that
+            We&rsquo;d rather turn down a client than sell a $1,500/mo retainer to a business that
             can&rsquo;t recover it. Send us your numbers and we&rsquo;ll give you a straight read.
           </p>
         </div>
@@ -146,11 +146,11 @@ export default function RoiCalculatorPage() {
         title={
           <>
             <span className="chrome">Numbers look good? </span>
-            <span className="chrome-purple">Let&rsquo;s build it.</span>
+            <span className="chrome-purple">Let&rsquo;s get started.</span>
           </>
         }
-        sub={`Free quote, no obligation, reply within 24 hours. Serving ${site.city} and all of ${site.regionName}.`}
-        cta="Start a Project"
+        sub={`Free audit, no obligation, reply within 24 hours. Serving ${site.city} and all of ${site.regionName}.`}
+        cta="Get a Free Audit"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
     </>

@@ -21,7 +21,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Orlando Web Design | Websites Built to Get You Customers" },
   description:
-    "Web design in Orlando, FL for local service businesses. High-converting sites with AI lead capture and local SEO, live in under two weeks. From $750.",
+    "Web design in Orlando, FL for local service businesses. High-converting sites with speed-to-lead built in, plus local SEO and ads to fill them. From $1,250.",
   alternates: { canonical: "/orlando-web-design" },
   openGraph: {
     title: "Orlando Web Design | Genova Web",
@@ -50,7 +50,7 @@ const faq = [
   },
   {
     q: "How much does a website cost in Orlando?",
-    a: "Our packages run $750 to $3,500 as a one-time build cost, split 50% up front and 50% on delivery. Local agencies typically quote $5,000–$15,000 for comparable scope with a longer timeline.",
+    a: "Our packages run $1,250 to $4,950 as a one-time build cost, split 50% up front and 50% on delivery. Local agencies typically quote $5,000–$15,000 for comparable scope with a longer timeline.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function OrlandoPage() {
         data={serviceSchema({
           name: `Web design in ${site.city}, ${site.region}`,
           description:
-            "Website design, AI lead capture, and local SEO for Orlando service businesses.",
+            "Website design, local SEO, Google and Local Services Ads, and content for Orlando service businesses.",
           path: "/orlando-web-design",
           serviceType: "Web design",
         })}

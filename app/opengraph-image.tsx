@@ -8,7 +8,7 @@ import { ImageResponse } from "next/og";
  * System fonts only — no network fetch, so this can't fail the build.
  */
 
-export const alt = "Genova Web — AI-Powered Websites That Grow Your Business";
+export const alt = "Genova Web — Orlando Marketing for Home-Service Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -78,8 +78,8 @@ export default function OgImage() {
             color: "#EDEDF2",
           }}
         >
-          <span>Turn more visitors into</span>
-          <span style={{ color: "#A45CE8" }}>paying customers.</span>
+          <span>Marketing that turns into</span>
+          <span style={{ color: "#A45CE8" }}>booked jobs.</span>
         </div>
 
         <div
@@ -92,7 +92,7 @@ export default function OgImage() {
             lineHeight: 1.45,
           }}
         >
-          High-converting websites with built-in AI lead capture. Live in under two weeks, from $750.
+          Local SEO, Google & LSA ads, content and websites for Orlando home-service businesses.
         </div>
 
         <div

@@ -1,5 +1,5 @@
 import { site, absolute } from "./site";
-import { buildPlans, carePlans } from "./data/plans";
+import { allPlans } from "./data/plans";
 
 /*
  * Structured data. The current site has none at all, which is the single
@@ -27,16 +27,23 @@ export function organizationSchema() {
     email: site.email,
     telephone: site.phoneHref.replace("tel:", ""),
     description: site.description,
-    slogan: "Turn more visitors into paying customers.",
+    slogan: "Marketing that turns into booked jobs.",
     foundingDate: site.founded,
-    priceRange: "$750–$3,500",
+    priceRange: "$$",
     knowsAbout: [
+      "Home services marketing",
+      "Contractor marketing",
       "Website design",
-      "Conversion rate optimization",
       "Local SEO",
+      "Google Ads management",
+      "Google Local Services Ads",
+      "Meta ads management",
+      "Social media content production",
+      "Speed-to-lead automation",
+      "Missed-call text-back",
+      "Review generation",
       "Google Business Profile optimization",
       "Lead generation",
-      "AI lead capture",
     ],
     areaServed: [
       {
@@ -73,8 +80,8 @@ export function organizationSchema() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Website packages",
-      itemListElement: [...buildPlans, ...carePlans].map((p) => ({
+      name: "Marketing & website packages",
+      itemListElement: allPlans().map((p) => ({
         "@type": "Offer",
         name: p.name,
         price: p.price,
@@ -135,7 +142,7 @@ export function serviceSchema(opts: {
     },
     audience: {
       "@type": "BusinessAudience",
-      audienceType: "Local service businesses",
+      audienceType: "Home service contractors and local businesses",
     },
   };
 }
@@ -158,12 +165,12 @@ export function pricingSchema() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Genova Web packages",
-    itemListElement: buildPlans.map((plan, i) => ({
+    itemListElement: allPlans().map((plan, i) => ({
       "@type": "ListItem",
       position: i + 1,
       item: {
         "@type": "Product",
-        name: `${plan.name} website package`,
+        name: `Genova ${plan.name}`,
         description: plan.pitch,
         brand: { "@type": "Brand", name: site.name },
         url: `${absolute("/pricing")}#${plan.slug}`,

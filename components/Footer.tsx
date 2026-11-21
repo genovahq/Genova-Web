@@ -15,8 +15,8 @@ export default function Footer() {
               <Wordmark />
             </Link>
             <p className="footer-blurb">
-              High-converting websites with built-in AI lead capture for local businesses in{" "}
-              {site.city} and across {site.regionName}.
+              Marketing for home-service contractors and local businesses in {site.city} and
+              across {site.regionName} — SEO, ads, content and websites, measured in booked jobs.
             </p>
             <div className="footer-contact">
               <a href={site.phoneHref} className="btn-ghost" style={{ fontSize: "0.82rem" }}>

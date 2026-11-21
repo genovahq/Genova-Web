@@ -5,7 +5,7 @@ import { SectionHead, Crumbs, FinalCta } from "@/components/ui";
 import PricingTiers from "@/components/PricingTiers";
 import JsonLd from "@/components/JsonLd";
 import { industries, getIndustry } from "@/lib/data/industries";
-import { buildPlans } from "@/lib/data/plans";
+import { allPlans, fullEngine } from "@/lib/data/plans";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -36,7 +36,7 @@ export default async function IndustryPage({ params }: Params) {
   const industry = getIndustry(slug);
   if (!industry) notFound();
 
-  const plan = buildPlans.find((p) => p.slug === industry.recommendedPlan) ?? buildPlans[1];
+  const plan = allPlans().find((p) => p.slug === industry.recommendedPlan) ?? fullEngine;
   const crumbs = [
     { name: "Industries", path: "/industries" },
     { name: industry.name, path: `/industries/${industry.slug}` },
@@ -46,10 +46,10 @@ export default async function IndustryPage({ params }: Params) {
     <>
       <JsonLd
         data={serviceSchema({
-          name: `Website design for ${industry.plural}`,
+          name: `Marketing for ${industry.plural}`,
           description: industry.metaDescription,
           path: `/industries/${industry.slug}`,
-          serviceType: `${industry.name} website design`,
+          serviceType: `${industry.name} marketing`,
         })}
         id={`schema-industry-${industry.slug}`}
       />
@@ -66,7 +66,7 @@ export default async function IndustryPage({ params }: Params) {
           <p className="sub">{industry.lead}</p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
               See pricing <span className="arw">→</span>
@@ -93,7 +93,7 @@ export default async function IndustryPage({ params }: Params) {
           <SectionHead
             kicker="What goes wrong"
             title={`Where most ${industry.plural} lose the job.`}
-            lead="None of these are exotic problems. They're the same four or five things, on almost every site we're asked to replace."
+            lead="None of these are exotic problems. They're the same four or five leaks, in almost every business we audit."
           />
           <ul className="contact-points reveal" style={{ marginTop: 40, maxWidth: 720 }}>
             {industry.painPoints.map((p, i) => (
@@ -109,8 +109,8 @@ export default async function IndustryPage({ params }: Params) {
       <section className="block">
         <div className="wrap">
           <SectionHead
-            kicker="How we build it"
-            title={`What a ${industry.name.toLowerCase()} site needs that a generic one doesn't.`}
+            kicker="How we market it"
+            title={`What ${industry.name.toLowerCase()} marketing needs that a generic plan doesn't.`}
           />
           <div className="grid-2">
             {industry.emphasis.map((e) => (
@@ -127,9 +127,9 @@ export default async function IndustryPage({ params }: Params) {
       <section className="block block-tight">
         <div className="wrap">
           <SectionHead
-            kicker="What we build you to rank for"
+            kicker="What we target"
             title="The searches that turn into work."
-            lead="Each of these is a different page with different content — not one homepage trying to be all of them."
+            lead="Each of these gets its own page, its own campaign or both — not one homepage trying to be all of them."
           />
           <div className="grid-4">
             {industry.searchTerms.map((term) => (
@@ -159,7 +159,7 @@ export default async function IndustryPage({ params }: Params) {
           <PricingTiers plans={[plan]} className="grid-2" />
           <div className="actions" style={{ marginTop: 30 }}>
             <Link href="/pricing" className="btn-ghost">
-              Compare all plans <span className="arw">→</span>
+              Compare all packages <span className="arw">→</span>
             </Link>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default async function IndustryPage({ params }: Params) {
       {/* OTHER INDUSTRIES */}
       <section className="block block-tight">
         <div className="wrap">
-          <SectionHead kicker="Other trades" title="We build for these too." />
+          <SectionHead kicker="Other trades" title="We market these too." />
           <div className="grid-3">
             {industries
               .filter((i) => i.slug !== industry.slug)
@@ -189,12 +189,12 @@ export default async function IndustryPage({ params }: Params) {
       <FinalCta
         title={
           <>
-            <span className="chrome">Let&rsquo;s get your phone ringing, </span>
-            <span className="chrome-purple">not just your site looking good.</span>
+            <span className="chrome">Let&rsquo;s get your phone ringing </span>
+            <span className="chrome-purple">with jobs worth taking.</span>
           </>
         }
-        sub={`Websites for ${industry.plural} in ${site.city} and across ${site.regionName}. Free quote, reply within 24 hours.`}
-        cta="Get my quote"
+        sub={`Marketing for ${industry.plural} in ${site.city} and across ${site.regionName}. Free audit, reply within 24 hours.`}
+        cta="Get a Free Audit"
         secondary={{ label: "See all industries", href: "/industries" }}
       />
     </>

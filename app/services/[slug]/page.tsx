@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: Params) {
           <p className="sub">{service.lead}</p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
               See pricing <span className="arw">→</span>
@@ -150,7 +150,7 @@ export default async function ServicePage({ params }: Params) {
       {/* SIBLING SERVICES — internal linking so authority flows between pages */}
       <section className="block block-tight">
         <div className="wrap">
-          <SectionHead kicker="Also worth reading" title="The other three." />
+          <SectionHead kicker="Also worth reading" title="The rest of the system." />
           <div className="grid-3">
             {others.map((s) => (
               <Link href={`/services/${s.slug}`} className="svc reveal" key={s.slug}>
@@ -172,8 +172,8 @@ export default async function ServicePage({ params }: Params) {
             <span className="chrome-purple">for your business?</span>
           </>
         }
-        sub={`Tell us what you do and where you're losing customers. We'll come back within 24 hours with a straight answer — serving ${site.city} and all of ${site.regionName}.`}
-        cta="Start a Project"
+        sub={`Tell us what you do and where you're losing jobs. We'll come back within 24 hours with a straight answer — serving ${site.city} and all of ${site.regionName}.`}
+        cta="Get a Free Audit"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
     </>

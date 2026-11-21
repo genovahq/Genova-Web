@@ -41,7 +41,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Genova Web — AI-Powered Websites That Grow Your Business",
+    default: "Genova Web — Orlando Marketing for Home-Service Businesses",
     // Every child page gets the brand appended automatically.
     template: "%s | Genova Web",
   },
@@ -52,24 +52,25 @@ export const metadata: Metadata = {
   publisher: site.name,
   alternates: { canonical: "/" },
   keywords: [
-    "website design Orlando",
-    "small business website",
-    "AI lead capture",
+    "home services marketing Orlando",
+    "contractor marketing agency",
     "local SEO Orlando",
-    "web design Florida",
-    "lead generation website",
+    "Google Local Services Ads management",
+    "Google Ads for contractors",
+    "contractor website design Orlando",
+    "missed call text back",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Genova Web — AI-Powered Websites That Grow Your Business",
+    title: "Genova Web — Orlando Marketing for Home-Service Businesses",
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genova Web — AI-Powered Websites That Grow Your Business",
+    title: "Genova Web — Orlando Marketing for Home-Service Businesses",
     description: site.description,
   },
   robots: {

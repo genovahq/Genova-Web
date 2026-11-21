@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      // v2: the AI Lead Capture page became Speed to Lead.
+      { source: "/services/ai-lead-capture", destination: "/services/speed-to-lead", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

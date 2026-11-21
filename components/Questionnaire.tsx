@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
+import { allPlans } from "@/lib/data/plans";
 import { industries } from "@/lib/data/industries";
 
 /**
@@ -35,18 +36,19 @@ type Step = {
   placeholder?: string;
 };
 
-const PLAN_OPTIONS = [
-  { value: "starter", label: "Starter — $750", hint: "2 pages, live in 5–7 days" },
-  { value: "growth", label: "Growth — $2,000", hint: "Up to 5 pages, local SEO" },
-  { value: "pro", label: "Pro — $3,500", hint: "Up to 10 pages, 3 months Care" },
-];
+// Every package on /pricing, so ?plan=<slug> from any pricing card preselects it.
+const PLAN_OPTIONS = allPlans().map((p) => ({
+  value: p.slug,
+  label: `${p.name} — ${p.priceLabel}${p.cadence ?? ""}`,
+  hint: p.timeline,
+}));
 
 const steps: Step[] = [
   {
     id: "industry",
     kind: "choice",
     question: "What kind of business do you run?",
-    help: "This tells us how your customers search and what the site has to do.",
+    help: "This tells us how your customers search and which channels matter most.",
     options: [
       ...industries.map((i) => ({ value: i.slug, label: i.name })),
       { value: "other", label: "Something else" },
@@ -66,22 +68,24 @@ const steps: Step[] = [
   {
     id: "goal",
     kind: "multi",
-    question: "What do you most need it to do?",
+    question: "What do you most need help with?",
     help: "Pick as many as apply.",
     options: [
       { value: "more_calls", label: "Get the phone ringing" },
       { value: "look_credible", label: "Look credible and professional" },
       { value: "rank_local", label: 'Show up in "near me" searches' },
-      { value: "bookings", label: "Take bookings or quote requests" },
+      { value: "ads", label: "Run Google or Local Services Ads" },
+      { value: "content", label: "Post real content consistently" },
+      { value: "website", label: "A new or better website" },
       { value: "stop_losing", label: "Stop losing leads I already get" },
     ],
   },
   {
     id: "timing",
     kind: "choice",
-    question: "How soon do you need it live?",
+    question: "How soon do you want to start?",
     options: [
-      { value: "asap", label: "As soon as possible", hint: "Rush delivery available" },
+      { value: "asap", label: "As soon as possible", hint: "We can usually start within a week" },
       { value: "few_weeks", label: "Within the next few weeks" },
       { value: "no_rush", label: "No firm deadline" },
       { value: "exploring", label: "Just exploring options" },
@@ -90,7 +94,7 @@ const steps: Step[] = [
   {
     id: "package",
     kind: "choice",
-    question: "Which plan looks closest to what you need?",
+    question: "Which package looks closest to what you need?",
     help: "Not sure? Skip this one — we'll recommend the right fit.",
     optional: true,
     options: PLAN_OPTIONS,

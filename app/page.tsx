@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHead, Marquee, FinalCta } from "@/components/ui";
 import Proof from "@/components/Proof";
-import { Target, Bolt, Phone, Pin, Star, Rocket } from "@/components/Icons";
-import { alternativeComparison } from "@/lib/data/plans";
+import { Pin, Target, Users, Bolt, Chart, Shield } from "@/components/Icons";
+import PricingTiers from "@/components/PricingTiers";
+import { alternativeComparison, retainerPlans } from "@/lib/data/plans";
 import { services } from "@/lib/data/services";
 import { site } from "@/lib/site";
 
@@ -14,43 +15,46 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
+    Icon: Pin,
+    title: "Get Found",
+    body: "Local SEO and a fully managed Google Business Profile put you in the map pack when homeowners nearby search for what you do.",
+    tag: "Found",
+  },
+  {
     Icon: Target,
-    title: "Turns Visitors Into Leads",
-    body: "Every page is built to guide visitors toward one action — contacting you. Clean design, clear calls to action, no distractions.",
+    title: "Get Booked",
+    body: "Google Search and Local Services Ads for the calls you can't wait months for — managed to cost per booked job, not clicks.",
+    tag: "Booked",
+  },
+  {
+    Icon: Users,
+    title: "Get Seen",
+    body: "A monthly shoot of your real crew and real work, edited and posted everywhere your customers check before they call.",
+    tag: "Seen",
   },
   {
     Icon: Bolt,
-    title: "AI Lead Capture Assistant",
-    body: "The moment someone reaches out, their details land in your inbox instantly — so you never miss a job or let a lead go cold.",
-    tag: "Included in every plan",
+    title: "Answer First",
+    body: "Missed-call text-back and instant follow-up on every lead, so you're the first company to respond — even when you're on a job.",
+    tag: "Built into everything",
   },
   {
-    Icon: Phone,
-    title: "Reaches Customers Anywhere",
-    body: "Most people find you on their phone. Your site looks sharp and loads fast on every device, so you're never losing a customer to a clunky screen.",
+    Icon: Chart,
+    title: "Reported in Jobs",
+    body: "Every month: leads, cost per lead and what turned into work. Not impressions, not reach, not a 40-page PDF.",
   },
   {
-    Icon: Pin,
-    title: "Gets You Found Locally",
-    body: "Local SEO and Google Maps setup put you in front of people searching for what you offer in your area, right now.",
-  },
-  {
-    Icon: Star,
-    title: "Builds Instant Trust",
-    body: "Reviews, professional design, and fast load times make you the obvious, credible choice over the competitor with the outdated site.",
-  },
-  {
-    Icon: Rocket,
-    title: "Launches Fast",
-    body: "Most sites go live in under two weeks. The sooner you're online and converting, the sooner you start getting more calls.",
+    Icon: Shield,
+    title: "Yours to Keep",
+    body: "Ad accounts, profile, website and content all stay in your name. Ad spend goes straight to Google and Meta — never marked up.",
   },
 ];
 
 const steps = [
-  { n: "01", t: "Quick Intake", b: "A short 10-question form. Ten minutes of your time gives us everything we need to build." },
-  { n: "02", t: "We Build", b: "You run your business. We design, write, and build your site around your brand and your customers." },
-  { n: "03", t: "You Review", b: "We send a preview link. You tell us what to change. We make it exactly right." },
-  { n: "04", t: "Go Live", b: "We launch your site and switch on your AI lead capture. Now it's working for you around the clock." },
+  { n: "01", t: "Free Audit", b: "We look at your Google profile, site, ads and reviews against the competitors ranking above you — and show you where the jobs are leaking." },
+  { n: "02", t: "The Plan", b: "One recommendation, in plain English: which channels to start with, what it costs, and what to expect in the first 90 days." },
+  { n: "03", t: "Launch", b: "Profile, tracking, landing pages, campaigns and speed-to-lead set up properly in the first few weeks." },
+  { n: "04", t: "Report & Grow", b: "A monthly report in booked jobs, and a plan for what to push next. Scale what works, cut what doesn't." },
 ];
 
 export default function HomePage() {
@@ -59,22 +63,23 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-ring" aria-hidden="true" />
         <div className="wrap">
-          <span className="eyebrow">AI-Powered Websites for Local Business</span>
+          <span className="eyebrow">Marketing for Home-Service Businesses</span>
           <h1>
-            <span className="chrome">Turn more visitors into </span>
-            <span className="chrome-purple">paying customers</span>
+            <span className="chrome">Marketing that shows up as </span>
+            <span className="chrome-purple">booked jobs</span>
             <span className="chrome">.</span>
           </h1>
           <p className="sub">
-            We build high-converting websites with built-in AI lead capture — so your business turns
-            more visitors into leads, calls, and booked jobs. Live in under two weeks.
+            Local SEO, Google &amp; Local Services Ads, real-footage content and speed-to-lead
+            automation for contractors and local businesses across {site.regionName}. Published
+            prices, ad spend never marked up, reported in jobs — not clicks.
           </p>
           <div className="actions">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Get a Free Audit
             </Link>
             <Link href="/pricing" className="btn-ghost">
-              See pricing <span className="arw">→</span>
+              See packages &amp; pricing <span className="arw">→</span>
             </Link>
           </div>
         </div>
@@ -82,12 +87,12 @@ export default function HomePage() {
 
       <Marquee
         items={[
-          "MORE LEADS",
-          "HIGHER CONVERSIONS",
-          "INSTANT LEAD ALERTS",
-          "MOBILE FIRST",
-          "LOCAL SEO",
-          "BUILT TO SELL",
+          "GET FOUND",
+          "GET BOOKED",
+          "GET SEEN",
+          "LOCAL SERVICES ADS",
+          "MISSED-CALL TEXT-BACK",
+          "BOOKED JOBS",
         ]}
       />
 
@@ -95,9 +100,9 @@ export default function HomePage() {
       <section className="block" id="what">
         <div className="wrap">
           <SectionHead
-            kicker="What you actually get"
-            title="A website that works like your best salesperson."
-            lead="Every build is designed to do one job: turn the people who find you into customers who call, message, and book. Here's how it does that."
+            kicker="What we do"
+            title="Get found. Get booked. Get seen."
+            lead="Three channels that decide who gets the call — and one system that makes sure you answer it first."
           />
           <div className="grid-3">
             {benefits.map(({ Icon, title, body, tag }) => (
@@ -116,15 +121,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SERVICES — new: routes traffic to the dedicated service pages */}
-      <section className="block" id="services">
+      {/* PACKAGES — the three core retainers */}
+      <section className="block" id="packages">
         <div className="wrap">
           <SectionHead
-            kicker="Services"
-            title="Four things that decide whether a website earns its keep."
-            lead="Each one is a separate discipline, and each one is a page you can dig into."
+            kicker="Packages"
+            title="Pick the job you need done first."
+            lead={
+              <>
+                Or run all three as the{" "}
+                <Link href="/pricing#full-engine">Full Engine</Link> for $5,995/mo — less than
+                the parts. Smaller budgets start at $750/mo.
+              </>
+            }
           />
-          <div className="grid-2">
+          <PricingTiers plans={retainerPlans} />
+        </div>
+      </section>
+
+      {/* SERVICES — routes traffic to the dedicated service pages */}
+      <section className="block block-tight" id="services">
+        <div className="wrap">
+          <SectionHead kicker="Services" title="Dig into any part of the system." />
+          <div className="grid-3">
             {services.map((s) => (
               <Link href={`/services/${s.slug}`} className="svc reveal" key={s.slug}>
                 <h3>{s.title}</h3>
@@ -142,23 +161,23 @@ export default function HomePage() {
       <section className="statement">
         <div className="wrap">
           <h2 className="reveal">
-            <span className="chrome">Your website should work like your best salesperson — </span>
+            <span className="chrome">Homeowners call two or three companies. </span>
             <span className="chrome-purple">
-              capturing leads and turning clicks into customers, 24/7.
+              The one that answers first, looks the part and shows up on top usually wins.
             </span>
           </h2>
           <div className="principles reveal">
             <div className="principle">
-              <div className="p-num chrome-purple">24/7</div>
-              <div className="p-lbl">Lead Capture</div>
+              <div className="p-num chrome-purple">Seconds</div>
+              <div className="p-lbl">To Answer Every Lead</div>
             </div>
             <div className="principle">
-              <div className="p-num chrome-purple">Built</div>
-              <div className="p-lbl">To Convert</div>
+              <div className="p-num chrome-purple">0%</div>
+              <div className="p-lbl">Markup On Ad Spend</div>
             </div>
             <div className="principle">
-              <div className="p-num chrome-purple">&lt;2 weeks</div>
-              <div className="p-lbl">To Launch</div>
+              <div className="p-num chrome-purple">Monthly</div>
+              <div className="p-lbl">Reports In Booked Jobs</div>
             </div>
           </div>
         </div>
@@ -169,7 +188,7 @@ export default function HomePage() {
         <div className="wrap">
           <SectionHead
             kicker="How it works"
-            title="From first call to a site that sells — in under two weeks."
+            title="From free audit to a pipeline that reports in jobs."
           />
           <div className="grid-4">
             {steps.map((s) => (
@@ -191,13 +210,13 @@ export default function HomePage() {
         <div className="wrap">
           <SectionHead
             kicker="The alternatives"
-            title="Build it yourself, hire an agency, or this."
+            title="Do it yourself, hire a big agency, or this."
             lead="All three work for somebody. Here's the honest trade-off between them."
           />
           <div className="table-scroll reveal">
             <table className="cmp">
               <caption className="hp">
-                Comparison of Genova Web against DIY website builders and traditional agencies
+                Comparison of Genova Web against doing it yourself and large agencies
               </caption>
               <thead>
                 <tr>
@@ -205,8 +224,8 @@ export default function HomePage() {
                   <th scope="col" className="hi">
                     Genova Web
                   </th>
-                  <th scope="col">DIY builder</th>
-                  <th scope="col">Traditional agency</th>
+                  <th scope="col">Doing it yourself</th>
+                  <th scope="col">Large agency</th>
                 </tr>
               </thead>
               <tbody>
@@ -227,12 +246,13 @@ export default function HomePage() {
       <FinalCta
         title={
           <>
-            <span className="chrome">Your competitors are already online.</span>
+            <span className="chrome">Your competitors are already buying the calls.</span>
             <br />
-            <span className="chrome-purple">Let&rsquo;s make you the one they call.</span>
+            <span className="chrome-purple">Let&rsquo;s make you the one who gets booked.</span>
           </>
         }
-        sub={`Get a website that turns visitors into customers — starting at $750. Built in ${site.city}, for businesses across ${site.regionName}.`}
+        sub={`Get a free audit of your Google profile, site, ads and reviews — and a straight answer on where the jobs are leaking. Based in ${site.city}, working across ${site.regionName}.`}
+        cta="Get a Free Audit"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
     </>

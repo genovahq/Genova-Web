@@ -30,7 +30,8 @@ export default function PricingTiers({
             {plan.cadence && <span className="per">{plan.cadence}</span>}
           </div>
           <div className="tier-note">
-            {plan.cadence ? "Month to month · cancel anytime" : "50% upfront · 50% on delivery"}
+            {plan.note ??
+              (plan.cadence ? "Month to month · cancel anytime" : "50% upfront · 50% on delivery")}
           </div>
           <div className="tier-meta">
             <span className="tier-time">{plan.timeline}</span>

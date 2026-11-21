@@ -7,9 +7,9 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Get a Free Quote in 24 Hours",
+  title: "Contact — Get a Free Marketing Audit in 24 Hours",
   description:
-    "Tell us about your business and get a free website quote within 24 hours. No obligation. Serving Orlando and all of Florida.",
+    "Tell us about your business and get a free marketing audit and recommendation within 24 hours. No obligation. Serving Orlando and all of Florida.",
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact", title: "Contact | Genova Web" },
 };
@@ -21,18 +21,18 @@ const faq = [
   },
   {
     q: "What happens after I send this?",
-    a: "We read it, look at your current site and your competitors, and reply with a straight recommendation on which plan fits and roughly what it will cost. No sales sequence, no drip emails.",
+    a: "We look at your Google profile, website, ads and reviews next to the competitors ranking above you, and reply with a straight recommendation on which package fits and what it will cost. No sales sequence, no drip emails.",
   },
   {
     q: "Do I need to have everything ready?",
     a: "No. You don't need copy, photos, or a brand to start — the questions here are enough for us to quote. We write the first draft of everything and you correct it.",
   },
   {
-    q: "What if I don't know which plan I need?",
+    q: "What if I don't know which package I need?",
     a: "Skip that question. Most people don't know, and guessing wrong doesn't matter — we recommend based on what you tell us about the business, not what you clicked.",
   },
   {
-    q: "Is the quote free?",
+    q: "Is the audit free?",
     a: "Yes, and there's no obligation attached to it. If we're not the right fit we'll say so, and where we can we'll point you somewhere that is.",
   },
 ];
@@ -70,21 +70,21 @@ export default function ContactPage() {
                 Let&rsquo;s get you more customers.
               </h1>
               <p>
-                Answer a few quick questions and we&rsquo;ll come back within 24 hours with a
-                quote and an honest recommendation. Takes about two minutes.
+                Answer a few quick questions and we&rsquo;ll come back within 24 hours with a free
+                audit and an honest recommendation. Takes about two minutes.
               </p>
               <ul className="contact-points">
                 <li>
-                  <span>01</span> Free quote, no obligation
+                  <span>01</span> Free audit, no obligation
                 </li>
                 <li>
                   <span>02</span> Response within 24 hours
                 </li>
                 <li>
-                  <span>03</span> Live site in under two weeks
+                  <span>03</span> Ad spend never marked up
                 </li>
                 <li>
-                  <span>04</span> You own everything we build
+                  <span>04</span> You own every account and asset
                 </li>
               </ul>
               <p style={{ marginTop: 30, fontSize: "0.9rem" }}>
