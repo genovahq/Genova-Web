@@ -10,7 +10,7 @@ export function SectionHead({
   kicker?: string;
   title: ReactNode;
   lead?: ReactNode;
-  as?: "h1" | "h2";
+  as?: "h1" | "h2" | "h3";
 }) {
   return (
     <div className="block-head reveal">

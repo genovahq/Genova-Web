@@ -39,6 +39,9 @@ export default function Footer() {
               <li>
                 <Link href="/pricing">Pricing</Link>
               </li>
+              <li>
+                <Link href="/roi-calculator">ROI calculator</Link>
+              </li>
             </ul>
           </div>
 

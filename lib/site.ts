@@ -48,13 +48,6 @@ export const site = {
   ],
 } as const;
 
-export const nav = [
-  { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/roi-calculator", label: "ROI Calculator" },
-  { href: "/industries", label: "Industries" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-] as const;
+// The main menu lives in lib/menu.ts.
 
 export const absolute = (path: string) => new URL(path, site.url).toString();

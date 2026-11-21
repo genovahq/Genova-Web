@@ -373,7 +373,7 @@ h3 {
   margin-left: auto;
   margin-right: 26px;
 }
-.nav-links a {
+.nav-links > a {
   font-family: var(--font-sora), sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
@@ -384,7 +384,7 @@ h3 {
   padding: 6px 0;
   transition: color var(--dur);
 }
-.nav-links a::after {
+.nav-links > a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -396,14 +396,14 @@ h3 {
   transform-origin: left;
   transition: transform var(--dur) var(--ease-out);
 }
-.nav-links a:hover {
+.nav-links > a:hover {
   color: var(--text);
 }
-.nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after {
+.nav-links > a:hover::after,
+.nav-links > a[aria-current="page"]::after {
   transform: scaleX(1);
 }
-.nav-links a[aria-current="page"] {
+.nav-links > a[aria-current="page"] {
   color: var(--text);
 }
 
@@ -443,9 +443,9 @@ h3 {
   color: #fff;
   text-decoration: none;
   padding: 11px 24px;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
-  border: 1px solid rgba(164, 92, 232, 0.4);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(110deg, var(--purple-deep), var(--purple) 45%, var(--purple-bright));
+  border: 1px solid rgba(164, 92, 232, 0.45);
   transition: box-shadow var(--dur), transform var(--dur-fast) var(--ease-out);
   white-space: nowrap;
   flex-shrink: 0;
@@ -512,13 +512,12 @@ h3 {
   position: fixed;
   inset: 0;
   z-index: var(--z-menu);
-  background: rgba(5, 5, 7, 0.97);
+  background: var(--bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 88px var(--gutter) max(var(--gutter), env(safe-area-inset-bottom));
+  padding: 84px var(--gutter) max(20px, env(safe-area-inset-bottom));
   animation: menu-in var(--dur) var(--ease-out);
 }
 @keyframes menu-in {
@@ -529,21 +528,65 @@ h3 {
     opacity: 1;
   }
 }
+/* The link list scrolls; the call + audit buttons stay pinned at the bottom. */
+.mobile-menu-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 16px;
+}
+.mm-group + .mm-group {
+  margin-top: 26px;
+}
+.mm-label {
+  display: block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--purple-bright);
+  margin-bottom: 4px;
+  animation: menu-item-in 380ms var(--ease-out) backwards;
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
 .mobile-menu a {
   font-family: var(--font-sora), sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--text);
   text-decoration: none;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   letter-spacing: -0.01em;
   min-height: 44px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
   /* Staggered entrance — --i set inline per item. */
   animation: menu-item-in 380ms var(--ease-out) backwards;
-  animation-delay: calc(60ms + var(--i, 0) * 40ms);
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
+.mobile-menu .mm-item {
+  text-transform: uppercase;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.mobile-menu .mm-item small {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.mobile-menu .mm-pages a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 @keyframes menu-item-in {
   from {
@@ -555,22 +598,233 @@ h3 {
     transform: none;
   }
 }
-.mobile-menu a[aria-current="page"] {
+.mobile-menu a[aria-current="page"],
+.mobile-menu .mm-pages a[aria-current="page"] {
+  color: var(--purple-bright);
+}
+.mm-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.mobile-menu .mm-actions a {
+  animation: none;
+  border: 0;
+  padding: 0;
+}
+.mobile-menu .mm-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0 18px;
+  min-height: 54px;
+  border: 1px solid var(--line-purple);
+  border-radius: var(--radius-pill);
+}
+.mobile-menu .mm-call svg {
+  width: 16px;
+  height: 16px;
   color: var(--purple-bright);
 }
 .mobile-menu .menu-cta {
-  margin-top: 28px;
-  border: 1px solid rgba(164, 92, 232, 0.4);
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--purple), var(--purple-deep));
-  color: #fff;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  padding: 18px;
+  min-height: 54px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(110deg, var(--purple-deep), var(--purple) 45%, var(--purple-bright));
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 600;
 }
 
-/* Raised from 940px: the nav now carries 6 links plus the wordmark and CTA,
-   which crowds below ~1080px. */
+/* --------------------------------------------------------------------------
+   Services mega menu (desktop)
+   -------------------------------------------------------------------------- */
+.nav-svc {
+  position: static;
+}
+.nav-svc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color var(--dur);
+}
+.nav-svc-btn svg {
+  width: 11px;
+  height: 11px;
+  transition: transform var(--dur) var(--ease-out);
+}
+.nav-svc-btn:hover,
+.nav-svc-btn[aria-expanded="true"],
+.nav-svc-btn[data-current] {
+  color: var(--text);
+}
+.nav-svc-btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+  color: var(--purple-bright);
+}
+.mega {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: var(--gutter);
+  right: var(--gutter);
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 0 40px;
+  padding: 34px 38px 26px;
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line-purple);
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(123, 47, 190, 0.12);
+  animation: mega-in var(--dur) var(--ease-out);
+}
+.mega[hidden] {
+  display: none;
+}
+/* Invisible bridge across the 10px gap so hover doesn't drop between
+   the button and the panel. */
+.mega::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+@keyframes mega-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.mega ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mega-groups {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+}
+.mega-label {
+  display: block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--purple-bright);
+  margin-bottom: 8px;
+}
+.mega-item {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.mega-group li:last-child .mega-item {
+  border-bottom: 0;
+}
+.mega-name {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: color var(--dur);
+}
+.mega-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.mega-item:hover .mega-name,
+.mega-item:focus-visible .mega-name,
+.mega-item[aria-current="page"] .mega-name {
+  color: var(--purple-bright);
+}
+.mega-side {
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
+.mega-side a {
+  display: block;
+  padding: 9px 0;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--dur);
+}
+.mega-side a:hover,
+.mega-side a:focus-visible {
+  color: var(--text);
+}
+.mega-feature {
+  grid-column: 1 / -1;
+  margin-top: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: linear-gradient(110deg, rgba(78, 28, 125, 0.55), rgba(123, 47, 190, 0.18));
+  border: 1px solid var(--line-purple);
+  text-decoration: none;
+  transition: border-color var(--dur), box-shadow var(--dur);
+}
+.mega-feature-name {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.mega-feature .arw {
+  margin-left: auto;
+  color: var(--purple-bright);
+  transition: transform var(--dur) var(--ease-out);
+}
+.mega-feature:hover {
+  border-color: rgba(164, 92, 232, 0.6);
+  box-shadow: 0 0 30px rgba(123, 47, 190, 0.3);
+}
+.mega-feature:hover .arw {
+  transform: translateX(4px);
+}
+
+/* The nav carries Services + 4 links, the phone number and the CTA, which
+   crowds below ~1080px. */
 @media (max-width: 1080px) {
   .nav-links {
     display: none;
@@ -2729,5 +2983,159 @@ summary:focus-visible,
   }
   .actions {
     gap: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pricing chapters + sticky jump bar
+   -------------------------------------------------------------------------- */
+.block-head h3 {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  max-width: 24ch;
+  margin-bottom: 14px;
+}
+
+.jumpbar {
+  position: sticky;
+  /* Sits directly under the fixed nav (condensed height once scrolled). */
+  top: var(--nav-h, 69px);
+  z-index: calc(var(--z-menu) - 1);
+  background: rgba(5, 5, 7, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.jumpbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.jumpbar ul::-webkit-scrollbar {
+  display: none;
+}
+.jumpbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  margin: 8px 0;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur), border-color var(--dur), background var(--dur);
+}
+.jumpbar a:hover {
+  color: var(--text);
+  border-color: var(--line-purple);
+}
+.jumpbar a[aria-current="true"] {
+  color: #fff;
+  border-color: rgba(164, 92, 232, 0.45);
+  background: linear-gradient(110deg, rgba(78, 28, 125, 0.7), rgba(123, 47, 190, 0.35));
+}
+.jb-num {
+  font-family: var(--font-michroma), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--purple-bright);
+}
+.jumpbar a[aria-current="true"] .jb-num {
+  color: #e6d2fb;
+}
+
+/* Anchor targets land below the nav + jump bar, not under them. */
+.chapter,
+.chapter [id],
+#faq {
+  scroll-margin-top: 64px;
+}
+
+.chapter + .chapter {
+  margin-top: 40px;
+}
+.chapter-head {
+  position: relative;
+  padding: 72px 0 8px;
+  border-top: 1px solid var(--line-purple);
+  background: radial-gradient(ellipse 60% 120% at 0% 0%, rgba(123, 47, 190, 0.16), transparent 70%);
+}
+.chapter-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.chapter-num {
+  font-family: var(--font-michroma), sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1;
+  background: linear-gradient(180deg, #a45ce8 0%, #4e1c7d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(123, 47, 190, 0.35));
+}
+.chapter-kicker {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding-left: 18px;
+  border-left: 1px solid var(--line-purple);
+}
+.chapter-head h2 {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  max-width: 18ch;
+  margin-bottom: 18px;
+}
+.chapter-lead {
+  color: var(--muted);
+  max-width: 60ch;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+/* The retainer cards follow the chapter head directly — no double gap. */
+.chapter-head + .block .pricing {
+  margin-top: 12px;
+}
+
+@media (max-width: 720px) {
+  .chapter-head {
+    padding-top: 56px;
+  }
+  .jumpbar ul {
+    justify-content: space-between;
+    gap: 2px;
+  }
+  .jumpbar a {
+    padding: 0 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+  .jb-num {
+    display: none;
   }
 }

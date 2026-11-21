@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SectionHead, Crumbs, FaqList, FinalCta } from "@/components/ui";
 import PricingTiers from "@/components/PricingTiers";
 import JsonLd from "@/components/JsonLd";
+import { JumpBar, ChapterHead, type Chapter } from "@/components/PricingChapters";
 import {
   buildPlans,
   carePlans,
@@ -104,6 +105,13 @@ const terms = [
   },
 ];
 
+const chapters: Chapter[] = [
+  { id: "marketing", label: "Marketing", num: 1 },
+  { id: "websites", label: "Websites", num: 2 },
+  { id: "projects", label: "Projects", num: 3 },
+  { id: "faq", label: "FAQ" },
+];
+
 export default function PricingPage() {
   return (
     <>
@@ -129,7 +137,7 @@ export default function PricingPage() {
             spelled out.
           </p>
           <div className="actions">
-            <Link href="#retainers" className="btn-primary">
+            <Link href="#marketing" className="btn-primary">
               See the packages
             </Link>
             <Link href="/roi-calculator" className="btn-ghost">
@@ -139,156 +147,196 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* MONTHLY RETAINERS */}
-      <section className="block" id="retainers">
-        <div className="wrap">
-          <SectionHead
-            kicker="Monthly marketing"
-            title="Get found, get booked, get seen."
-            lead="Three retainers, each owning one job. Take the one you need most, or run all three together as the Full Engine."
-          />
-          <PricingTiers plans={retainerPlans} />
-        </div>
-      </section>
+      <JumpBar chapters={chapters} />
 
-      {/* FULL ENGINE */}
-      <section className="block block-tight" id="full-engine">
-        <div className="wrap">
-          <SectionHead
-            kicker="The whole system"
-            title="All three, run as one — for less than the parts."
-            lead="SEO, ads and content feeding the same pipeline, measured as booked jobs."
-          />
-          <PricingTiers plans={[fullEngine]} className="engine-tier" />
-        </div>
-      </section>
+      {/* ================= 01 — MONTHLY MARKETING ================= */}
+      <div className="chapter" id="marketing">
+        <ChapterHead
+          num={1}
+          kicker="Monthly marketing"
+          title={
+            <>
+              <span className="chrome">Get found. Get booked. </span>
+              <span className="chrome-purple">Get seen.</span>
+            </>
+          }
+          lead="Three retainers, each owning one job. Take the one you need most, or run all three together as the Full Engine. Ad spend is always paid straight to Google and Meta."
+        />
 
-      {/* LITE RETAINERS */}
-      <section className="block block-tight" id="lite">
-        <div className="wrap">
-          <SectionHead
-            kicker="Smaller budgets"
-            title="Start smaller. Step up when it pays."
-            lead="For contractors who only run Local Services Ads, and for shops, cafés and local brands that need steady content without the full contractor package."
-          />
-          <PricingTiers plans={liteRetainerPlans} className="care-tiers" />
-        </div>
-      </section>
-
-      {/* TERMS */}
-      <section className="block block-tight" id="terms">
-        <div className="wrap">
-          <div className="grid-3">
-            {terms.map((t) => (
-              <div className="svc reveal" key={t.title}>
-                <h3>{t.title}</h3>
-                <p>{t.body}</p>
-              </div>
-            ))}
+        <section className="block block-tight" id="retainers" aria-label="Marketing retainers">
+          <div className="wrap">
+            <PricingTiers plans={retainerPlans} />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* WEBSITES */}
-      <section className="block" id="packages">
-        <div className="wrap">
-          <SectionHead
-            kicker="Websites"
-            title="A website built to turn traffic into booked jobs."
-            lead="Custom-coded, fast, and wired for speed-to-lead from day one. Every build includes automated lead response — not sold back to you as an upgrade."
-          />
-          <PricingTiers plans={buildPlans} />
+        <section className="block block-tight" id="full-engine">
+          <div className="wrap">
+            <SectionHead
+              as="h3"
+              kicker="The whole system"
+              title="All three, run as one — for less than the parts."
+              lead="SEO, ads and content feeding the same pipeline, measured as booked jobs."
+            />
+            <PricingTiers plans={[fullEngine]} className="engine-tier" />
+          </div>
+        </section>
 
-          <div className="pricing-notes reveal">
-            <div className="rush">
-              <b>Need it sooner?</b> Rush delivery available —{" "}
-              {rushOptions.map((r, i) => (
-                <span key={r.plan}>
-                  {i > 0 ? ", " : ""}
-                  {r.plan} {r.surcharge} ({r.timeline})
-                </span>
+        <section className="block block-tight" id="lite">
+          <div className="wrap">
+            <SectionHead
+              as="h3"
+              kicker="Smaller budgets"
+              title="Start smaller. Step up when it pays."
+              lead="For contractors who only run Local Services Ads, and for shops, cafés and local brands that need steady content without the full contractor package."
+            />
+            <PricingTiers plans={liteRetainerPlans} className="care-tiers" />
+          </div>
+        </section>
+
+        <section className="block block-tight" id="terms" aria-label="Retainer terms">
+          <div className="wrap">
+            <div className="grid-3">
+              {terms.map((t) => (
+                <div className="svc reveal" key={t.title}>
+                  <h3>{t.title}</h3>
+                  <p>{t.body}</p>
+                </div>
               ))}
-              .
-            </div>
-            <div className="timeline-note">
-              Most projects launch sooner. Timelines depend on how quickly content, photos, and
-              feedback are provided.
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      {/* WEBSITE COMPARISON TABLE */}
-      <section className="block" id="compare">
-        <div className="wrap">
-          <SectionHead
-            kicker="Line by line"
-            title="Exactly what's in each website."
-            lead="No asterisks. If it's in the table, it's in the price."
-          />
-          <div className="table-scroll reveal">
-            <table className="cmp">
-              <caption className="hp">
-                Feature comparison of the Starter, Growth, and Pro website packages
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Feature</th>
-                  <th scope="col">Starter — {buildPlans[0].priceLabel}</th>
-                  <th scope="col" className="hi">
-                    Growth — {buildPlans[1].priceLabel}
-                  </th>
-                  <th scope="col">Pro — {buildPlans[2].priceLabel}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((group) => (
-                  <Fragment key={group.group}>
-                    <tr className="group">
-                      <th scope="colgroup" colSpan={4}>
-                        {group.group}
-                      </th>
-                    </tr>
-                    {group.rows.map((row) => (
-                      <tr key={row.label}>
-                        <th scope="row">{row.label}</th>
-                        <td>
-                          <Cell value={row.starter} />
-                        </td>
-                        <td className="hi">
-                          <Cell value={row.growth} />
-                        </td>
-                        <td>
-                          <Cell value={row.pro} />
-                        </td>
-                      </tr>
-                    ))}
-                  </Fragment>
+      {/* ================= 02 — WEBSITES ================= */}
+      <div className="chapter" id="websites">
+        <ChapterHead
+          num={2}
+          kicker="Websites"
+          title={
+            <>
+              <span className="chrome">A website built to turn traffic </span>
+              <span className="chrome-purple">into booked jobs.</span>
+            </>
+          }
+          lead="Custom-coded, fast, and wired for speed-to-lead from day one. One-time price, split 50% up front and 50% on delivery — and you own it."
+        />
+
+        <section className="block block-tight" id="packages" aria-label="Website packages">
+          <div className="wrap">
+            <PricingTiers plans={buildPlans} />
+
+            <div className="pricing-notes reveal">
+              <div className="rush">
+                <b>Need it sooner?</b> Rush delivery available —{" "}
+                {rushOptions.map((r, i) => (
+                  <span key={r.plan}>
+                    {i > 0 ? ", " : ""}
+                    {r.plan} {r.surcharge} ({r.timeline})
+                  </span>
                 ))}
-              </tbody>
-            </table>
+                .
+              </div>
+              <div className="timeline-note">
+                Most projects launch sooner. Timelines depend on how quickly content, photos, and
+                feedback are provided.
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ONE-TIME PROJECTS */}
-      <section className="block" id="projects">
-        <div className="wrap">
-          <SectionHead
-            kicker="One-time projects"
-            title="Fix one thing, properly, without a retainer."
-            lead="Good on their own — and two of them credit toward the matching retainer if you continue within 30 days."
-          />
-          <PricingTiers plans={projectPlans} className="pricing pricing-2x2" />
-        </div>
-      </section>
+        <section className="block block-tight" id="compare">
+          <div className="wrap">
+            <SectionHead
+              as="h3"
+              kicker="Line by line"
+              title="Exactly what's in each website."
+              lead="No asterisks. If it's in the table, it's in the price."
+            />
+            <div className="table-scroll reveal">
+              <table className="cmp">
+                <caption className="hp">
+                  Feature comparison of the Starter, Growth, and Pro website packages
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Feature</th>
+                    <th scope="col">Starter — {buildPlans[0].priceLabel}</th>
+                    <th scope="col" className="hi">
+                      Growth — {buildPlans[1].priceLabel}
+                    </th>
+                    <th scope="col">Pro — {buildPlans[2].priceLabel}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((group) => (
+                    <Fragment key={group.group}>
+                      <tr className="group">
+                        <th scope="colgroup" colSpan={4}>
+                          {group.group}
+                        </th>
+                      </tr>
+                      {group.rows.map((row) => (
+                        <tr key={row.label}>
+                          <th scope="row">{row.label}</th>
+                          <td>
+                            <Cell value={row.starter} />
+                          </td>
+                          <td className="hi">
+                            <Cell value={row.growth} />
+                          </td>
+                          <td>
+                            <Cell value={row.pro} />
+                          </td>
+                        </tr>
+                      ))}
+                    </Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section className="block block-tight" id="care">
+          <div className="wrap">
+            <SectionHead
+              as="h3"
+              kicker="Website care"
+              title="Keep the site fast, secure and working."
+              lead="Optional, month to month, cancel any time. Genova Care is included in Found and Full Engine."
+            />
+            <PricingTiers plans={carePlans} className="care-tiers" />
+          </div>
+        </section>
+      </div>
+
+      {/* ================= 03 — ONE-TIME PROJECTS ================= */}
+      <div className="chapter" id="projects">
+        <ChapterHead
+          num={3}
+          kicker="One-time projects"
+          title={
+            <>
+              <span className="chrome">Fix one thing, properly, </span>
+              <span className="chrome-purple">without a retainer.</span>
+            </>
+          }
+          lead="Good on their own — and two of them credit toward the matching retainer if you continue within 30 days."
+        />
+
+        <section className="block block-tight" aria-label="One-time projects">
+          <div className="wrap">
+            <PricingTiers plans={projectPlans} className="pricing pricing-2x2" />
+          </div>
+        </section>
+      </div>
 
       {/* ROI CALCULATOR TEASER */}
       <section className="block block-tight" id="calculator">
         <div className="wrap">
           <div className="calc-teaser reveal">
             <div>
-              <span className="kicker">Work out the maths</span>
+              <span className="kicker">Still deciding?</span>
               <h2>What is one extra booked job a month worth to you?</h2>
               <p>
                 Enter your average job value and close rate, and see what extra leads are worth per
@@ -309,18 +357,6 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CARE PLANS */}
-      <section className="block" id="care">
-        <div className="wrap">
-          <SectionHead
-            kicker="Website care"
-            title="Keep the site fast, secure and working."
-            lead="Optional, month to month, cancel any time. Genova Care is included in Found and Full Engine."
-          />
-          <PricingTiers plans={carePlans} className="care-tiers" />
         </div>
       </section>
 
