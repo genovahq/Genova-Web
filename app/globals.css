@@ -3008,3 +3008,18 @@ footer .btn-ghost {
   border-radius: var(--sheet-radius);
   margin: 24px clamp(10px, 1.6vw, 24px);
 }
+
+/* Review star rating */
+.stars {
+  display: inline-flex;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.stars svg {
+  width: 20px;
+  height: 20px;
+  fill: #e5e1d8;
+}
+.stars svg[data-on] {
+  fill: #f5a524;
+}

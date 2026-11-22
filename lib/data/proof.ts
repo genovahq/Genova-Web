@@ -32,6 +32,8 @@ export type Testimonial = {
   location?: string;
   /** Where the review lives, e.g. "Google review". */
   source?: string;
+  /** Star rating the reviewer gave (1–5), if the source has one. */
+  rating?: number;
   /** Slug in `portfolio` below, to pair the quote with the live site. */
   project?: string;
 };
@@ -60,13 +62,16 @@ export type CaseStudy = {
 
 export const testimonials: Testimonial[] = [
   {
-    // Verified Google review, supplied by the owner of Genova Web on 2026-11-21.
+    // Verified 5-star Google review, supplied by the owner of Genova Web on
+    // 2026-11-21. One spelling fix at the owner's request ("fare" -> "fair");
+    // otherwise verbatim.
     quote:
-      "I am the owner of show rooms shine , and let me say Genova is hands down the best online web site service I have used , prices are fare and hid no extra fees. I highly recommend you check out Genova if you your self are looking for a web site to get built!",
+      "I am the owner of show rooms shine , and let me say Genova is hands down the best online web site service I have used , prices are fair and hid no extra fees. I highly recommend you check out Genova if you your self are looking for a web site to get built!",
     name: "Devin Lee",
     role: "Owner",
     business: "Showroom Shine",
     source: "Google review",
+    rating: 5,
     project: "showroom-shine",
   },
 ];

@@ -1,5 +1,6 @@
 import { testimonials, portfolio } from "@/lib/data/proof";
 import { BrowserFrame } from "./Frames";
+import Stars from "@/components/Stars";
 import styles from "./home.module.css";
 
 /*
@@ -40,8 +41,11 @@ export default function Reviews() {
 
         <div className={`${styles.reviewFeature} ${project ? "" : styles.reviewSolo}`}>
           <figure className={styles.reviewCard}>
-            <span className={styles.reviewMark} aria-hidden="true">
-              &ldquo;
+            <span className={styles.reviewTop}>
+              <span className={styles.reviewMark} aria-hidden="true">
+                &ldquo;
+              </span>
+              {!!featured.rating && <Stars rating={featured.rating} className={styles.reviewStars} />}
             </span>
             <blockquote>{featured.quote}</blockquote>
             <figcaption className={styles.reviewBy}>
@@ -78,6 +82,7 @@ export default function Reviews() {
           <div className={styles.reviewMore}>
             {rest.map((t) => (
               <figure key={t.name + t.business} className={styles.reviewSmall}>
+                {!!t.rating && <Stars rating={t.rating} />}
                 <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
                 <figcaption className={styles.reviewBy}>
                   <span className={styles.reviewAvatar} aria-hidden="true">

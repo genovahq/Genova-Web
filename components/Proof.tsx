@@ -1,5 +1,6 @@
 import { testimonials, commitments } from "@/lib/data/proof";
 import { SectionHead } from "./ui";
+import Stars from "./Stars";
 
 /**
  * Social proof: real, permissioned testimonials from lib/data/proof.ts
@@ -21,6 +22,7 @@ export default function Proof() {
             <div className={testimonials.length === 1 ? "quote-solo" : "grid-2"}>
               {testimonials.map((t) => (
                 <figure key={t.name + t.business} className="quote reveal">
+                  {!!t.rating && <Stars rating={t.rating} />}
                   <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
                   <figcaption>
                     <b>{t.name}</b>
