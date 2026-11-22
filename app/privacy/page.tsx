@@ -89,7 +89,7 @@ export default function PrivacyPage() {
               href="https://tools.google.com/dlpage/gaoptout"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "var(--purple-bright)" }}
+              style={{ color: "var(--accent)" }}
             >
               opt-out browser add-on
             </a>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
           <p>
             You can ask us what we hold about you, ask us to correct it, or ask us to delete it.
             Email{" "}
-            <a href={`mailto:${site.email}`} style={{ color: "var(--purple-bright)" }}>
+            <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
               {site.email}
             </a>{" "}
             and we&rsquo;ll action it. If you ask us to delete your inquiry, we will, and that
@@ -127,7 +127,7 @@ export default function PrivacyPage() {
           <h2 className="kicker">Contact</h2>
           <p>
             {site.name}, {site.city}, {site.region}, {site.country} —{" "}
-            <a href={`mailto:${site.email}`} style={{ color: "var(--purple-bright)" }}>
+            <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
               {site.email}
             </a>
           </p>

@@ -88,7 +88,7 @@ export default async function IndustryPage({ params }: Params) {
       </section>
 
       {/* PAIN POINTS */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker="What goes wrong"
@@ -149,7 +149,7 @@ export default async function IndustryPage({ params }: Params) {
       </section>
 
       {/* RECOMMENDED PLAN */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker="Where to start"

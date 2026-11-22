@@ -154,7 +154,7 @@ export default async function CityPage({ params }: Params) {
       </section>
 
       {/* PRICING */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker={`${city.name} web design pricing`}

@@ -93,7 +93,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker="How we think"

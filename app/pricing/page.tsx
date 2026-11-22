@@ -247,7 +247,7 @@ export default function PricingPage() {
       </section>
 
       {/* ALTERNATIVES */}
-      <section className="block" id="alternatives">
+      <section className="block band-cream" id="alternatives">
         <div className="wrap">
           <SectionHead
             kicker="The alternatives"

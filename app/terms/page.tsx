@@ -111,7 +111,7 @@ export default function TermsPage() {
           <h2 className="kicker">Contact</h2>
           <p>
             Questions about these terms:{" "}
-            <a href={`mailto:${site.email}`} style={{ color: "var(--purple-bright)" }}>
+            <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
               {site.email}
             </a>
           </p>

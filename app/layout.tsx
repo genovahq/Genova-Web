@@ -90,7 +90,7 @@ export const viewport: Viewport = {
   // Never cap zoom — capping it fails WCAG 1.4.4.
   width: "device-width",
   initialScale: 1,
-  themeColor: "#050507",
+  themeColor: "#f6f4ef",
   colorScheme: "dark",
 };
 

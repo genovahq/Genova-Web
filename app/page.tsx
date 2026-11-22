@@ -1,180 +1,218 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHead, Marquee, FinalCta } from "@/components/ui";
-import Proof from "@/components/Proof";
-import { Target, Bolt, Phone, Pin, Star, Rocket } from "@/components/Icons";
-import { alternativeComparison } from "@/lib/data/plans";
-import { services } from "@/lib/data/services";
+import { buildPlans, alternativeComparison } from "@/lib/data/plans";
+import { commitments, portfolio } from "@/lib/data/proof";
 import { site } from "@/lib/site";
+import { ServicesScroll, type ServicePanel } from "@/components/home/HomeClient";
+import { BrowserFrame, LeadAlertMock, MapPackMock, CareMock } from "@/components/home/Frames";
+import styles from "@/components/home/home.module.css";
 
 export const metadata: Metadata = {
   // Home keeps the default title from the layout, so no `title` override here.
   alternates: { canonical: "/" },
 };
 
-const benefits = [
+const domain = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const work = portfolio;
+const [lead, second] = work;
+const starter = buildPlans[0];
+
+const panels: ServicePanel[] = [
   {
-    Icon: Target,
-    title: "Turns Visitors Into Leads",
-    body: "Every page is built to guide visitors toward one action — contacting you. Clean design, clear calls to action, no distractions.",
+    id: "website",
+    name: "Website Design",
+    kicker: "Built to sell",
+    price: `From ${starter.priceLabel}`,
+    body: "A site that tells a visitor in five seconds what you do, where you do it and how to reach you — then makes contacting you the obvious next step.",
+    points: ["Custom-built, mobile-first", "Conversion-focused copy", "Live in under two weeks"],
+    href: "/services/website-design",
+    visual: lead ? (
+      <BrowserFrame src={lead.image} alt={lead.alt} domain={domain(lead.url)} />
+    ) : null,
   },
   {
-    Icon: Bolt,
-    title: "AI Lead Capture Assistant",
-    body: "The moment someone reaches out, their details land in your inbox instantly — so you never miss a job or let a lead go cold.",
-    tag: "Included in every plan",
+    id: "leads",
+    name: "AI Lead Capture",
+    kicker: "Included in every plan",
+    price: "Every plan, from Starter",
+    body: "The moment someone reaches out, the details land in your inbox — organized and ready to call back, so you answer before they call the next company.",
+    points: ["Instant lead alerts", "Clean, structured details", "Spam filtered out"],
+    href: "/services/ai-lead-capture",
+    visual: <LeadAlertMock />,
   },
   {
-    Icon: Phone,
-    title: "Reaches Customers Anywhere",
-    body: "Most people find you on their phone. Your site looks sharp and loads fast on every device, so you're never losing a customer to a clunky screen.",
+    id: "seo",
+    name: "Local SEO",
+    kicker: "Get found nearby",
+    price: "Built in from Growth",
+    body: "Google Business Profile setup, a page for each service and area, and the structure Google needs to put you in front of people searching near you.",
+    points: ["Google Business Profile setup", "Service & area pages", "“Near me” search setup"],
+    href: "/services/local-seo",
+    visual: <MapPackMock />,
   },
   {
-    Icon: Pin,
-    title: "Gets You Found Locally",
-    body: "Local SEO and Google Maps setup put you in front of people searching for what you offer in your area, right now.",
-  },
-  {
-    Icon: Star,
-    title: "Builds Instant Trust",
-    body: "Reviews, professional design, and fast load times make you the obvious, credible choice over the competitor with the outdated site.",
-  },
-  {
-    Icon: Rocket,
-    title: "Launches Fast",
-    body: "Most sites go live in under two weeks. The sooner you're online and converting, the sooner you start getting more calls.",
+    id: "care",
+    name: "Care Plans",
+    kicker: "After launch",
+    price: "Hosting $50/mo · Care $149/mo",
+    body: "Hosting, backups, security and lead-form monitoring handled — plus unlimited content edits on Genova Care. Month to month, cancel any time.",
+    points: ["Managed hosting & backups", "Lead-system monitoring", "Unlimited content edits"],
+    href: "/services/care-plans",
+    visual: <CareMock />,
   },
 ];
 
 const steps = [
-  { n: "01", t: "Quick Intake", b: "A short 10-question form. Ten minutes of your time gives us everything we need to build." },
-  { n: "02", t: "We Build", b: "You run your business. We design, write, and build your site around your brand and your customers." },
-  { n: "03", t: "You Review", b: "We send a preview link. You tell us what to change. We make it exactly right." },
-  { n: "04", t: "Go Live", b: "We launch your site and switch on your AI lead capture. Now it's working for you around the clock." },
+  { n: "01", t: "Quick intake", b: "A short 10-question form. Ten minutes of your time gives us everything we need to build." },
+  { n: "02", t: "We build", b: "You run your business. We design, write, and build your site around your brand and your customers." },
+  { n: "03", t: "You review", b: "We send a preview link. You tell us what to change. We make it exactly right." },
+  { n: "04", t: "Go live", b: "We launch your site and switch on your AI lead capture. Now it's working for you around the clock." },
+];
+
+const faq = [
+  {
+    q: "What does the price actually include?",
+    a: "Design, copywriting, build, launch, and the AI Lead Capture Assistant. No separate setup fee, template licence, or launch charge.",
+  },
+  {
+    q: "How does the 50/50 payment split work?",
+    a: "Half when you book, which reserves your build slot. The other half when the site is finished and you've approved it — not before you've seen it.",
+  },
+  {
+    q: "Do I have to take a care plan?",
+    a: "No. Every plan works as a one-time build. Hosting on its own is $50/mo; Genova Care at $149/mo adds monitoring, unlimited edits and a quarterly check-in.",
+  },
+  {
+    q: "Who owns the website when it's done?",
+    a: "You do — the site, the code, the content, and the domain. Nothing is held back as leverage.",
+  },
 ];
 
 export default function HomePage() {
   return (
-    <>
-      <section className="hero">
-        <div className="hero-ring" aria-hidden="true" />
-        <div className="wrap">
-          <span className="eyebrow">AI-Powered Websites for Local Business</span>
-          <h1>
-            <span className="chrome">Turn more visitors into </span>
-            <span className="chrome-purple">paying customers</span>
-            <span className="chrome">.</span>
-          </h1>
-          <p className="sub">
-            We build high-converting websites with built-in AI lead capture — so your business turns
-            more visitors into leads, calls, and booked jobs. Live in under two weeks.
+    <div className={styles.root}>
+      {/* ---------- HERO (light) + collage of real client sites ---------- */}
+      <section className={styles.hero}>
+        <span className={styles.eyebrow}>{site.tagline} · {site.city}</span>
+        <h1 className={styles.heroTitle}>
+          Turn more visitors into <span className={styles.gradText}>paying customers.</span>
+        </h1>
+        <div className={styles.heroRow}>
+          <p className={styles.heroSub}>
+            High-converting websites with built-in AI lead capture — so more of the people who find
+            you become calls, leads and booked jobs. Live in under two weeks, from{" "}
+            {starter.priceLabel}.
           </p>
-          <div className="actions">
-            <Link href="/contact" className="btn-primary">
-              Start a Project
+          <div className={styles.heroActions}>
+            <Link href="/contact" className={styles.btnGrad}>
+              Start a Project <span aria-hidden="true">→</span>
             </Link>
-            <Link href="/pricing" className="btn-ghost">
-              See pricing <span className="arw">→</span>
+            <Link href="/pricing" className={styles.btnLine}>
+              See pricing
             </Link>
           </div>
         </div>
+
+        {lead && (
+          <div className={styles.heroCollage}>
+            <BrowserFrame
+              src={lead.image}
+              alt={lead.alt}
+              domain={domain(lead.url)}
+              className={styles.heroMain}
+              eager
+            />
+            {second && (
+              <BrowserFrame
+                src={second.image}
+                alt={second.alt}
+                domain={domain(second.url)}
+                className={styles.heroSide}
+                eager
+              />
+            )}
+            <div className={styles.heroPhone}>
+              <LeadAlertMock />
+            </div>
+            <div className={`${styles.chip} ${styles.chipA}`}>
+              <span className={styles.chipDot} /> New inquiry · sent straight to your inbox
+            </div>
+            <div className={`${styles.chip} ${styles.chipB}`}>
+              <b>&lt;2 wks</b> to launch
+            </div>
+          </div>
+        )}
       </section>
 
-      <Marquee
-        items={[
-          "MORE LEADS",
-          "HIGHER CONVERSIONS",
-          "INSTANT LEAD ALERTS",
-          "MOBILE FIRST",
-          "LOCAL SEO",
-          "BUILT TO SELL",
-        ]}
-      />
+      {/* ---------- MARQUEE (dark) ---------- */}
+      <div className={styles.marquee} aria-hidden="true">
+        <div className={styles.marqueeTrack}>
+          {[0, 1].map((k) => (
+            <span key={k}>
+              MORE LEADS <i>✦</i> HIGHER CONVERSIONS <i>✦</i> INSTANT LEAD ALERTS <i>✦</i> MOBILE
+              FIRST <i>✦</i> LOCAL SEO <i>✦</i> BUILT TO SELL <i>✦</i>{" "}
+            </span>
+          ))}
+        </div>
+      </div>
 
-      {/* BENEFITS */}
-      <section className="block" id="what">
-        <div className="wrap">
-          <SectionHead
-            kicker="What you actually get"
-            title="A website that works like your best salesperson."
-            lead="Every build is designed to do one job: turn the people who find you into customers who call, message, and book. Here's how it does that."
-          />
-          <div className="grid-3">
-            {benefits.map(({ Icon, title, body, tag }) => (
-              <div className="svc reveal" key={title}>
-                <span className="ic">
-                  <Icon />
-                </span>
-                <h3>{title}</h3>
-                <p>
-                  {body}
-                  {tag && <span className="tag">{tag}</span>}
-                </p>
+      {/* ---------- REAL WORK (cream, rounded top) ---------- */}
+      <section className={`${styles.sheet} ${styles.cream}`}>
+        <div className={styles.wrap}>
+          <span className={styles.kicker}>Live right now</span>
+          <h2 className={styles.h2}>Real businesses. Real sites.</h2>
+          <div className={styles.workGrid}>
+            {work.map((p) => (
+              <a key={p.slug} href={p.url} target="_blank" rel="noopener" className={styles.workItem}>
+                <BrowserFrame src={p.image} alt={p.alt} domain={domain(p.url)} />
+                <div className={styles.workMeta}>
+                  <b>{p.business}</b>
+                  <span>{p.industry} ↗</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <Link href="/work" className={styles.textLink}>
+            See all our work <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* ---------- SERVICES, SCROLL-SYNCED (dark) ---------- */}
+      <section className={`${styles.sheet} ${styles.dark}`} id="services">
+        <div className={styles.wrap}>
+          <span className={styles.kickerLight}>What you get</span>
+          <h2 className={`${styles.h2} ${styles.onDark}`}>
+            A website that works like your <span className={styles.gradText}>best salesperson.</span>
+          </h2>
+          <ServicesScroll panels={panels} />
+        </div>
+      </section>
+
+      {/* ---------- WHY GENOVA (gradient band) ---------- */}
+      <section className={`${styles.sheet} ${styles.grad}`}>
+        <div className={styles.wrap}>
+          <h2 className={`${styles.h2} ${styles.onDark}`}>Promises we can actually keep.</h2>
+          <div className={styles.whyGrid}>
+            {commitments.map((c) => (
+              <div key={c.title} className={styles.why}>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES — new: routes traffic to the dedicated service pages */}
-      <section className="block" id="services">
-        <div className="wrap">
-          <SectionHead
-            kicker="Services"
-            title="Four things that decide whether a website earns its keep."
-            lead="Each one is a separate discipline, and each one is a page you can dig into."
-          />
-          <div className="grid-2">
-            {services.map((s) => (
-              <Link href={`/services/${s.slug}`} className="svc reveal" key={s.slug}>
-                <h3>{s.title}</h3>
-                <p>{s.lead}</p>
-                <span className="more">
-                  Explore {s.navLabel} <span className="arw">→</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* STATEMENT */}
-      <section className="statement">
-        <div className="wrap">
-          <h2 className="reveal">
-            <span className="chrome">Your website should work like your best salesperson — </span>
-            <span className="chrome-purple">
-              capturing leads and turning clicks into customers, 24/7.
-            </span>
-          </h2>
-          <div className="principles reveal">
-            <div className="principle">
-              <div className="p-num chrome-purple">24/7</div>
-              <div className="p-lbl">Lead Capture</div>
-            </div>
-            <div className="principle">
-              <div className="p-num chrome-purple">Built</div>
-              <div className="p-lbl">To Convert</div>
-            </div>
-            <div className="principle">
-              <div className="p-num chrome-purple">&lt;2 weeks</div>
-              <div className="p-lbl">To Launch</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="block" id="process">
-        <div className="wrap">
-          <SectionHead
-            kicker="How it works"
-            title="From first call to a site that sells — in under two weeks."
-          />
-          <div className="grid-4">
+      {/* ---------- PROCESS (light) ---------- */}
+      <section className={`${styles.sheet} ${styles.light}`}>
+        <div className={styles.wrap}>
+          <span className={styles.kicker}>How it works</span>
+          <h2 className={styles.h2}>From first call to a site that sells — in under two weeks.</h2>
+          <div className={styles.steps}>
             {steps.map((s) => (
-              <div className="step reveal" key={s.n}>
-                <div className="s-num">{s.n}</div>
+              <div className={styles.step} key={s.n}>
+                <span className={styles.stepNum}>{s.n}</span>
                 <h3>{s.t}</h3>
                 <p>{s.b}</p>
               </div>
@@ -183,18 +221,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROOF (commitments until real testimonials land) */}
-      <Proof />
+      {/* ---------- PRICING (cream) ---------- */}
+      <section className={`${styles.sheet} ${styles.cream}`}>
+        <div className={styles.wrap}>
+          <span className={styles.kicker}>Published prices</span>
+          <h2 className={styles.h2}>Pick the plan built for where you&rsquo;re headed.</h2>
+          <div className={styles.priceGrid}>
+            {buildPlans.map((p) => (
+              <div className={`${styles.price} ${p.featured ? styles.priceFeat : ""}`} key={p.slug}>
+                {p.badge && <span className={styles.priceBadge}>{p.badge}</span>}
+                <span className={styles.priceName}>{p.name}</span>
+                <span className={styles.priceNum}>{p.priceLabel}</span>
+                <span className={styles.priceNote}>
+                  {p.scope} · {p.timeline}
+                </span>
+                <p>{p.pitch}</p>
+                <Link
+                  href={`/contact?plan=${p.slug}`}
+                  className={p.featured ? styles.btnGrad : styles.btnLine}
+                >
+                  {p.cta}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <Link href="/pricing" className={styles.textLink}>
+            Compare every feature, care plans and rush delivery <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
 
-      {/* COMPARISON */}
-      <section className="block" id="compare">
-        <div className="wrap">
-          <SectionHead
-            kicker="The alternatives"
-            title="Build it yourself, hire an agency, or this."
-            lead="All three work for somebody. Here's the honest trade-off between them."
-          />
-          <div className="table-scroll reveal">
+      {/* ---------- ALTERNATIVES (light) ---------- */}
+      <section className={`${styles.sheet} ${styles.light}`}>
+        <div className={styles.wrap}>
+          <span className={styles.kicker}>The alternatives</span>
+          <h2 className={styles.h2}>Build it yourself, hire an agency, or this.</h2>
+          <div className="table-scroll">
             <table className="cmp">
               <caption className="hp">
                 Comparison of Genova Web against DIY website builders and traditional agencies
@@ -224,17 +286,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FinalCta
-        title={
-          <>
-            <span className="chrome">Your competitors are already online.</span>
-            <br />
-            <span className="chrome-purple">Let&rsquo;s make you the one they call.</span>
-          </>
-        }
-        sub={`Get a website that turns visitors into customers — starting at $750. Built in ${site.city}, for businesses across ${site.regionName}.`}
-        secondary={{ label: "See pricing", href: "/pricing" }}
-      />
-    </>
+      {/* ---------- FAQ (cream) ---------- */}
+      <section className={`${styles.sheet} ${styles.cream}`}>
+        <div className={`${styles.wrap} ${styles.faqWrap}`}>
+          <h2 className={styles.h2}>Questions, answered straight.</h2>
+          <div className={styles.faq}>
+            {faq.map((f) => (
+              <details key={f.q} name="home-faq">
+                <summary>
+                  {f.q}
+                  <span className={styles.faqBtn} aria-hidden="true" />
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- FINAL CTA (dark, runs into the footer) ---------- */}
+      <section className={`${styles.sheet} ${styles.dark} ${styles.final}`}>
+        <div className={styles.wrap}>
+          <h2 className={styles.finalTitle}>
+            Your competitors are already online.{" "}
+            <span className={styles.gradText}>Let&rsquo;s make you the one they call.</span>
+          </h2>
+          <p className={styles.finalSub}>
+            A website that turns visitors into customers — starting at {starter.priceLabel}. Built in{" "}
+            {site.city}, for businesses across {site.regionName}.
+          </p>
+          <div className={styles.heroActions}>
+            <Link href="/contact" className={styles.btnGrad}>
+              Start a Project <span aria-hidden="true">→</span>
+            </Link>
+            <a href={site.phoneHref} className={styles.btnGhostDark}>
+              Call {site.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
