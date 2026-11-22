@@ -41,7 +41,11 @@ export function PhoneMock({ children, className = "" }: { children: React.ReactN
   );
 }
 
-/** "A lead just came in" — what the AI Lead Capture alert looks like. */
+/**
+ * "A lead just came in" — what the AI Lead Capture alert looks like, shown
+ * for an equipment-supplier site like S&S Equipment Solutions. Illustrative:
+ * no real customer, no real order.
+ */
 export function LeadAlertMock() {
   return (
     <PhoneMock>
@@ -49,25 +53,25 @@ export function LeadAlertMock() {
       <div className={styles.mockNotif}>
         <span className={styles.mockAppIcon}>G</span>
         <div>
-          <b>New website inquiry</b>
-          <p>Full detail + ceramic coating · this Saturday · call back now</p>
+          <b>New quote request</b>
+          <p>3 commercial treadmills · PT clinic · delivery + install</p>
         </div>
       </div>
       <div className={styles.mockCard}>
         <span className={styles.mockLabel}>Lead details</span>
         <dl>
-          <dt>Service</dt>
-          <dd>Ceramic coating</dd>
-          <dt>Vehicle</dt>
-          <dd>SUV · black</dd>
-          <dt>When</dt>
-          <dd>This Saturday</dd>
-          <dt>Where</dt>
-          <dd>Mobile · at home</dd>
+          <dt>Product</dt>
+          <dd>Commercial treadmill</dd>
+          <dt>Quantity</dt>
+          <dd>3 units</dd>
+          <dt>Facility</dt>
+          <dd>Physical therapy clinic</dd>
+          <dt>Needs</dt>
+          <dd>Delivery + install</dd>
           <dt>Source</dt>
-          <dd>Website · booking page</dd>
+          <dd>Website · quote form</dd>
         </dl>
-        <span className={styles.mockBtn}>Call back</span>
+        <span className={styles.mockBtn}>Send quote</span>
       </div>
     </PhoneMock>
   );

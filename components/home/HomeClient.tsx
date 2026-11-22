@@ -23,6 +23,7 @@ export type ServicePanel = {
 export function ServicesScroll({ panels }: { panels: ServicePanel[] }) {
   const [active, setActive] = useState(panels[0].id);
   const refs = useRef<Record<string, HTMLElement | null>>({});
+  const listRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const update = () => {
@@ -43,9 +44,19 @@ export function ServicesScroll({ panels }: { panels: ServicePanel[] }) {
     };
   }, [panels]);
 
+  // On phones the list scrolls sideways: keep the active item in view.
+  // Scrolls only the list itself, never the page.
+  useEffect(() => {
+    const row = listRef.current;
+    const item = row?.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!row || !item || row.scrollWidth <= row.clientWidth) return;
+    const offset = item.getBoundingClientRect().left - row.getBoundingClientRect().left;
+    row.scrollTo({ left: Math.max(0, row.scrollLeft + offset - 16), behavior: "smooth" });
+  }, [active]);
+
   return (
     <div className={styles.svcGrid}>
-      <nav className={styles.svcList} aria-label="Services">
+      <nav className={styles.svcList} aria-label="Services" ref={listRef}>
         {panels.map((p, i) => (
           <a
             key={p.id}

@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 
 const domain = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 const work = portfolio;
-const [lead] = work;
+// The "What you get" section showcases S&S Equipment Solutions.
+const showcase = work.find((p) => p.slug === "ss-equipment-solutions") ?? work[0];
 const starter = buildPlans[0];
 
 const panels: ServicePanel[] = [
@@ -28,8 +29,8 @@ const panels: ServicePanel[] = [
     body: "A site that tells a visitor in five seconds what you do, where you do it and how to reach you — then makes contacting you the obvious next step.",
     points: ["Custom-built, mobile-first", "Conversion-focused copy", "Live in under two weeks"],
     href: "/services/website-design",
-    visual: lead ? (
-      <BrowserFrame src={lead.image} alt={lead.alt} domain={domain(lead.url)} />
+    visual: showcase ? (
+      <BrowserFrame src={showcase.image} alt={showcase.alt} domain={domain(showcase.url)} />
     ) : null,
   },
   {
