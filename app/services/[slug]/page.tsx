@@ -140,7 +140,7 @@ export default async function ServicePage({ params }: Params) {
       </section>
 
       {/* FAQ */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead kicker="Questions" title={`${service.navLabel}, answered.`} />
           <FaqList items={service.faq} />

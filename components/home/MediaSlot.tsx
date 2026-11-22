@@ -1,17 +1,18 @@
-import styles from "./concept.module.css";
+import styles from "./home.module.css";
 
 /**
  * A photo/video slot. With `src` it renders the real media; without it,
  * an on-brand placeholder that says exactly what belongs there.
  *
- * In the real rollout every slot reads its media from Sanity, so the
- * owner can upload/replace images without touching code.
+ * Media comes from Sanity (lib/sanity.ts), so photos are uploaded and
+ * replaced in the Studio without touching code.
  */
 export default function MediaSlot({
   label,
   hint,
   kind = "photo",
   src,
+  poster,
   alt = "",
   tone = "light",
   className = "",
@@ -20,16 +21,28 @@ export default function MediaSlot({
   hint?: string;
   kind?: "photo" | "video";
   src?: string;
+  /** Still frame shown before a video loads. */
+  poster?: string;
   alt?: string;
   tone?: "light" | "dark";
   className?: string;
 }) {
   if (src) {
     return kind === "video" ? (
-      <video className={`${styles.media} ${className}`} src={src} autoPlay muted loop playsInline />
+      <video
+        className={`${styles.media} ${className}`}
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={alt || label}
+      />
     ) : (
       // eslint-disable-next-line @next/next/no-img-element
-      <img className={`${styles.media} ${className}`} src={src} alt={alt} />
+      <img className={`${styles.media} ${className}`} src={src} alt={alt || label} loading="lazy" />
     );
   }
   return (

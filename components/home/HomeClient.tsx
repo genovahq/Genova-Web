@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MediaSlot from "./MediaSlot";
-import styles from "./concept.module.css";
+import styles from "./home.module.css";
 
 export type ServicePanel = {
   id: string;
@@ -13,7 +13,7 @@ export type ServicePanel = {
   body: string;
   points: string[];
   href: string;
-  shot: { label: string; hint: string };
+  shot: { label: string; hint: string; src?: string };
 };
 
 /**
@@ -87,7 +87,7 @@ export function ServicesScroll({ panels }: { panels: ServicePanel[] }) {
             </div>
             <div className={styles.phone}>
               <div className={styles.phoneScreen}>
-                <MediaSlot label={p.shot.label} hint={p.shot.hint} tone="dark" />
+                <MediaSlot label={p.shot.label} hint={p.shot.hint} src={p.shot.src} tone="dark" />
               </div>
             </div>
           </article>
@@ -98,18 +98,23 @@ export function ServicesScroll({ panels }: { panels: ServicePanel[] }) {
 }
 
 /** Drag-to-compare slider: an empty feed vs. the same feed on Seen. */
-export function BeforeAfter() {
+export function BeforeAfter({ before, after }: { before?: string; after?: string }) {
   const [pos, setPos] = useState(50);
   return (
     <div className={styles.ba} style={{ "--pos": `${pos}%` } as React.CSSProperties}>
       <div className={styles.baLayer}>
-        <MediaSlot label="After: a feed on Seen" hint="Grid screenshot of a full, active Instagram feed" />
+        <MediaSlot
+          label="After: a feed on Seen"
+          hint="Grid screenshot of a full, active Instagram feed"
+          src={after}
+        />
         <span className={`${styles.baBadge} ${styles.baBadgeRight}`}>After</span>
       </div>
       <div className={`${styles.baLayer} ${styles.baBefore}`}>
         <MediaSlot
           label="Before: the empty feed"
           hint="Same profile with a few old, blurry posts"
+          src={before}
           tone="dark"
         />
         <span className={styles.baBadge}>Before</span>

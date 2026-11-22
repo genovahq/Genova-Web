@@ -183,7 +183,7 @@ export default function WorkPage() {
       )}
 
       {/* ANATOMY */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker="Anatomy of a build"
@@ -220,7 +220,7 @@ export default function WorkPage() {
                 When we publish case studies here, they&rsquo;ll name a real business that gave
                 permission, and every number will come from that client&rsquo;s own analytics or
                 Search Console. Until then, judge us on the structure above, the terms on our{" "}
-                <Link href="/pricing" style={{ color: "var(--purple-bright)" }}>
+                <Link href="/pricing" style={{ color: "var(--accent)" }}>
                   pricing page
                 </Link>
                 , and the fact that this site is itself the product — built the same way, on the

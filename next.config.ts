@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     return [
       // v2: the AI Lead Capture page became Speed to Lead.
       { source: "/services/ai-lead-capture", destination: "/services/speed-to-lead", permanent: true },
+      // The design concept became the homepage.
+      { source: "/concept", destination: "/", permanent: false },
     ];
   },
   async headers() {

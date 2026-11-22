@@ -89,11 +89,11 @@ export default function ContactPage() {
               </ul>
               <p style={{ marginTop: 30, fontSize: "0.9rem" }}>
                 Prefer to talk? Call{" "}
-                <a href={site.phoneHref} style={{ color: "var(--purple-bright)" }}>
+                <a href={site.phoneHref} style={{ color: "var(--accent)" }}>
                   {site.phone}
                 </a>{" "}
                 or email{" "}
-                <a href={`mailto:${site.email}`} style={{ color: "var(--purple-bright)" }}>
+                <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
                   {site.email}
                 </a>
                 .

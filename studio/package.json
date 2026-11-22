@@ -1,0 +1,15 @@
+{
+  "name": "genova-web-studio",
+  "private": true,
+  "description": "Sanity Studio for uploading Genova Web photos and videos. Deployed separately from the website.",
+  "scripts": {
+    "dev": "sanity dev",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^4.10.1",
+    "styled-components": "^6.1.0"
+  }
+}

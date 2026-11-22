@@ -167,7 +167,7 @@ export default function OrlandoPage() {
       </section>
 
       {/* PRICING */}
-      <section className="block">
+      <section className="block band-cream">
         <div className="wrap">
           <SectionHead
             kicker="Orlando web design pricing"

@@ -1,6 +1,6 @@
 /* ==========================================================================
-   DESIGN CONCEPT — lighter, photo-driven Genova look.
-   All tokens are local to .root so nothing here touches the live styles.
+   HOMEPAGE — lighter, photo-driven Genova look.
+   Tokens are local to .root and mirror the global light theme.
    ========================================================================== */
 .root {
   --ink: #0e0d12;
@@ -31,18 +31,6 @@
   max-width: var(--wrap);
   margin: 0 auto;
   padding: 0 var(--gut);
-}
-
-.conceptBar {
-  background: var(--ink);
-  color: #d9c6f2;
-  text-align: center;
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 8px 16px;
 }
 
 /* ---------- Buttons ---------- */
@@ -87,60 +75,6 @@
 .btnGhostDark:hover {
   border-color: #fff;
   background: rgba(255, 255, 255, 0.06);
-}
-
-/* ---------- Header ---------- */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 14px var(--gut);
-  background: rgba(246, 244, 239, 0.86);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-.logo {
-  font-family: var(--font-michroma), sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  text-decoration: none;
-  display: inline-flex;
-  gap: 0.3em;
-}
-.logoWeb {
-  color: var(--purple);
-}
-.headerNav {
-  display: flex;
-  gap: 26px;
-  margin-left: auto;
-}
-.headerNav a {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--ink-2);
-  text-decoration: none;
-}
-.headerNav a:hover {
-  color: var(--purple);
-}
-.headerPhone {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--ink);
-  text-decoration: none;
-}
-.header .btnGrad {
-  min-height: 44px;
-  padding: 0 20px;
-  font-size: 0.82rem;
 }
 
 /* ---------- Type ---------- */
@@ -202,7 +136,8 @@
 .hero {
   max-width: 1400px;
   margin: 0 auto;
-  padding: clamp(48px, 7vw, 96px) var(--gut) 0;
+  /* clears the fixed site nav */
+  padding: calc(84px + clamp(40px, 6vw, 88px)) var(--gut) 0;
 }
 .heroTitle {
   font-family: var(--font-michroma), sans-serif;
@@ -1031,15 +966,6 @@
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1080px) {
-  .headerNav,
-  .headerPhone {
-    display: none;
-  }
-  .header .btnGrad {
-    margin-left: auto;
-  }
-}
 @media (max-width: 900px) {
   .svcGrid {
     grid-template-columns: 1fr;
@@ -1048,7 +974,7 @@
   .svcList {
     flex-direction: row;
     overflow-x: auto;
-    top: 64px;
+    top: 72px;
     z-index: 3;
     gap: 18px;
     padding: 12px 0;

@@ -73,7 +73,7 @@ export default function RoiCalculatorPage() {
       </section>
 
       {/* HOW TO READ IT */}
-      <section className="block block-tight">
+      <section className="block block-tight band-cream">
         <div className="wrap">
           <SectionHead
             kicker="How to read this"
