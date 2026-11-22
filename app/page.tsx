@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import { ServicesScroll, type ServicePanel } from "@/components/home/HomeClient";
 import { BrowserFrame, LeadAlertMock, MapPackMock, CareMock } from "@/components/home/Frames";
 import TradeDemo from "@/components/home/TradeDemo";
+import Reviews from "@/components/home/Reviews";
 import styles from "@/components/home/home.module.css";
 
 export const metadata: Metadata = {
@@ -150,6 +151,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* ---------- REVIEWS + CREDIBILITY (light) ---------- */}
+      <Reviews />
 
       {/* ---------- SERVICES, SCROLL-SYNCED (dark) ---------- */}
       <section className={`${styles.sheet} ${styles.dark}`} id="services">

@@ -22,11 +22,18 @@
  */
 
 export type Testimonial = {
+  /** Verbatim. Don't tidy a verified review's wording — quote it as written. */
   quote: string;
   name: string;
+  /** e.g. "Owner" */
+  role?: string;
   business: string;
   /** City is fine; a street address is not necessary and invites mistakes. */
   location?: string;
+  /** Where the review lives, e.g. "Google review". */
+  source?: string;
+  /** Slug in `portfolio` below, to pair the quote with the live site. */
+  project?: string;
 };
 
 export type CaseStudy = {
@@ -51,7 +58,18 @@ export type CaseStudy = {
 //   },
 // ];
 
-export const testimonials: Testimonial[] = [];
+export const testimonials: Testimonial[] = [
+  {
+    // Verified Google review, supplied by the owner of Genova Web on 2026-11-21.
+    quote:
+      "I am the owner of show rooms shine , and let me say Genova is hands down the best online web site service I have used , prices are fare and hid no extra fees. I highly recommend you check out Genova if you your self are looking for a web site to get built!",
+    name: "Devin Lee",
+    role: "Owner",
+    business: "Showroom Shine",
+    source: "Google review",
+    project: "showroom-shine",
+  },
+];
 
 export const caseStudies: CaseStudy[] = [];
 
