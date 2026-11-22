@@ -1659,3 +1659,283 @@
     animation: none;
   }
 }
+
+/* ---------- Trade demo: per-trade layouts ---------- */
+/* Every layout gets the same height (the tallest one's), so the page
+   below doesn't jump as the demo cycles through trades. Measured: the
+   tallest layout is ~63% of the mockup's width at every desktop size. */
+.demoSite {
+  display: flex;
+  flex-direction: column;
+  min-height: 60cqw;
+}
+.demoHeroWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.demoHeroWrap > * {
+  width: 100%;
+}
+.lSplit {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+}
+
+/* Plumbing — centered emergency look */
+.demoBanner {
+  background: var(--d-accent);
+  color: var(--d-accent-ink);
+  text-align: center;
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 700;
+  font-size: max(10px, 1.15cqw);
+  letter-spacing: 0.06em;
+  padding: 0.9cqw 2cqw;
+}
+.lCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4cqw;
+  padding: 6cqw 6cqw 4.5cqw;
+}
+.demoCopyCenter {
+  align-items: center;
+  text-align: center;
+}
+.demoCopyCenter .demoSub {
+  max-width: 46ch;
+}
+.demoCopyCenter .demoBtns {
+  justify-content: center;
+}
+.lCentered .demoHeadline {
+  font-size: 5.4cqw;
+}
+.demoRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6cqw;
+  width: 100%;
+}
+.demoRow .demoCard {
+  margin-left: 0;
+  justify-content: center;
+}
+
+/* HVAC + Roofing — a working card (booking / form) beside the copy */
+.demoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3cqw;
+  padding: 2.6cqw;
+  border-radius: 2cqw;
+  background: var(--d-card);
+  border: 1px solid color-mix(in srgb, var(--d-ink) 10%, transparent);
+  box-shadow: 0 2cqw 4cqw rgba(0, 0, 0, 0.12);
+  font-size: max(11px, 1.35cqw);
+  animation: demoIn 520ms cubic-bezier(0.22, 1, 0.36, 1) 120ms backwards;
+}
+.demoPanel b {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 800;
+  font-size: max(13px, 1.9cqw);
+}
+.demoPanel .demoBtn {
+  text-align: center;
+  margin-top: 0.6cqw;
+}
+.demoDays,
+.demoSlots {
+  display: grid;
+  gap: 0.9cqw;
+}
+.demoDays {
+  grid-template-columns: repeat(3, 1fr);
+}
+.demoSlots {
+  grid-template-columns: repeat(2, 1fr);
+}
+.demoDays i,
+.demoSlots i {
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  padding: 1cqw;
+  border-radius: 1cqw;
+  border: 1px solid color-mix(in srgb, var(--d-ink) 16%, transparent);
+}
+.demoDays .on,
+.demoSlots .on {
+  background: var(--d-accent);
+  border-color: var(--d-accent);
+  color: var(--d-accent-ink);
+}
+.demoField {
+  padding: 1.2cqw 1.4cqw;
+  border-radius: 1cqw;
+  border: 1px solid color-mix(in srgb, var(--d-ink) 18%, transparent);
+  color: var(--d-muted);
+  background: color-mix(in srgb, var(--d-bg) 55%, var(--d-card));
+}
+.demoSelect {
+  display: flex;
+  justify-content: space-between;
+}
+.demoSelect::after {
+  content: "▾";
+}
+
+/* Landscaping — headline on top, three tiles with seasonal art */
+.lTiles {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2.6cqw;
+  padding: 4cqw 4cqw 3.4cqw;
+}
+.lTiles .demoCopy {
+  max-width: 62%;
+}
+.demoTiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8cqw;
+}
+.demoTile {
+  display: block;
+  border-radius: 1.8cqw;
+  overflow: hidden;
+  background: var(--d-card);
+  border: 1px solid color-mix(in srgb, var(--d-ink) 10%, transparent);
+  box-shadow: 0 1.2cqw 3cqw rgba(0, 0, 0, 0.08);
+  animation: demoIn 520ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(120ms + var(--n) * 90ms);
+}
+.demoTile i {
+  display: block;
+  height: 7cqw;
+}
+.demoTile:nth-child(1) i {
+  background: repeating-linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--d-accent) 85%, #000) 0 1.4cqw,
+    var(--d-accent) 1.4cqw 2.8cqw
+  );
+}
+.demoTile:nth-child(2) i {
+  background:
+    radial-gradient(circle at 30% 60%, var(--d-glow) 0 2.6cqw, transparent 2.7cqw),
+    radial-gradient(circle at 68% 38%, color-mix(in srgb, var(--d-accent) 70%, #fff) 0 3.4cqw, transparent 3.5cqw),
+    color-mix(in srgb, var(--d-glow) 30%, var(--d-card));
+}
+.demoTile:nth-child(3) i {
+  background:
+    radial-gradient(circle at 20% 80%, #8b5a2b 0 0.5cqw, transparent 0.6cqw) 0 0 / 2.2cqw 2.2cqw,
+    #a0723f;
+}
+.demoTile b {
+  display: block;
+  padding: 1.4cqw 1.6cqw;
+  font-family: var(--font-sora), sans-serif;
+  font-size: max(11px, 1.45cqw);
+}
+
+/* Med spa — editorial: serif, centered, an arch behind the copy */
+.lEditorial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7cqw 6cqw 5cqw;
+}
+.lEditorial .demoCopy,
+.lEditorial .demoList {
+  position: relative;
+}
+.lEditorial .demoTagline {
+  letter-spacing: 0.32em;
+}
+.lEditorial .demoHeadline {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 5.2cqw;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+.lEditorial .demoBtn,
+.lEditorial .demoBtnGhost {
+  border-radius: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.demoArch {
+  position: absolute;
+  top: 2.6cqw;
+  left: 50%;
+  translate: -50% 0;
+  width: 34cqw;
+  height: 30cqw;
+  border-radius: 17cqw 17cqw 0 0;
+  background: color-mix(in srgb, var(--d-glow) 22%, transparent);
+}
+.demoList {
+  margin-top: 3.2cqw;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: max(11px, 1.6cqw);
+  color: var(--d-muted);
+  white-space: pre;
+}
+.demoSite[data-layout="editorial"] .demoNav b {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Phones: every layout collapses to the copy; the working cards and tiles
+   would be unreadable at this width. */
+@media (max-width: 700px) {
+  .lSplit {
+    grid-template-columns: 1fr;
+  }
+  .demoRow,
+  .demoPanel,
+  .demoTiles,
+  .demoList,
+  .demoArch {
+    display: none;
+  }
+  .lCentered .demoHeadline,
+  .lEditorial .demoHeadline {
+    font-size: 7.4cqw;
+  }
+  .lTiles .demoCopy {
+    max-width: none;
+  }
+  .lCentered,
+  .lEditorial,
+  .lTiles {
+    padding: 6cqw 5cqw;
+  }
+  .demoBanner {
+    font-size: 10px;
+  }
+  .demoSite {
+    min-height: 72cqw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demoPanel,
+  .demoTile {
+    animation: none;
+  }
+}
+/* Tablet widths: the minimum font sizes make layouts relatively taller. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .demoSite {
+    min-height: 63cqw;
+  }
+}

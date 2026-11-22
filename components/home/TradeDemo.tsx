@@ -5,15 +5,23 @@ import styles from "./home.module.css";
 
 /*
  * "Pick your trade" hero demo. One website mockup, drawn entirely in code,
- * that restyles itself for each trade — then a lead pops in, the way the AI
+ * that changes its colours AND its page layout for each trade (split,
+ * centered, booking-first, form-first, tiles, editorial) — then a lead pops
+ * in, the way the AI
  * Lead Capture alert would. Business names are generic placeholders
  * ("Your Detailing Co.") and there are no ratings, counts or results, so
  * nothing here can be mistaken for a real client or a real claim.
  */
 
+/** Each trade gets its own page structure, not just its own colours. */
+type Layout = "split" | "centered" | "booking" | "form" | "tiles" | "editorial";
+
 type Trade = {
   id: string;
   tab: string;
+  layout: Layout;
+  /** Optional strip above the nav (e.g. an emergency line). */
+  banner?: string;
   brand: string;
   tagline: string;
   headline: string;
@@ -35,6 +43,7 @@ type Trade = {
 const TRADES: Trade[] = [
   {
     id: "detailing",
+    layout: "split",
     tab: "Detailing",
     brand: "Your Detailing Co.",
     tagline: "Mobile detailing · Orlando",
@@ -47,6 +56,8 @@ const TRADES: Trade[] = [
   },
   {
     id: "plumbing",
+    layout: "centered",
+    banner: "Open 24/7 · Emergency service across Orlando",
     tab: "Plumbing",
     brand: "Your Plumbing Co.",
     tagline: "24/7 plumbing · Orlando",
@@ -59,6 +70,7 @@ const TRADES: Trade[] = [
   },
   {
     id: "hvac",
+    layout: "booking",
     tab: "HVAC",
     brand: "Your Air Co.",
     tagline: "AC & heating · Orlando",
@@ -71,6 +83,7 @@ const TRADES: Trade[] = [
   },
   {
     id: "roofing",
+    layout: "form",
     tab: "Roofing",
     brand: "Your Roofing Co.",
     tagline: "Roofing · Central Florida",
@@ -83,6 +96,7 @@ const TRADES: Trade[] = [
   },
   {
     id: "landscaping",
+    layout: "tiles",
     tab: "Landscaping",
     brand: "Your Lawn Co.",
     tagline: "Lawn & landscape · Orlando",
@@ -95,6 +109,7 @@ const TRADES: Trade[] = [
   },
   {
     id: "medspa",
+    layout: "editorial",
     tab: "Med Spa",
     brand: "Your Med Spa",
     tagline: "Aesthetics · Winter Park",
@@ -108,6 +123,125 @@ const TRADES: Trade[] = [
 ];
 
 const CYCLE_MS = 5200;
+
+/** Headline, sub and buttons — shared by every layout. */
+function Copy({ t, center = false }: { t: Trade; center?: boolean }) {
+  return (
+    <div className={`${styles.demoCopy} ${center ? styles.demoCopyCenter : ""}`}>
+      <span className={styles.demoTagline}>{t.tagline}</span>
+      <span className={styles.demoHeadline}>{t.headline}</span>
+      <span className={styles.demoSub}>{t.sub}</span>
+      <span className={styles.demoBtns}>
+        <span className={styles.demoBtn}>{t.cta}</span>
+        <span className={styles.demoBtnGhost}>See services</span>
+      </span>
+    </div>
+  );
+}
+
+function Hero({ t }: { t: Trade }) {
+  switch (t.layout) {
+    // Plumbing: emergency look — big centered headline, services in a row.
+    case "centered":
+      return (
+        <div className={`${styles.demoHero} ${styles.lCentered}`}>
+          <Copy t={t} center />
+          <div className={styles.demoRow} aria-hidden="true">
+            {t.services.map((s, i) => (
+              <span key={s} className={styles.demoCard} style={{ "--n": i } as React.CSSProperties}>
+                <i />
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+
+    // HVAC: booking-first — a scheduling card beside the headline.
+    case "booking":
+      return (
+        <div className={`${styles.demoHero} ${styles.lSplit}`}>
+          <Copy t={t} />
+          <div className={styles.demoPanel} aria-hidden="true">
+            <b>Book a visit</b>
+            <span className={styles.demoDays}>
+              <i className={styles.on}>Today</i>
+              <i>Tomorrow</i>
+              <i>Fri</i>
+            </span>
+            <span className={styles.demoSlots}>
+              {["9:00", "11:30", "2:00", "4:30"].map((tm, i) => (
+                <i key={tm} className={i === 2 ? styles.on : undefined}>
+                  {tm}
+                </i>
+              ))}
+            </span>
+            <span className={styles.demoBtn}>Confirm visit</span>
+          </div>
+        </div>
+      );
+
+    // Roofing: form-first — the inspection request is the hero.
+    case "form":
+      return (
+        <div className={`${styles.demoHero} ${styles.lSplit}`}>
+          <Copy t={t} />
+          <div className={styles.demoPanel} aria-hidden="true">
+            <b>Free roof inspection</b>
+            <span className={styles.demoField}>Your name</span>
+            <span className={styles.demoField}>Property address</span>
+            <span className={`${styles.demoField} ${styles.demoSelect}`}>What happened? — Storm damage</span>
+            <span className={styles.demoBtn}>Request inspection</span>
+          </div>
+        </div>
+      );
+
+    // Landscaping: headline on top, three service tiles with seasonal art.
+    case "tiles":
+      return (
+        <div className={`${styles.demoHero} ${styles.lTiles}`}>
+          <Copy t={t} />
+          <div className={styles.demoTiles} aria-hidden="true">
+            {t.services.map((s, i) => (
+              <span key={s} className={styles.demoTile} style={{ "--n": i } as React.CSSProperties}>
+                <i />
+                <b>{s}</b>
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+
+    // Med spa: editorial — serif, centered, airy, an arch behind the copy.
+    case "editorial":
+      return (
+        <div className={`${styles.demoHero} ${styles.lEditorial}`}>
+          <span className={styles.demoArch} aria-hidden="true" />
+          <Copy t={t} center />
+          <span className={styles.demoList} aria-hidden="true">
+            {t.services.join("  ·  ")}
+          </span>
+        </div>
+      );
+
+    // Detailing (default): split — headline left, stacked service cards right.
+    default:
+      return (
+        <div className={`${styles.demoHero} ${styles.lSplit}`}>
+          <Copy t={t} />
+          <div className={styles.demoArt} aria-hidden="true">
+            <span className={styles.demoOrb} />
+            {t.services.map((s, i) => (
+              <span key={s} className={styles.demoCard} style={{ "--n": i } as React.CSSProperties}>
+                <i />
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+  }
+}
 
 export default function TradeDemo() {
   const [index, setIndex] = useState(0);
@@ -126,6 +260,18 @@ export default function TradeDemo() {
     }, CYCLE_MS);
     return () => clearInterval(t);
   }, [touched]);
+
+  // On phones the tab row scrolls sideways: keep the active tab in view.
+  // Scrolls only the tab row itself (never the page), so auto-cycling can't
+  // pull a visitor who is reading further down.
+  useEffect(() => {
+    const tab = tabsRef.current[index];
+    const row = tab?.parentElement;
+    if (!tab || !row || row.scrollWidth <= row.clientWidth) return;
+    const offset = tab.getBoundingClientRect().left - row.getBoundingClientRect().left;
+    const target = row.scrollLeft + offset - (row.clientWidth - tab.offsetWidth) / 2;
+    row.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }, [index]);
 
   const pick = (i: number) => {
     setTouched(true);
@@ -193,7 +339,8 @@ export default function TradeDemo() {
             <em>your-business.com</em>
           </div>
 
-          <div className={styles.demoSite}>
+          <div className={styles.demoSite} data-layout={trade.layout}>
+            {trade.banner && <div className={styles.demoBanner}>{trade.banner}</div>}
             <div className={styles.demoNav}>
               <b>{trade.brand}</b>
               <span className={styles.demoNavLinks} aria-hidden="true">
@@ -204,25 +351,8 @@ export default function TradeDemo() {
               <span className={styles.demoNavCta}>{trade.cta}</span>
             </div>
 
-            <div className={styles.demoHero} key={trade.id}>
-              <div className={styles.demoCopy}>
-                <span className={styles.demoTagline}>{trade.tagline}</span>
-                <span className={styles.demoHeadline}>{trade.headline}</span>
-                <span className={styles.demoSub}>{trade.sub}</span>
-                <span className={styles.demoBtns}>
-                  <span className={styles.demoBtn}>{trade.cta}</span>
-                  <span className={styles.demoBtnGhost}>See services</span>
-                </span>
-              </div>
-              <div className={styles.demoArt} aria-hidden="true">
-                <span className={styles.demoOrb} />
-                {trade.services.map((s, i) => (
-                  <span key={s} className={styles.demoCard} style={{ "--n": i } as React.CSSProperties}>
-                    <i />
-                    {s}
-                  </span>
-                ))}
-              </div>
+            <div key={trade.id} className={styles.demoHeroWrap}>
+              <Hero t={trade} />
             </div>
 
             <div className={styles.demoStrip} aria-hidden="true">
