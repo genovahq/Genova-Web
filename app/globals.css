@@ -3139,3 +3139,8 @@ summary:focus-visible,
     display: none;
   }
 }
+
+/* Design concept page (/concept) brings its own light header. */
+body:has([data-concept]) .nav {
+  display: none;
+}
