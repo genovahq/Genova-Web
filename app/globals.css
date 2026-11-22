@@ -309,41 +309,48 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Nav
+   Nav — floating frosted pill. Four links (Services ▾ · Work · Pricing ·
+   About), a phone icon and the CTA. Hides on scroll down, returns on up.
    -------------------------------------------------------------------------- */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 14px;
+  left: 50%;
+  translate: -50% 0;
   z-index: var(--z-nav);
+  width: min(1180px, calc(100% - 28px));
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  padding: 20px var(--gutter);
-  background: rgba(246, 244, 239, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-  transition: padding var(--dur) var(--ease-out), background var(--dur);
+  gap: 18px;
+  padding: 8px 8px 8px 24px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(14, 13, 18, 0.08);
+  box-shadow: 0 10px 30px rgba(14, 13, 18, 0.06);
+  transition:
+    transform 380ms var(--ease-out),
+    background var(--dur),
+    box-shadow var(--dur);
 }
-/* Condenses on scroll — spatial feedback, no layout shift (padding only). */
 .nav[data-scrolled="true"] {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background: rgba(246, 244, 239, 0.94);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 40px rgba(14, 13, 18, 0.1);
+}
+/* Slides up out of view while scrolling down. */
+.nav[data-hidden="true"] {
+  transform: translateY(calc(-100% - 24px));
 }
 
 .wordmark {
   font-family: var(--font-michroma), sans-serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   letter-spacing: 0.04em;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.18em;
-
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -357,114 +364,265 @@ h3 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 4px;
   margin-left: auto;
-  margin-right: 26px;
 }
-.nav-links a {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  position: relative;
-  padding: 6px 0;
-  transition: color var(--dur);
-}
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: var(--purple-bright);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--dur) var(--ease-out);
-}
-.nav-links a:hover {
-  color: var(--text);
-}
-.nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after {
-  transform: scaleX(1);
-}
-.nav-links a[aria-current="page"] {
-  color: var(--text);
-}
-
-.nav-call {
+.nav-link,
+.nav-svc-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-sora), sans-serif;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--muted);
   text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0 16px;
+  min-height: 40px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color var(--dur), background var(--dur);
+}
+.nav-link:hover,
+.nav-svc-btn:hover,
+.nav-svc-btn[aria-expanded="true"] {
+  color: var(--text);
+  background: rgba(14, 13, 18, 0.05);
+}
+/* "You are here": a soft pill, not an underline. */
+.nav-link[aria-current="page"],
+.nav-svc-btn[data-current] {
+  color: var(--text);
+  background: rgba(123, 47, 190, 0.1);
+}
+.nav-svc-btn svg {
+  width: 11px;
+  height: 11px;
+  transition: transform var(--dur) var(--ease-out);
+}
+.nav-svc-btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Phone: a round icon button; the number shows on hover/focus. */
+.nav-phone {
+  position: relative;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--purple);
+  border: 1px solid var(--line-purple);
+  background: #fff;
+  transition: background var(--dur), color var(--dur);
+}
+.nav-phone svg {
+  width: 18px;
+  height: 18px;
+}
+.nav-phone:hover,
+.nav-phone:focus-visible {
+  background: var(--purple);
+  color: #fff;
+}
+.nav-phone-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  translate: -50% 0;
   white-space: nowrap;
-  flex-shrink: 0;
-  transition: color var(--dur);
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--text);
+  padding: 7px 12px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
 }
-.nav-call:hover {
-  color: var(--accent);
-}
-.nav-call-ico {
-  display: inline-flex;
-  color: var(--accent);
-}
-.nav-call-ico svg {
-  width: 16px;
-  height: 16px;
-}
-/* On desktop the number shows; the compact "Call" label is mobile-only. */
-.nav-call-short {
-  display: none;
+.nav-phone:hover .nav-phone-tip,
+.nav-phone:focus-visible .nav-phone-tip {
+  opacity: 1;
+  transform: none;
 }
 
 .nav-cta {
   font-family: var(--font-sora), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.84rem;
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
-  padding: 11px 24px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 22px;
   border-radius: var(--radius-pill);
   background: var(--grad);
-  border: 0;
-  transition: box-shadow var(--dur), transform var(--dur-fast) var(--ease-out);
   white-space: nowrap;
   flex-shrink: 0;
+  transition: box-shadow var(--dur), transform var(--dur-fast) var(--ease-out);
 }
 .nav-cta:hover {
   box-shadow: 0 10px 26px rgba(178, 58, 214, 0.35);
   transform: translateY(-1px);
 }
 
+/* Services dropdown */
+.nav-svc {
+  position: static;
+}
+.nav-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  translate: -50% 0;
+  width: min(760px, calc(100vw - 28px));
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 34px;
+  padding: 28px 30px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(14, 13, 18, 0.14);
+  animation: panel-in var(--dur) var(--ease-out);
+}
+.nav-panel[hidden] {
+  display: none;
+}
+/* Invisible bridge across the gap so hover doesn't drop. */
+.nav-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.nav-panel ul {
+  list-style: none;
+}
+.nav-panel-label {
+  display: block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.nav-panel-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 11px 12px;
+  margin: 0 -12px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background var(--dur);
+}
+.nav-panel-item span {
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.nav-panel-item small {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.nav-panel-item:hover,
+.nav-panel-item:focus-visible,
+.nav-panel-item[aria-current="page"] {
+  background: rgba(123, 47, 190, 0.07);
+}
+.nav-panel-item:hover span,
+.nav-panel-item[aria-current="page"] span {
+  color: var(--accent);
+}
+.nav-panel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nav-panel-chips a {
+  display: inline-block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  transition: border-color var(--dur), background var(--dur), color var(--dur);
+}
+.nav-panel-chips a:hover,
+.nav-panel-chips a:focus-visible,
+.nav-panel-chips a[aria-current="page"] {
+  border-color: var(--line-purple);
+  background: rgba(123, 47, 190, 0.07);
+  color: var(--accent);
+}
+.nav-panel-extra {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 2px;
+}
+.nav-panel-extra a {
+  display: inline-block;
+  padding: 6px 0;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--dur);
+}
+.nav-panel-extra a:hover,
+.nav-panel-extra a:focus-visible {
+  color: var(--accent);
+}
+
+/* Menu toggle (phones) */
 .nav-toggle {
   display: none;
   width: 44px;
   height: 44px;
-  /* Without this the flex parent shrinks it to ~25px, under the 44px
-     minimum touch target. */
   flex: 0 0 44px;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  color: var(--text);
+  background: var(--text);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
   cursor: pointer;
-  transition: border-color var(--dur);
-}
-.nav-toggle:hover {
-  border-color: var(--purple);
 }
 .nav-toggle span {
   display: block;
-  width: 18px;
+  width: 16px;
   height: 1.5px;
   background: currentColor;
   position: relative;
@@ -475,38 +633,36 @@ h3 {
   content: "";
   position: absolute;
   left: 0;
-  width: 18px;
+  width: 16px;
   height: 1.5px;
   background: currentColor;
   transition: transform var(--dur) var(--ease-out);
 }
 .nav-toggle span::before {
-  top: -6px;
+  top: -5px;
 }
 .nav-toggle span::after {
-  top: 6px;
+  top: 5px;
 }
 .nav-toggle[aria-expanded="true"] span {
   background: transparent;
 }
 .nav-toggle[aria-expanded="true"] span::before {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
 }
 .nav-toggle[aria-expanded="true"] span::after {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
 }
 
+/* Mobile overlay */
 .mobile-menu {
   position: fixed;
   inset: 0;
   z-index: var(--z-menu);
   background: var(--bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 88px var(--gutter) max(var(--gutter), env(safe-area-inset-bottom));
+  padding: 92px var(--gutter) max(20px, env(safe-area-inset-bottom));
   animation: menu-in var(--dur) var(--ease-out);
 }
 @keyframes menu-in {
@@ -516,22 +672,6 @@ h3 {
   to {
     opacity: 1;
   }
-}
-.mobile-menu a {
-  font-family: var(--font-sora), sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text);
-  text-decoration: none;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-  letter-spacing: -0.01em;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  /* Staggered entrance — --i set inline per item. */
-  animation: menu-item-in 380ms var(--ease-out) backwards;
-  animation-delay: calc(60ms + var(--i, 0) * 40ms);
 }
 @keyframes menu-item-in {
   from {
@@ -543,46 +683,144 @@ h3 {
     transform: none;
   }
 }
+.mobile-menu-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 16px;
+}
+.mm-group + .mm-group {
+  margin-top: 24px;
+}
+.mm-label {
+  display: block;
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  animation: menu-item-in 380ms var(--ease-out) backwards;
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
+.mobile-menu a {
+  font-family: var(--font-sora), sans-serif;
+  color: var(--text);
+  text-decoration: none;
+  animation: menu-item-in 380ms var(--ease-out) backwards;
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
+.mobile-menu .mm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.mobile-menu .mm-item small {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.mm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  animation: menu-item-in 380ms var(--ease-out) backwards;
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
+.mobile-menu .mm-chips a {
+  animation: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.mobile-menu .mm-pages a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted);
+}
 .mobile-menu a[aria-current="page"] {
   color: var(--accent);
 }
+.mm-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.mobile-menu .mm-actions a {
+  animation: none;
+}
+.mobile-menu .mm-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0 18px;
+  min-height: 54px;
+  border: 1px solid var(--line-purple);
+  border-radius: var(--radius-pill);
+  background: #fff;
+}
+.mobile-menu .mm-call svg {
+  width: 16px;
+  height: 16px;
+  color: var(--purple);
+}
 .mobile-menu .menu-cta {
-  margin-top: 28px;
-  border: 1px solid rgba(164, 92, 232, 0.4);
-  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border-radius: var(--radius-pill);
   background: var(--grad);
   color: #fff;
-  justify-content: center;
-  font-size: 1rem;
-  padding: 18px;
+  font-size: 0.98rem;
+  font-weight: 700;
 }
 
-/* Raised from 940px: the nav now carries 6 links plus the wordmark and CTA,
-   which crowds below ~1080px. */
-@media (max-width: 1080px) {
-  .nav-links {
+/* With four links the bar fits down to ~900px; below that, the menu
+   button takes over. The phone icon stays so calling is one tap. */
+@media (max-width: 900px) {
+  .nav-links,
+  .nav .nav-cta {
     display: none;
+  }
+  .nav-phone {
+    margin-left: auto;
   }
   .nav-toggle {
     display: flex;
   }
-  .nav .nav-cta {
+  .nav-phone-tip {
     display: none;
   }
-  /* Click-to-call stays visible on mobile as a compact tap target next to the
-     menu button, so calling never requires opening the menu. */
-  .nav-call {
-    margin-left: auto;
-    height: 44px;
-    padding: 0 14px;
-    border: 1px solid var(--line-purple);
-    border-radius: var(--radius);
-  }
-  .nav-call-full {
-    display: none;
-  }
-  .nav-call-short {
-    display: inline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
   }
 }
 
@@ -2480,29 +2718,6 @@ footer {
    scroll listener, and no main-thread work. Browsers without support simply
    never show it (the bar stays at scaleX(0)), which is a clean degradation.
    -------------------------------------------------------------------------- */
-.nav::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--purple-deep), var(--purple-bright));
-  transform: scaleX(0);
-  transform-origin: left;
-  box-shadow: 0 0 12px rgba(164, 92, 232, 0.6);
-}
-@supports (animation-timeline: scroll()) {
-  .nav::after {
-    animation: scroll-progress linear;
-    animation-timeline: scroll(root block);
-  }
-}
-@keyframes scroll-progress {
-  to {
-    transform: scaleX(1);
-  }
-}
 
 /* --------------------------------------------------------------------------
    Featured tier: slow aurora border
@@ -2622,9 +2837,10 @@ select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--purple-bright);
+  outline: 2px solid var(--purple);
   outline-offset: 3px;
-  border-radius: 2px;
+  /* No border-radius here: the ring follows each element's own shape, so
+     pill buttons stay pills (a fixed 2px radius squared them off). */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2678,9 +2894,6 @@ summary:focus-visible,
   }
   .principles {
     gap: 32px;
-  }
-  .nav {
-    padding: 14px var(--gutter);
   }
   .block {
     padding: 48px 0;
