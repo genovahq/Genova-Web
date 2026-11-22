@@ -5,6 +5,7 @@ import { commitments, portfolio } from "@/lib/data/proof";
 import { site } from "@/lib/site";
 import { ServicesScroll, type ServicePanel } from "@/components/home/HomeClient";
 import { BrowserFrame, LeadAlertMock, MapPackMock, CareMock } from "@/components/home/Frames";
+import TradeDemo from "@/components/home/TradeDemo";
 import styles from "@/components/home/home.module.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 const domain = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 const work = portfolio;
-const [lead, second] = work;
+const [lead] = work;
 const starter = buildPlans[0];
 
 const panels: ServicePanel[] = [
@@ -91,7 +92,7 @@ const faq = [
 export default function HomePage() {
   return (
     <div className={styles.root}>
-      {/* ---------- HERO (light) + collage of real client sites ---------- */}
+      {/* ---------- HERO (light) + "pick your trade" demo ---------- */}
       <section className={styles.hero}>
         <span className={styles.eyebrow}>{site.tagline} · {site.city}</span>
         <h1 className={styles.heroTitle}>
@@ -113,35 +114,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {lead && (
-          <div className={styles.heroCollage}>
-            <BrowserFrame
-              src={lead.image}
-              alt={lead.alt}
-              domain={domain(lead.url)}
-              className={styles.heroMain}
-              eager
-            />
-            {second && (
-              <BrowserFrame
-                src={second.image}
-                alt={second.alt}
-                domain={domain(second.url)}
-                className={styles.heroSide}
-                eager
-              />
-            )}
-            <div className={styles.heroPhone}>
-              <LeadAlertMock />
-            </div>
-            <div className={`${styles.chip} ${styles.chipA}`}>
-              <span className={styles.chipDot} /> New inquiry · sent straight to your inbox
-            </div>
-            <div className={`${styles.chip} ${styles.chipB}`}>
-              <b>&lt;2 wks</b> to launch
-            </div>
-          </div>
-        )}
+        <TradeDemo />
       </section>
 
       {/* ---------- MARQUEE (dark) ---------- */}
