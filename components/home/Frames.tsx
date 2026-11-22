@@ -50,20 +50,22 @@ export function LeadAlertMock() {
         <span className={styles.mockAppIcon}>G</span>
         <div>
           <b>New website inquiry</b>
-          <p>Kitchen remodel · wants a quote this week · call back now</p>
+          <p>Full detail + ceramic coating · this Saturday · call back now</p>
         </div>
       </div>
       <div className={styles.mockCard}>
         <span className={styles.mockLabel}>Lead details</span>
         <dl>
           <dt>Service</dt>
-          <dd>Kitchen remodel</dd>
-          <dt>Timing</dt>
-          <dd>This week</dd>
-          <dt>Best way</dt>
-          <dd>Call</dd>
+          <dd>Ceramic coating</dd>
+          <dt>Vehicle</dt>
+          <dd>SUV · black</dd>
+          <dt>When</dt>
+          <dd>This Saturday</dd>
+          <dt>Where</dt>
+          <dd>Mobile · at home</dd>
           <dt>Source</dt>
-          <dd>Website · Growth page</dd>
+          <dd>Website · booking page</dd>
         </dl>
         <span className={styles.mockBtn}>Call back</span>
       </div>

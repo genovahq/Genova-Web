@@ -1094,10 +1094,13 @@
   object-position: top;
 }
 
-/* Hero collage: one big site, one tilted site, a phone with a lead alert. */
+/* Hero collage: the main site on the left, a second site tilted top-right,
+   and the lead-alert phone in the bottom-right corner. The phone sits beyond
+   the main site's right edge (main = 0–78%, phone = ~83–97%) and below the
+   second site, so it covers neither screenshot. */
 .heroCollage {
   position: relative;
-  padding: 0 0 60px;
+  padding: 0 0 130px;
 }
 .heroMain {
   width: 78%;
@@ -1105,25 +1108,38 @@
 .heroSide {
   position: absolute;
   right: 0;
-  top: 18%;
-  width: 44%;
+  top: -6%;
+  width: 38%;
   rotate: 2.5deg;
 }
 .heroPhone {
   position: absolute;
-  left: 58%;
+  right: 3%;
   bottom: 0;
-  width: 190px;
-  rotate: -4deg;
+  /* Laid out at full phone size, then scaled down as a whole, so the mockup's
+     text keeps its proportions instead of wrapping in a squeezed column. */
+  width: 240px;
+  scale: 0.76;
+  transform-origin: bottom right;
+  rotate: 4deg;
+  z-index: 2;
+}
+@media (max-width: 1180px) {
+  .heroPhone {
+    scale: 0.6;
+  }
+}
+.heroPhone .phone {
+  width: 100%;
 }
 .heroCollage .chipA {
   left: 4%;
-  bottom: 84px;
+  bottom: 154px;
 }
 .heroCollage .chipB {
-  right: 6%;
+  right: 21%;
   top: auto;
-  bottom: 96px;
+  bottom: 70px;
   z-index: 2;
 }
 
