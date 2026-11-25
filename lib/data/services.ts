@@ -1,3 +1,5 @@
+import { storeStartingPrice } from "./plans";
+
 export type Service = {
   slug: string;
   title: string;
@@ -14,6 +16,12 @@ export type Service = {
   outcomes: string[];
   faq: { q: string; a: string }[];
   inPlans: string;
+  /** Builds priced outside the three tiers show a "starting at" line in the hero. */
+  startingAt?: number;
+  /** Slug in `portfolio` (lib/data/proof.ts) to feature as a live example. */
+  featuredWork?: { slug: string; heading: string; body: string };
+  /** Optional "what comes next" block, e.g. pointing a store at traffic. */
+  nextStep?: { kicker: string; heading: string; body: string; cta: string; href: string };
 };
 
 export const services: Service[] = [
@@ -86,6 +94,99 @@ export const services: Service[] = [
       },
     ],
     inPlans: "Included in every plan, from Starter up.",
+  },
+  {
+    slug: "online-stores",
+    navLabel: "Online Stores",
+    title: "Online Store Design & Build",
+    metaTitle: "Online Store & Shopify Website Design | Orlando, FL",
+    metaDescription:
+      "Custom online stores built on Shopify for Orlando and Florida businesses: product catalog setup, secure checkout, shipping and taxes, plus quote requests for big-ticket items.",
+    kicker: "Online stores",
+    h1: "Stores built to sell, not just to look good.",
+    lead:
+      "A store is a website with a cash register attached — and the register is the part that has to work every single time. We build custom storefronts on Shopify that are easy to buy from and easy for you to run.",
+    problem: {
+      heading: "Why most small stores don't sell",
+      body:
+        "Most small online stores are a theme with products dropped in. Photos are inconsistent, product pages don't answer the questions buyers actually have, checkout asks for too much, and shipping costs show up as a surprise on the last step. Every one of those is a point where someone with their card out closes the tab.",
+    },
+    included: [
+      {
+        title: "Custom storefront",
+        body:
+          "A design built around your brand and your products — not a stock theme with your logo swapped in. Mobile-first, because that's where most people buy.",
+      },
+      {
+        title: "Product catalog setup",
+        body:
+          "Products, variants, collections, and descriptions structured so customers can find what they want fast. Large catalogs can be imported in bulk — priced by size.",
+      },
+      {
+        title: "Checkout that converts",
+        body:
+          "Shopify's secure checkout with cards, Apple Pay, and Google Pay. Shipping rates and sales tax set up properly, so the total at the end is the total they expected.",
+      },
+      {
+        title: "Quote requests for big items",
+        body:
+          "Not everything belongs in a cart. High-ticket or configured products can route to a quote form instead — and those leads hit your inbox the second they land.",
+      },
+      {
+        title: "Built to be found",
+        body:
+          "Product and collection pages with real titles, descriptions, and product schema, so Google — and AI search — can show your products, not just your homepage.",
+      },
+      {
+        title: "Easy to run day to day",
+        body:
+          "Orders, inventory, and fulfillment run from Shopify's dashboard and app. Prefer not to touch it? We can handle product updates for you after launch.",
+      },
+    ],
+    outcomes: [
+      "A store that looks like your brand, not a template",
+      "Product pages that answer buyers' questions before they ask",
+      "No surprise costs at checkout",
+      "Big-ticket inquiries captured, not lost",
+    ],
+    faq: [
+      {
+        q: "Why Shopify?",
+        a: "It handles the parts that must never break — payments, security, checkout — and it's easy to run without a developer. We design and build the store on top of it. If your business genuinely needs something fully custom, we'll tell you and quote that instead.",
+      },
+      {
+        q: "Are there ongoing costs?",
+        a: "Yes, and we'd rather say so up front: Shopify charges its own monthly plan plus card processing fees, paid to Shopify. The store account, products, design, and domain are yours — if you ever leave us, the store stays with you.",
+      },
+      {
+        q: "How long does a store take?",
+        a: "Usually two to four weeks, depending mostly on how many products there are and how ready the photos and descriptions are. We'll give you a firm timeline with the quote.",
+      },
+      {
+        q: "I have hundreds of products. Is that a problem?",
+        a: "No. Big catalogs get imported in bulk rather than entered one by one. It's priced separately so smaller stores don't pay for work they don't need.",
+      },
+      {
+        q: "Can I sell some things online and quote others?",
+        a: "Yes — that's a common setup for equipment and supply businesses. Smaller items go in the cart; larger or configured items go through a quote request that reaches you instantly.",
+      },
+    ],
+    inPlans: "Custom-quoted. Payments 50% up front, 50% on delivery.",
+    startingAt: storeStartingPrice,
+    featuredWork: {
+      slug: "ss-equipment-solutions",
+      heading: "Cart for the small stuff. Quotes for the big stuff.",
+      body:
+        "S&S Equipment Solutions sells parts and supplies through an online cart that ships anywhere in the US, while full commercial and rehab equipment routes through a quote request that covers delivery and installation.",
+    },
+    nextStep: {
+      kicker: "After launch",
+      heading: "A store nobody visits doesn't sell.",
+      body:
+        "Launch is when the real work starts. We can run the Google ads, shoot the product photos and video, and manage the social posting that sends buyers to your store — tell us where you want to grow and we'll scope it with your build.",
+      cta: "Talk about growing it",
+      href: "/contact",
+    },
   },
   {
     slug: "ai-lead-capture",

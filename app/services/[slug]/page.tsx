@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { portfolio } from "@/lib/data/proof";
 import { SectionHead, Crumbs, FaqList, FinalCta } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 import { services, getService } from "@/lib/data/services";
@@ -38,6 +40,9 @@ export default async function ServicePage({ params }: Params) {
   if (!service) notFound();
 
   const others = services.filter((s) => s.slug !== service.slug);
+  const featured = service.featuredWork
+    ? portfolio.find((p) => p.slug === service.featuredWork!.slug)
+    : undefined;
   const crumbs = [
     { name: "Services", path: "/services" },
     { name: service.navLabel, path: `/services/${service.slug}` },
@@ -66,6 +71,12 @@ export default async function ServicePage({ params }: Params) {
             <span className="chrome">{service.h1}</span>
           </h1>
           <p className="sub">{service.lead}</p>
+          {service.startingAt && (
+            <p className="service-price">
+              Starting at <b>${service.startingAt.toLocaleString("en-US")}</b>
+              <span> · custom quote for your catalog</span>
+            </p>
+          )}
           <div className="actions">
             <Link href="/contact" className="btn-primary">
               Start a Project
@@ -139,6 +150,74 @@ export default async function ServicePage({ params }: Params) {
         </div>
       </section>
 
+      {/* FEATURED WORK — a real, live client site (never a demo) */}
+      {featured && service.featuredWork && (
+        <section className="block">
+          <div className="wrap">
+            <SectionHead
+              kicker="Live example"
+              title={service.featuredWork.heading}
+              lead={service.featuredWork.body}
+            />
+            <div className="work-grid solo">
+              <a
+                className="work-card reveal"
+                href={featured.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="work-shot">
+                  <Image
+                    src={featured.image}
+                    alt={featured.alt}
+                    fill
+                    sizes="(max-width: 700px) 100vw, 640px"
+                    style={{ objectFit: "contain", objectPosition: "center" }}
+                  />
+                </div>
+                <div className="work-meta">
+                  <span className="tag">{featured.industry}</span>
+                  <h3>{featured.business}</h3>
+                  <span className="work-link">
+                    Visit live site <span className="arw">→</span>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* NEXT STEP — e.g. sending traffic to a new store */}
+      {service.nextStep && (
+        <section className="block block-tight">
+          <div className="wrap wrap-narrow">
+            <div className="reveal prose">
+              <span className="kicker">{service.nextStep.kicker}</span>
+              <h2
+                style={{
+                  fontFamily: "var(--font-sora)",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.6rem,3.4vw,2.4rem)",
+                  letterSpacing: "-0.025em",
+                  lineHeight: 1.12,
+                  marginBottom: 18,
+                  maxWidth: "22ch",
+                }}
+              >
+                {service.nextStep.heading}
+              </h2>
+              <p>{service.nextStep.body}</p>
+              <div className="actions" style={{ marginTop: 24 }}>
+                <Link href={service.nextStep.href} className="btn-ghost">
+                  {service.nextStep.cta} <span className="arw">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ */}
       <section className="block band-cream">
         <div className="wrap">
@@ -150,8 +229,8 @@ export default async function ServicePage({ params }: Params) {
       {/* SIBLING SERVICES — internal linking so authority flows between pages */}
       <section className="block block-tight">
         <div className="wrap">
-          <SectionHead kicker="Also worth reading" title="The other three." />
-          <div className="grid-3">
+          <SectionHead kicker="Also worth reading" title="Keep reading." />
+          <div className="grid-2">
             {others.map((s) => (
               <Link href={`/services/${s.slug}`} className="svc reveal" key={s.slug}>
                 <h3>{s.navLabel}</h3>

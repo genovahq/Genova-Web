@@ -10,6 +10,7 @@ import {
   rushOptions,
   comparisonRows,
   alternativeComparison,
+  storeStartingPrice,
 } from "@/lib/data/plans";
 import { pricingSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 
@@ -41,7 +42,7 @@ const faq = [
   },
   {
     q: "What if I need more than the Pro plan covers?",
-    a: "Then it's a custom quote rather than a package. Ecommerce, booking systems, memberships, and multi-brand builds sit outside these tiers. Tell us what you need and we'll price it honestly.",
+    a: `Then it's a custom quote rather than a package. Online stores start at $${storeStartingPrice.toLocaleString("en-US")} and are quoted by catalog size — see the Online Stores page. Booking systems, memberships, and multi-brand builds also sit outside these tiers. Tell us what you need and we'll price it honestly.`,
   },
   {
     q: "Are there ongoing costs I should expect?",

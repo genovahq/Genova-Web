@@ -129,6 +129,13 @@ export const carePlans: Plan[] = [
   },
 ];
 
+/**
+ * Online store builds are quoted, not tiered — catalog size, variants and
+ * integrations swing the scope too much for a fixed card. This is the floor
+ * shown in the menu and on /services/online-stores. Change it here only.
+ */
+export const storeStartingPrice = 4000;
+
 export const rushOptions = [
   { plan: "Starter", surcharge: "+$200", timeline: "3–4 days" },
   { plan: "Growth", surcharge: "+$300", timeline: "5–6 days" },
