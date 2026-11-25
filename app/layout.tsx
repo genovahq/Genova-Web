@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Michroma, Sora, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PriceLockBanner from "@/components/PriceLockBanner";
 import RevealProvider from "@/components/RevealProvider";
 import { ContactTracking } from "@/components/ContactTracking";
 import JsonLd from "@/components/JsonLd";
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <PriceLockBanner />
         <RevealProvider />
         <ContactTracking />
         <JsonLd data={organizationSchema()} id="schema-org" />
