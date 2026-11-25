@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { industries } from "@/lib/data/industries";
+import { storePlans } from "@/lib/data/plans";
 
 /**
  * Multi-step intake questionnaire.
@@ -39,6 +40,11 @@ const PLAN_OPTIONS = [
   { value: "starter", label: "Starter — $750", hint: "2 pages, live in 5–7 days" },
   { value: "growth", label: "Growth — $2,000", hint: "Up to 5 pages, local SEO" },
   { value: "pro", label: "Pro — $3,500", hint: "Up to 10 pages, 3 months Care" },
+  ...storePlans.map((p) => ({
+    value: p.slug,
+    label: `${p.name} — ${p.priceLabel}`,
+    hint: `Online store · ${p.scope?.toLowerCase()}`,
+  })),
 ];
 
 const steps: Step[] = [

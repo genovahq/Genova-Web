@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { portfolio } from "@/lib/data/proof";
+import PricingTiers from "@/components/PricingTiers";
 import { SectionHead, Crumbs, FaqList, FinalCta } from "@/components/ui";
 import JsonLd from "@/components/JsonLd";
 import { services, getService } from "@/lib/data/services";
@@ -74,7 +75,7 @@ export default async function ServicePage({ params }: Params) {
           {service.startingAt && (
             <p className="service-price">
               Starting at <b>${service.startingAt.toLocaleString("en-US")}</b>
-              <span> · custom quote for your catalog</span>
+              <span> · two packages, or a custom quote</span>
             </p>
           )}
           <div className="actions">
@@ -149,6 +150,27 @@ export default async function ServicePage({ params }: Params) {
           </ul>
         </div>
       </section>
+
+      {/* PACKAGES — store tiers, reusing the pricing-page cards */}
+      {service.tiers && (
+        <section className="block" id="packages">
+          <div className="wrap">
+            <SectionHead
+              kicker={service.tiers.kicker}
+              title={service.tiers.title}
+              lead={service.tiers.lead}
+            />
+            <PricingTiers plans={service.tiers.plans} />
+            <div className="pricing-notes reveal">
+              {service.tiers.notes.map((n) => (
+                <div className="rush" key={n.label}>
+                  <b>{n.label}</b> {n.text}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FEATURED WORK — a real, live client site (never a demo) */}
       {featured && service.featuredWork && (

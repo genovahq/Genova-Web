@@ -134,7 +134,67 @@ export const carePlans: Plan[] = [
  * integrations swing the scope too much for a fixed card. This is the floor
  * shown in the menu and on /services/online-stores. Change it here only.
  */
-export const storeStartingPrice = 4000;
+export const storePlans: Plan[] = [
+  {
+    slug: "launch-store",
+    name: "Launch Store",
+    price: 4000,
+    priceLabel: "$4,000",
+    timeline: "2–3 weeks",
+    scope: "Up to 100 products",
+    pitch:
+      "A custom-coded Shopify store designed around your brand — for businesses ready to start selling online.",
+    features: [
+      { text: "Custom-coded Shopify theme, designed to your brand" },
+      { text: "Up to 100 products imported and organized" },
+      { text: "Cards, Apple Pay & Google Pay checkout" },
+      { text: "Shipping rates and sales tax set up" },
+      { text: "Quote requests for big-ticket items", ai: true },
+      { text: "Product SEO + product schema" },
+      { text: "2 revision rounds · walkthrough video" },
+      { text: "30 days of post-launch support" },
+    ],
+    cta: "Start a Launch Store",
+  },
+  {
+    slug: "custom-store",
+    name: "Custom Store",
+    price: 7500,
+    priceLabel: "$7,500",
+    timeline: "3–5 weeks",
+    scope: "Up to 250 products",
+    featured: true,
+    badge: "Fully bespoke",
+    pitch:
+      "Every page designed from scratch — for brands where the store is the business, or bigger catalogs.",
+    features: [
+      { text: "Everything in Launch Store" },
+      { text: "Home, collection & product layouts designed from scratch" },
+      { text: "Up to 250 products imported and organized" },
+      { text: "Wholesale / B2B pricing and quote workflows", ai: true },
+      { text: "Email capture + abandoned-cart setup" },
+      { text: "Full product SEO across the catalog" },
+      { text: "3 revision rounds" },
+      { text: "60 days of post-launch support" },
+    ],
+    cta: "Start a Custom Store",
+  },
+];
+
+/**
+ * The floor shown in the menu ("From $4,000"), the service page hero and the
+ * pricing FAQ. Derived from the first store tier so there's one number to change.
+ */
+export const storeStartingPrice = storePlans[0].price;
+
+/** Catalog import beyond the products a store tier includes. */
+export const catalogImport = { perProduct: 1, minimum: 150 };
+
+/**
+ * Store Care is separate from Genova Care: store owners need product, banner
+ * and promo updates, not just site edits. The client pays Shopify directly.
+ */
+export const storeCare = { price: 299, hours: 3 };
 
 export const rushOptions = [
   { plan: "Starter", surcharge: "+$200", timeline: "3–4 days" },

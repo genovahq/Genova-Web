@@ -1,4 +1,10 @@
-import { storeStartingPrice } from "./plans";
+import {
+  storeStartingPrice,
+  storePlans,
+  catalogImport,
+  storeCare,
+  type Plan,
+} from "./plans";
 
 export type Service = {
   slug: string;
@@ -22,6 +28,8 @@ export type Service = {
   featuredWork?: { slug: string; heading: string; body: string };
   /** Optional "what comes next" block, e.g. pointing a store at traffic. */
   nextStep?: { kicker: string; heading: string; body: string; cta: string; href: string };
+  /** Package cards rendered on the service page (online stores). */
+  tiers?: { kicker: string; title: string; lead: string; plans: Plan[]; notes: { label: string; text: string }[] };
 };
 
 export const services: Service[] = [
@@ -105,7 +113,7 @@ export const services: Service[] = [
     kicker: "Online stores",
     h1: "Stores built to sell, not just to look good.",
     lead:
-      "A store is a website with a cash register attached — and the register is the part that has to work every single time. We build custom storefronts on Shopify that are easy to buy from and easy for you to run.",
+      "A store is a website with a cash register attached — and the register is the part that has to work every single time. We custom-code storefronts on Shopify that are easy to buy from and easy for you to run.",
     problem: {
       heading: "Why most small stores don't sell",
       body:
@@ -156,7 +164,7 @@ export const services: Service[] = [
       },
       {
         q: "Are there ongoing costs?",
-        a: "Yes, and we'd rather say so up front: Shopify charges its own monthly plan plus card processing fees, paid to Shopify. The store account, products, design, and domain are yours — if you ever leave us, the store stays with you.",
+        a: `Yes, and we'd rather say so up front: Shopify charges its own monthly plan plus card processing fees, paid to Shopify directly. Store Care is optional at $${storeCare.price}/mo if you want us handling updates. The store account, products, design, and domain are yours — if you ever leave us, the store stays with you.`,
       },
       {
         q: "How long does a store take?",
@@ -164,15 +172,31 @@ export const services: Service[] = [
       },
       {
         q: "I have hundreds of products. Is that a problem?",
-        a: "No. Big catalogs get imported in bulk rather than entered one by one. It's priced separately so smaller stores don't pay for work they don't need.",
+        a: `No. Big catalogs get imported in bulk rather than entered one by one. Launch Store includes up to 100 products and Custom Store up to 250; beyond that it's $${catalogImport.perProduct} per product.`,
       },
       {
         q: "Can I sell some things online and quote others?",
         a: "Yes — that's a common setup for equipment and supply businesses. Smaller items go in the cart; larger or configured items go through a quote request that reaches you instantly.",
       },
     ],
-    inPlans: "Custom-quoted. Payments 50% up front, 50% on delivery.",
+    inPlans: "Two store packages, or a custom quote for larger builds. Payments 50% up front, 50% on delivery.",
     startingAt: storeStartingPrice,
+    tiers: {
+      kicker: "Store packages",
+      title: "Two ways to launch your store.",
+      lead: "Both are custom-coded, not a template with your logo swapped in. Need headless, a migration, or inventory integrations? We'll quote it.",
+      plans: storePlans,
+      notes: [
+        {
+          label: "Bigger catalog?",
+          text: `Extra products import at $${catalogImport.perProduct} per product ($${catalogImport.minimum} minimum).`,
+        },
+        {
+          label: `Store Care — $${storeCare.price}/mo.`,
+          text: `About ${storeCare.hours} hours a month of product, banner and promo updates, plus monthly app and theme checks and a short report. Month to month. You pay Shopify directly.`,
+        },
+      ],
+    },
     featuredWork: {
       slug: "ss-equipment-solutions",
       heading: "Cart for the small stuff. Quotes for the big stuff.",
