@@ -42,7 +42,7 @@ const faq = [
   },
   {
     q: "What if I need more than the Pro plan covers?",
-    a: `Then it's a custom quote rather than a package. Online stores start at $${storeStartingPrice.toLocaleString("en-US")} with two packages — see the Online Stores page. Booking systems, memberships, and multi-brand builds also sit outside these tiers. Tell us what you need and we'll price it honestly.`,
+    a: `Then it's a custom quote rather than a package. Online stores start at $${storeStartingPrice.toLocaleString("en-US")} with three packages — see the Online Stores page. Booking systems, memberships, and multi-brand builds also sit outside these tiers. Tell us what you need and we'll price it honestly.`,
   },
   {
     q: "Are there ongoing costs I should expect?",

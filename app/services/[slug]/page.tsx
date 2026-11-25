@@ -75,7 +75,7 @@ export default async function ServicePage({ params }: Params) {
           {service.startingAt && (
             <p className="service-price">
               Starting at <b>${service.startingAt.toLocaleString("en-US")}</b>
-              <span> · two packages, or a custom quote</span>
+              <span> · three packages to choose from</span>
             </p>
           )}
           <div className="actions">

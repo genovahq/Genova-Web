@@ -179,12 +179,12 @@ export const services: Service[] = [
         a: "Yes — that's a common setup for equipment and supply businesses. Smaller items go in the cart; larger or configured items go through a quote request that reaches you instantly.",
       },
     ],
-    inPlans: "Two store packages, or a custom quote for larger builds. Payments 50% up front, 50% on delivery.",
+    inPlans: "Three store packages, from Launch Store to fully custom Signature builds. Payments 50% up front, 50% on delivery.",
     startingAt: storeStartingPrice,
     tiers: {
       kicker: "Store packages",
-      title: "Two ways to launch your store.",
-      lead: "Both are custom-coded, not a template with your logo swapped in. Need headless, a migration, or inventory integrations? We'll quote it.",
+      title: "Three ways to launch your store.",
+      lead: "Every store is custom-coded, not a template with your logo swapped in. Pick the level of design and complexity your business needs.",
       plans: storePlans,
       notes: [
         {

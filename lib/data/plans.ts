@@ -179,6 +179,26 @@ export const storePlans: Plan[] = [
     ],
     cta: "Start a Custom Store",
   },
+  {
+    slug: "signature-store",
+    name: "Signature",
+    price: 12000,
+    priceLabel: "$12,000+",
+    timeline: "Custom timeline",
+    scope: "Any catalog size",
+    pitch:
+      "For brand relaunches and stores with real complexity — scoped on a call, priced to the project.",
+    features: [
+      { text: "Everything in Custom Store" },
+      { text: "Fully custom or headless build" },
+      { text: "Migration from WooCommerce, Wix, Squarespace & more" },
+      { text: "Inventory, POS or ERP integrations", ai: true },
+      { text: "Brand relaunch: identity, photo & video" },
+      { text: "Unlimited products" },
+    ],
+    cta: "Book a call",
+    footnote: "Final price depends on scope — we'll quote it after a call.",
+  },
 ];
 
 /**
