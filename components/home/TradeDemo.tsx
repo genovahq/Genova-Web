@@ -48,7 +48,7 @@ const TRADES: Trade[] = [
     brand: "Your Detailing Co.",
     tagline: "Mobile detailing · Orlando",
     headline: "Ceramic coatings that turn heads.",
-    sub: "Paint correction, ceramic and interiors — done in your driveway.",
+    sub: "Paint correction, ceramic and interiors, done in your driveway.",
     cta: "Book a detail",
     services: ["Ceramic coating", "Paint correction", "Interior reset"],
     lead: { title: "New booking request", body: "Ceramic coating · black SUV · this Saturday" },
@@ -62,8 +62,8 @@ const TRADES: Trade[] = [
     brand: "Your Plumbing Co.",
     tagline: "24/7 plumbing · Orlando",
     headline: "Burst pipe? We're there fast.",
-    sub: "Emergency repairs, water heaters and drains — upfront pricing.",
-    cta: "Call now — 24/7",
+    sub: "Emergency repairs, water heaters and drains. Upfront pricing.",
+    cta: "Call now · 24/7",
     services: ["Emergency repairs", "Water heaters", "Drain cleaning"],
     lead: { title: "New emergency request", body: "Water heater leaking · tonight · call back now" },
     theme: { bg: "#eaf2ff", ink: "#0b1b3a", muted: "#4a5a7a", accent: "#1d4ed8", accentInk: "#ffffff", glow: "#60a5fa", card: "#ffffff" },
@@ -114,7 +114,7 @@ const TRADES: Trade[] = [
     brand: "Your Med Spa",
     tagline: "Aesthetics · Winter Park",
     headline: "Look refreshed, never overdone.",
-    sub: "Injectables, facials and laser — consults with a licensed provider.",
+    sub: "Injectables, facials and laser. Consults with a licensed provider.",
     cta: "Book a consult",
     services: ["Injectables", "Facials", "Laser"],
     lead: { title: "New consult request", body: "Consultation · facial treatment · Thursday evening" },
@@ -190,7 +190,7 @@ function Hero({ t }: { t: Trade }) {
             <b>Free roof inspection</b>
             <span className={styles.demoField}>Your name</span>
             <span className={styles.demoField}>Property address</span>
-            <span className={`${styles.demoField} ${styles.demoSelect}`}>What happened? — Storm damage</span>
+            <span className={`${styles.demoField} ${styles.demoSelect}`}>What happened? Storm damage</span>
             <span className={styles.demoBtn}>Request inspection</span>
           </div>
         </div>
@@ -301,7 +301,7 @@ export default function TradeDemo() {
   return (
     <div className={styles.demo}>
       <div className={styles.demoTop}>
-        <span className={styles.demoAsk}>Pick your trade — see your site:</span>
+        <span className={styles.demoAsk}>Pick your trade, see your site:</span>
         <div className={styles.demoTabs} role="tablist" aria-label="Choose a trade" onKeyDown={onKey}>
           {TRADES.map((t, i) => (
             <button
@@ -375,7 +375,7 @@ export default function TradeDemo() {
       </div>
 
       <p className={styles.demoNote}>
-        Demo — your site is built around your trade, your colors and your services, with AI lead
+        Demo: your site is built around your trade, your colors and your services, with AI lead
         capture sending every inquiry straight to you.
       </p>
     </div>

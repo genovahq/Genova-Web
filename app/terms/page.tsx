@@ -49,8 +49,8 @@ export default function TermsPage() {
           <h2 className="kicker">Quotes and pricing</h2>
           <p>
             Package prices shown on this site are current at the time of publication and apply to
-            the scope described. Work outside that scope — ecommerce, booking systems, memberships,
-            custom integrations — is quoted separately. A quote we send you is valid for 30 days.
+            the scope described. Work outside that scope (ecommerce, booking systems, memberships,
+            custom integrations) is quoted separately. A quote we send you is valid for 30 days.
           </p>
 
           <h2 className="kicker">Payment</h2>
@@ -71,7 +71,7 @@ export default function TermsPage() {
           <p>
             On final payment, the completed website, its content, and its code are yours. Your
             domain is registered in your name. We may reference the project as an example of our
-            work — including in a case study naming your business — only with your written
+            work (including in a case study naming your business) only with your written
             permission.
           </p>
 

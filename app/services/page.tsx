@@ -8,9 +8,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — Web Design, AI Lead Capture & Local SEO",
+  title: "Services: Web Design, AI Lead Capture & Local SEO",
   description:
-    "Website design, AI lead capture, local SEO, and ongoing care plans for local businesses in Orlando and across Florida. Four disciplines, one system.",
+    "Website design, online stores, AI lead capture, local SEO, and ongoing care plans for local businesses in Orlando and across Florida.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services", title: "Services | Genova Web" },
 };
@@ -51,8 +51,8 @@ export default function ServicesPage() {
         <div className="wrap">
           <SectionHead
             kicker="What we do"
-            title="Four disciplines that add up to one working system."
-            lead={`Every Genova build touches all four. What changes between plans is how far each one goes — and every one is available to businesses across ${site.regionName}.`}
+            title="Everything that adds up to one working system."
+            lead={`Every Genova build covers getting found, converting the visit, capturing the lead, and staying healthy after launch. Selling products? We build the store too, for businesses across ${site.regionName}.`}
           />
           <div className="grid-2">
             {services.map((s) => (

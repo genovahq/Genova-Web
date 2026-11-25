@@ -26,7 +26,7 @@ const panels: ServicePanel[] = [
     name: "Website Design",
     kicker: "Built to sell",
     price: `From ${starter.priceLabel}`,
-    body: "A site that tells a visitor in five seconds what you do, where you do it and how to reach you — then makes contacting you the obvious next step.",
+    body: "A site that tells a visitor in five seconds what you do, where you do it and how to reach you, then makes contacting you the obvious next step.",
     points: ["Custom-built, mobile-first", "Conversion-focused copy", "Live in under two weeks"],
     href: "/services/website-design",
     visual: showcase ? (
@@ -38,7 +38,7 @@ const panels: ServicePanel[] = [
     name: "AI Lead Capture",
     kicker: "Included in every plan",
     price: "Every plan, from Starter",
-    body: "The moment someone reaches out, the details land in your inbox — organized and ready to call back, so you answer before they call the next company.",
+    body: "The moment someone reaches out, the details land in your inbox, organized and ready to call back, so you answer before they call the next company.",
     points: ["Instant lead alerts", "Clean, structured details", "Spam filtered out"],
     href: "/services/ai-lead-capture",
     visual: <LeadAlertMock />,
@@ -58,7 +58,7 @@ const panels: ServicePanel[] = [
     name: "Care Plans",
     kicker: "After launch",
     price: "Hosting $50/mo · Care $149/mo",
-    body: "Hosting, backups, security and lead-form monitoring handled — plus unlimited content edits on Genova Care. Month to month, cancel any time.",
+    body: "Hosting, backups, security and lead-form monitoring handled, plus unlimited content edits on Genova Care. Month to month, cancel any time.",
     points: ["Managed hosting & backups", "Lead-system monitoring", "Unlimited content edits"],
     href: "/services/care-plans",
     visual: <CareMock />,
@@ -79,7 +79,7 @@ const faq = [
   },
   {
     q: "How does the 50/50 payment split work?",
-    a: "Half when you book, which reserves your build slot. The other half when the site is finished and you've approved it — not before you've seen it.",
+    a: "Half when you book, which reserves your build slot. The other half when the site is finished and you've approved it, not before you've seen it.",
   },
   {
     q: "Do I have to take a care plan?",
@@ -87,7 +87,7 @@ const faq = [
   },
   {
     q: "Who owns the website when it's done?",
-    a: "You do — the site, the code, the content, and the domain. Nothing is held back as leverage.",
+    a: "You do: the site, the code, the content, and the domain. Nothing is held back as leverage.",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function HomePage() {
         </h1>
         <div className={styles.heroRow}>
           <p className={styles.heroSub}>
-            High-converting websites with built-in AI lead capture — so more of the people who find
+            High-converting websites with built-in AI lead capture, so more of the people who find
             you become calls, leads and booked jobs. Live in under two weeks, from{" "}
             {starter.priceLabel}.
           </p>
@@ -186,7 +186,7 @@ export default function HomePage() {
       <section className={`${styles.sheet} ${styles.light}`}>
         <div className={styles.wrap}>
           <span className={styles.kicker}>How it works</span>
-          <h2 className={styles.h2}>From first call to a site that sells — in under two weeks.</h2>
+          <h2 className={styles.h2}>From first call to a site that sells, in under two weeks.</h2>
           <div className={styles.steps}>
             {steps.map((s) => (
               <div className={styles.step} key={s.n}>
@@ -290,7 +290,7 @@ export default function HomePage() {
             <span className={styles.gradText}>Let&rsquo;s make you the one they call.</span>
           </h2>
           <p className={styles.finalSub}>
-            A website that turns visitors into customers — starting at {starter.priceLabel}. Built in{" "}
+            A website that turns visitors into customers, starting at {starter.priceLabel}. Built in{" "}
             {site.city}, for businesses across {site.regionName}.
           </p>
           <div className={styles.heroActions}>

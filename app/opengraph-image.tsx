@@ -8,7 +8,7 @@ import { ImageResponse } from "next/og";
  * System fonts only — no network fetch, so this can't fail the build.
  */
 
-export const alt = "Genova Web — AI-Powered Websites That Grow Your Business";
+export const alt = "Genova Web | AI-Powered Websites That Grow Your Business";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

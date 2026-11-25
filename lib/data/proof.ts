@@ -107,7 +107,7 @@ export const portfolio: Project[] = [
     industry: "Mobile detailing",
     url: "https://showroomshine.online",
     image: "/work/showroom-shine.png",
-    alt: "Showroom Shine home page — a veteran-owned mobile detailing site serving Tennessee, Kentucky, and Central Florida.",
+    alt: "Showroom Shine home page, a veteran-owned mobile detailing site serving Tennessee, Kentucky, and Central Florida.",
   },
   {
     slug: "bonsai-tea",
@@ -115,7 +115,7 @@ export const portfolio: Project[] = [
     industry: "Boba tea shop",
     url: "https://bonjourbonsai.com",
     image: "/work/bonjour-bonsai.png",
-    alt: "Bonsai Tea home page — a Winter Park craft tea and boba shop where every cup is made by hand.",
+    alt: "Bonsai Tea home page, a Winter Park craft tea and boba shop where every cup is made by hand.",
   },
   {
     slug: "ss-equipment-solutions",
@@ -123,7 +123,7 @@ export const portfolio: Project[] = [
     industry: "Fitness & rehab equipment",
     url: "https://www.ssequipsolutions.com",
     image: "/work/ss-equipment-solutions.png",
-    alt: "S&S Equipment Solutions home page — commercial and rehab fitness equipment from an authorized Spirit Fitness supplier, delivered and installed.",
+    alt: "S&S Equipment Solutions home page, commercial and rehab fitness equipment from an authorized Spirit Fitness supplier, delivered and installed.",
   },
   {
     slug: "madamo",
@@ -131,7 +131,7 @@ export const portfolio: Project[] = [
     industry: "Island sweets & desserts",
     url: "https://madamo-genova-s-projects.vercel.app",
     image: "/work/madamo.png",
-    alt: "Madamo home page — handmade peanut tablet and island sweets, with a coming-soon launch notice.",
+    alt: "Madamo home page, handmade peanut tablet and island sweets, with a coming-soon launch notice.",
   },
 ];
 

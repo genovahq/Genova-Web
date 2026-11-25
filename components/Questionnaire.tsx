@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { industries } from "@/lib/data/industries";
+import { storePlans } from "@/lib/data/plans";
 
 /**
  * Multi-step intake questionnaire.
@@ -36,9 +37,14 @@ type Step = {
 };
 
 const PLAN_OPTIONS = [
-  { value: "starter", label: "Starter — $750", hint: "2 pages, live in 5–7 days" },
-  { value: "growth", label: "Growth — $2,000", hint: "Up to 5 pages, local SEO" },
-  { value: "pro", label: "Pro — $3,500", hint: "Up to 10 pages, 3 months Care" },
+  { value: "starter", label: "Starter · $750", hint: "2 pages, live in 5–7 days" },
+  { value: "growth", label: "Growth · $2,000", hint: "Up to 5 pages, local SEO" },
+  { value: "pro", label: "Pro · $3,500", hint: "Up to 10 pages, 3 months Care" },
+  ...storePlans.map((p) => ({
+    value: p.slug,
+    label: `${p.name} · ${p.priceLabel}`,
+    hint: `Online store · ${p.scope?.toLowerCase()}`,
+  })),
 ];
 
 const steps: Step[] = [
@@ -91,7 +97,7 @@ const steps: Step[] = [
     id: "package",
     kind: "choice",
     question: "Which plan looks closest to what you need?",
-    help: "Not sure? Skip this one — we'll recommend the right fit.",
+    help: "Not sure? Skip this one. We'll recommend the right fit.",
     optional: true,
     options: PLAN_OPTIONS,
   },
@@ -99,13 +105,13 @@ const steps: Step[] = [
     id: "service_area",
     kind: "text",
     question: "Which areas do you serve?",
-    help: "City, towns, or a radius — whatever's accurate.",
+    help: "City, towns, or a radius, whatever's accurate.",
     placeholder: `e.g. ${site.city} and surrounding Central Florida`,
   },
   {
     id: "contact",
     kind: "contact",
-    question: "Last step — how do we reach you?",
+    question: "Last step: how do we reach you?",
     help: "We reply to every inquiry within 24 hours.",
   },
   {
@@ -194,12 +200,12 @@ export default function Questionnaire() {
       if (!g("phone")) {
         found.phone = "Please add a number we can reach you on.";
       } else if (g("phone").replace(/\D/g, "").length < 10) {
-        found.phone = "That looks short — please include the area code.";
+        found.phone = "That looks short. Please include the area code.";
       }
       if (!g("email")) {
         found.email = "Please enter your email.";
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(g("email"))) {
-        found.email = "Please check that address — we can't reply without it.";
+        found.email = "Please check that address. We can't reply without it.";
       }
     } else if (!step.optional) {
       const v = answers[step.id];
@@ -286,7 +292,7 @@ export default function Questionnaire() {
           </div>
           <h2>Request received.</h2>
           <p>
-            Thanks — we&rsquo;ll be in touch within 24 hours
+            Thanks, we&rsquo;ll be in touch within 24 hours
             {summary ? ` about ${summary}` : ""}.
           </p>
         </div>
@@ -537,7 +543,7 @@ export default function Questionnaire() {
       )}
 
       <p className="form-note">
-        Takes about two minutes. We reply within 24 hours and never sell your details — see our{" "}
+        Takes about two minutes. We reply within 24 hours and never sell your details. See our{" "}
         <a href="/privacy">privacy policy</a>.
       </p>
     </div>

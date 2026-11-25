@@ -7,7 +7,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Get a Free Quote in 24 Hours",
+  title: "Contact: Get a Free Quote in 24 Hours",
   description:
     "Tell us about your business and get a free website quote within 24 hours. No obligation. Serving Orlando and all of Florida.",
   alternates: { canonical: "/contact" },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "How quickly will I hear back?",
-    a: "Within 24 hours, every time. That's a commitment we hold ourselves to — if we can't respond quickly before you're a customer, there's no reason to believe we would after.",
+    a: "Within 24 hours, every time. That's a commitment we hold ourselves to: if we can't respond quickly before you're a customer, there's no reason to believe we would after.",
   },
   {
     q: "What happens after I send this?",
@@ -25,11 +25,11 @@ const faq = [
   },
   {
     q: "Do I need to have everything ready?",
-    a: "No. You don't need copy, photos, or a brand to start — the questions here are enough for us to quote. We write the first draft of everything and you correct it.",
+    a: "No. You don't need copy, photos, or a brand to start. The questions here are enough for us to quote. We write the first draft of everything and you correct it.",
   },
   {
     q: "What if I don't know which plan I need?",
-    a: "Skip that question. Most people don't know, and guessing wrong doesn't matter — we recommend based on what you tell us about the business, not what you clicked.",
+    a: "Skip that question. Most people don't know, and guessing wrong doesn't matter. We recommend based on what you tell us about the business, not what you clicked.",
   },
   {
     q: "Is the quote free?",
@@ -98,7 +98,7 @@ export default function ContactPage() {
                 </a>
                 .
                 <br />
-                Based in {site.city}, {site.region} — working with businesses across{" "}
+                Based in {site.city}, {site.region}, working with businesses across{" "}
                 {site.regionName}.
               </p>
             </div>

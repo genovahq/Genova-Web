@@ -49,12 +49,23 @@ export default function PricingTiers({
               </li>
             ))}
           </ul>
-          <Link
-            href={`/contact?plan=${plan.slug}`}
-            className={`tier-btn ${plan.featured ? "solid" : "line"}`}
-          >
-            {plan.cta}
-          </Link>
+          {plan.href ? (
+            <a
+              href={plan.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`tier-btn ${plan.featured ? "solid" : "line"}`}
+            >
+              {plan.cta} <span className="arw">↗</span>
+            </a>
+          ) : (
+            <Link
+              href={`/contact?plan=${plan.slug}`}
+              className={`tier-btn ${plan.featured ? "solid" : "line"}`}
+            >
+              {plan.cta}
+            </Link>
+          )}
           {plan.footnote && <p className="tier-footnote">{plan.footnote}</p>}
         </article>
       ))}

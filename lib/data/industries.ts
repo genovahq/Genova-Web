@@ -28,7 +28,7 @@ export const industries: Industry[] = [
     lead:
       "Plumbing is an emergency business. Your site has one job: be the one they call while standing in an inch of water.",
     moment:
-      "It's 8pm, there's water on the floor, and they're searching on a phone with wet hands. They will call the first credible result — not the best-looking one, the fastest and clearest one.",
+      "It's 8pm, there's water on the floor, and they're searching on a phone with wet hands. They will call the first credible result. Not the best-looking one, the fastest and clearest one.",
     painPoints: [
       "Emergency callers bounce if the number isn't instantly tappable",
       "No page for the specific job they searched (water heater, repipe, drain)",
@@ -74,7 +74,7 @@ export const industries: Industry[] = [
       "HVAC websites built for Florida's season: fast quotes, financing-friendly layout, maintenance plan signups, service-area pages, and instant lead alerts.",
     h1: "Websites for HVAC companies built for Florida heat.",
     lead:
-      "In Central Florida, AC is not a comfort purchase — it's an emergency purchase, nine months a year. Your site should be built for the day it hits 96 degrees.",
+      "In Central Florida, AC is not a comfort purchase. It's an emergency purchase, nine months a year. Your site should be built for the day it hits 96 degrees.",
     moment:
       "The unit died, the house is climbing through 85, and they're comparing three companies on a phone. Whoever answers fastest and looks most legitimate gets the appointment.",
     painPoints: [
@@ -102,7 +102,7 @@ export const industries: Industry[] = [
       {
         title: "Trust signals up front",
         body:
-          "License number, brands you service, warranty terms, and financing availability — the four things people check before booking a big job.",
+          "License number, brands you service, warranty terms, and financing availability, the four things people check before booking a big job.",
       },
     ],
     searchTerms: [
@@ -122,11 +122,11 @@ export const industries: Industry[] = [
       "Roofing websites built for high-ticket Florida leads: storm and insurance pages, free inspection funnels, gallery-ready layouts, and instant lead alerts.",
     h1: "Websites for roofers chasing high-ticket work.",
     lead:
-      "A roofing lead can be worth twenty thousand dollars. That changes what your website needs to be — and how much a bad one is costing you.",
+      "A roofing lead can be worth twenty thousand dollars. That changes what your website needs to be, and how much a bad one is costing you.",
     moment:
       "After a storm, or after a ceiling stain appears. They're nervous about cost, insurance, and whether you're a storm-chaser who'll vanish. Credibility is the whole game.",
     painPoints: [
-      "Every competitor says 'free inspection' — nothing differentiates you",
+      "Every competitor says 'free inspection', nothing differentiates you",
       "No insurance-claim content, so you lose the customer who's confused",
       "Portfolio photos scattered or missing entirely",
       "High-value leads handled with the same urgency as a mailing list signup",
@@ -145,7 +145,7 @@ export const industries: Industry[] = [
       {
         title: "Proof-heavy design",
         body:
-          "Layouts built to carry job photos, licenses, warranty terms, and manufacturer certifications — the things that separate you from a truck with a magnet on it.",
+          "Layouts built to carry job photos, licenses, warranty terms, and manufacturer certifications, the things that separate you from a truck with a magnet on it.",
       },
       {
         title: "Storm-response readiness",
@@ -284,7 +284,7 @@ export const industries: Industry[] = [
       {
         title: "Pages for the high-ticket work",
         body:
-          "Ceramic coating, paint correction, PPF, interior restoration — each one is its own search with its own buyer.",
+          "Ceramic coating, paint correction, PPF, interior restoration. Each one is its own search with its own buyer.",
       },
       {
         title: "Mobile service radius",

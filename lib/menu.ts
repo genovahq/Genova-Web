@@ -1,4 +1,4 @@
-import { buildPlans, carePlans } from "./data/plans";
+import { buildPlans, carePlans, storeStartingPrice } from "./data/plans";
 import { industries } from "./data/industries";
 
 /*
@@ -16,6 +16,7 @@ const minCare = Math.min(...carePlans.map((p) => p.price));
 
 export const serviceLinks: MenuItem[] = [
   { href: "/services/website-design", label: "Website Design", note: from(minBuild) },
+  { href: "/services/online-stores", label: "Online Stores", note: from(storeStartingPrice) },
   { href: "/services/ai-lead-capture", label: "AI Lead Capture", note: "Every plan" },
   { href: "/services/local-seo", label: "Local SEO", note: "From Growth" },
   { href: "/services/care-plans", label: "Care Plans", note: `${from(minCare)}/mo` },

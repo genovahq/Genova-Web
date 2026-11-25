@@ -41,7 +41,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Genova Web — AI-Powered Websites That Grow Your Business",
+    default: "Genova Web | AI-Powered Websites That Grow Your Business",
     // Every child page gets the brand appended automatically.
     template: "%s | Genova Web",
   },
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Genova Web — AI-Powered Websites That Grow Your Business",
+    title: "Genova Web | AI-Powered Websites That Grow Your Business",
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Genova Web — AI-Powered Websites That Grow Your Business",
+    title: "Genova Web | AI-Powered Websites That Grow Your Business",
     description: site.description,
   },
   robots: {

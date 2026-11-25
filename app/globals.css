@@ -892,6 +892,20 @@ h3 {
   max-width: 54ch;
   margin-bottom: 44px;
 }
+/* "Starting at" line for quoted builds (e.g. online stores). Pulls the
+   sub's bottom margin in so the price sits with the copy, not the buttons. */
+.hero p.sub:has(+ .service-price) {
+  margin-bottom: 18px;
+}
+.hero .service-price {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+.hero .service-price b {
+  color: var(--purple);
+  font-weight: 700;
+}
 
 /* --------------------------------------------------------------------------
    Marquee

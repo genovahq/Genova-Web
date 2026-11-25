@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries We Build For — Trades, Home Services & Local Business",
+  title: "Industries We Build For: Trades, Home Services & Local Business",
   description:
     "Websites built for plumbers, HVAC, roofers, landscapers, med spas, and auto detailers across Orlando and Florida. Every trade converts differently.",
   alternates: { canonical: "/industries" },
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
           <SectionHead
             kicker="Who we build for"
             title="Pick your trade. We'll tell you what actually matters for it."
-            lead={`We work with local service businesses in ${site.city} and across ${site.regionName}. Don't see yours? The thinking transfers — get in touch.`}
+            lead={`We work with local service businesses in ${site.city} and across ${site.regionName}. Don't see yours? The thinking transfers. Get in touch.`}
           />
           <div className="grid-3">
             {industries.map((i) => (
@@ -74,7 +74,7 @@ export default function IndustriesPage() {
             <span className="chrome-purple">Still the same problem.</span>
           </>
         }
-        sub="If your customers find you by searching and decide by looking, we can help — whatever the industry. Tell us what you do."
+        sub="If your customers find you by searching and decide by looking, we can help, whatever the industry. Tell us what you do."
         cta="Start a Project"
         secondary={{ label: "See our services", href: "/services" }}
       />
