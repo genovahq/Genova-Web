@@ -40,7 +40,7 @@ export default function Proof() {
           <SectionHead
             kicker="What you get in writing"
             title="No guarantees we can't keep."
-            lead="Every line below is a commitment we set ourselves — and one you can hold us to."
+            lead="Every line below is a commitment we set ourselves, and one you can hold us to."
           />
           <div className="grid-3">
             {commitments.map((c) => (

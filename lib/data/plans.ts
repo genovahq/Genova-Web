@@ -30,16 +30,16 @@ export const buildPlans: Plan[] = [
     pitch: "For businesses that need to get online and start capturing leads.",
     cta: "Start with Starter",
     footnote:
-      "Keep it running smoothly — add Genova Care for $149/mo. Hosting, security, and peace of mind so your site's always working. Cancel anytime.",
+      "Keep it running smoothly. Add Genova Care for $149/mo. Hosting, security, and peace of mind so your site's always working. Cancel anytime.",
     features: [
       { text: "High-converting professional website" },
       { text: "Optimized for every device" },
       {
-        text: "AI Lead Capture Assistant — inquiries sent straight to your email",
+        text: "AI Lead Capture Assistant, inquiries sent straight to your email",
         ai: true,
       },
       { text: "Click-to-call & Google Maps" },
-      { text: "SEO foundation — built to be found on Google" },
+      { text: "SEO foundation, built to be found on Google" },
       { text: "Website visitor analytics" },
       { text: "14 days of post-launch support" },
     ],
@@ -59,7 +59,7 @@ export const buildPlans: Plan[] = [
       { text: "Everything in Starter" },
       { text: "A dedicated page for each service you offer" },
       { text: "Google Business Profile setup" },
-      { text: 'Local search setup — designed to win "near me" searches' },
+      { text: 'Local search setup, designed to win "near me" searches' },
       { text: "Conversion copywriting designed to generate leads" },
       { text: "Customer reviews section" },
       { text: "Organized lead inbox + instant alerts", ai: true },
@@ -74,16 +74,16 @@ export const buildPlans: Plan[] = [
     timeline: "Live in 10–14 business days",
     scope: "Up to 10 pages",
     pitch:
-      "The complete system — built, optimized, and managed for you, so you never have to touch it.",
+      "The complete system, built, optimized, and managed for you, so you never have to touch it.",
     cta: "Go Pro",
     features: [
       { text: "Everything in Growth" },
       { text: "Premium custom design & brand polish" },
       { text: "Multi-location & service-area pages" },
-      { text: "Advanced SEO foundation — technical, local & on-page setup" },
+      { text: "Advanced SEO foundation: technical, local & on-page setup" },
       { text: "Google Search Console setup & connection" },
       {
-        text: "3 months of Genova Care included — a $447 value",
+        text: "3 months of Genova Care included (a $447 value)",
         ai: true,
       },
       { text: "Priority delivery & launch support" },
@@ -100,7 +100,7 @@ export const carePlans: Plan[] = [
     priceLabel: "$50",
     cadence: "/mo",
     timeline: "Month to month",
-    pitch: "Keep it online and secure — nothing more.",
+    pitch: "Keep it online and secure. Nothing more.",
     cta: "Add hosting",
     features: [
       { text: "Managed hosting & SSL" },
@@ -115,18 +115,18 @@ export const carePlans: Plan[] = [
     priceLabel: "$149",
     cadence: "/mo",
     timeline: "Month to month",
-    pitch: "Keep it online, secure, and handled — so you never think about it.",
+    pitch: "Keep it online, secure, and handled, so you never think about it.",
     featured: true,
     badge: "Recommended",
     cta: "Add Genova Care",
     features: [
-      { text: "Everything in hosting — managed hosting, SSL, daily backups, uptime monitoring" },
+      { text: "Everything in hosting: managed hosting, SSL, daily backups, uptime monitoring" },
       {
-        text: "Lead-system monitoring — if your AI lead capture breaks, we catch it and fix it",
+        text: "Lead-system monitoring: if your AI lead capture breaks, we catch it and fix it",
         ai: true,
       },
       { text: "Unlimited content edits" },
-      { text: "Quarterly check-in — a quick look at what's working and what to fix next" },
+      { text: "Quarterly check-in: a quick look at what's working and what to fix next" },
     ],
   },
 ];
@@ -145,7 +145,7 @@ export const storePlans: Plan[] = [
     timeline: "2–3 weeks",
     scope: "Up to 100 products",
     pitch:
-      "A custom-coded Shopify store designed around your brand — for businesses ready to start selling online.",
+      "A custom-coded Shopify store designed around your brand, for businesses ready to start selling online.",
     features: [
       { text: "Custom-coded Shopify theme, designed to your brand" },
       { text: "Up to 100 products imported and organized" },
@@ -168,7 +168,7 @@ export const storePlans: Plan[] = [
     featured: true,
     badge: "Fully bespoke",
     pitch:
-      "Every page designed from scratch — for brands where the store is the business, or bigger catalogs.",
+      "Every page designed from scratch, for brands where the store is the business, or bigger catalogs.",
     features: [
       { text: "Everything in Launch Store" },
       { text: "Home, collection & product layouts designed from scratch" },
@@ -189,7 +189,7 @@ export const storePlans: Plan[] = [
     timeline: "Custom timeline",
     scope: "Any catalog size",
     pitch:
-      "For brand relaunches and stores with real complexity — scoped on a call, priced to the project.",
+      "For brand relaunches and stores with real complexity, scoped on a call, priced to the project.",
     features: [
       { text: "Everything in Custom Store" },
       { text: "Fully custom or headless build" },
@@ -200,7 +200,7 @@ export const storePlans: Plan[] = [
     ],
     cta: "Book a call",
     href: "https://cal.com/genovaweb/discovery",
-    footnote: "Final price depends on scope — we'll quote it after a call.",
+    footnote: "Final price depends on scope. We'll quote it after a call.",
   },
 ];
 
@@ -291,7 +291,7 @@ export const comparisonRows: {
 export const alternativeComparison = [
   {
     label: "Who builds it",
-    genova: "We do — design, copy, and launch",
+    genova: "We do: design, copy, and launch",
     diy: "You do, on a template",
     agency: "An assigned team",
   },
@@ -309,7 +309,7 @@ export const alternativeComparison = [
   },
   {
     label: "Ongoing cost",
-    genova: "$50/mo hosting — care plans optional",
+    genova: "$50/mo hosting, care plans optional",
     diy: "Platform subscription, plus your time",
     agency: "Retainer, usually required",
   },
@@ -327,13 +327,13 @@ export const alternativeComparison = [
   },
   {
     label: "Who maintains it",
-    genova: "Us, if you want it — never required",
+    genova: "Us, if you want it, never required",
     diy: "You, indefinitely",
     agency: "Retainer, usually required",
   },
   {
     label: "Who owns it",
-    genova: "You do — site, code, and domain",
+    genova: "You do: site, code, and domain",
     diy: "You rent the platform",
     agency: "Varies by contract",
   },

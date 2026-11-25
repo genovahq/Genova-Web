@@ -30,7 +30,7 @@ export default function Reviews() {
     { value: String(portfolio.length), label: "Client sites live right now" },
     { value: "<2 wks", label: "Typical time to launch" },
     { value: "24 hr", label: "Reply to every inquiry" },
-    { value: "$0", label: "Hidden fees — the price is the price" },
+    { value: "$0", label: "Hidden fees. The price is the price" },
   ];
 
   return (
@@ -71,7 +71,7 @@ export default function Reviews() {
             <a href={project.url} target="_blank" rel="noopener" className={styles.reviewSite}>
               <BrowserFrame src={project.image} alt={project.alt} domain={domain(project.url)} />
               <span className={styles.reviewSiteCap}>
-                The site {featured.name.split(" ")[0]} is talking about — {project.business}
+                The site {featured.name.split(" ")[0]} is talking about: {project.business}
                 <span aria-hidden="true"> ↗</span>
               </span>
             </a>

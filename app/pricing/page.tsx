@@ -15,12 +15,12 @@ import {
 import { pricingSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Pricing — Website Packages from $750",
+  title: "Pricing: Website Packages from $750",
   description:
     "Transparent website pricing: Starter $750, Growth $2,000, Pro $3,500. 50% up front, 50% on delivery. AI lead capture included in every plan. Care plans from $149/mo.",
   alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Pricing — Website Packages from $750 | Genova Web",
+    title: "Pricing: Website Packages from $750 | Genova Web",
     description:
       "Starter $750 · Growth $2,000 · Pro $3,500. AI lead capture in every plan. No hidden fees, no lock-in.",
     url: "/pricing",
@@ -34,7 +34,7 @@ const faq = [
   },
   {
     q: "How does the 50/50 payment split work?",
-    a: "Half when you book, which reserves your build slot and starts the work. The other half when the site is finished and you've approved it — not before you've seen it.",
+    a: "Half when you book, which reserves your build slot and starts the work. The other half when the site is finished and you've approved it, not before you've seen it.",
   },
   {
     q: "Do I have to take a care plan?",
@@ -42,7 +42,7 @@ const faq = [
   },
   {
     q: "What if I need more than the Pro plan covers?",
-    a: `Then it's a custom quote rather than a package. Online stores start at $${storeStartingPrice.toLocaleString("en-US")} with three packages — see the Online Stores page. Booking systems, memberships, and multi-brand builds also sit outside these tiers. Tell us what you need and we'll price it honestly.`,
+    a: `Then it's a custom quote rather than a package. Online stores start at $${storeStartingPrice.toLocaleString("en-US")} with three packages. See the Online Stores page. Booking systems, memberships, and multi-brand builds also sit outside these tiers. Tell us what you need and we'll price it honestly.`,
   },
   {
     q: "Are there ongoing costs I should expect?",
@@ -50,7 +50,7 @@ const faq = [
   },
   {
     q: "What's the difference between $50 hosting and the $149 care plan?",
-    a: "The $50 keeps your site online and secure — managed hosting, SSL, daily backups, and uptime monitoring, nothing more. Genova Care includes all of that plus lead-system monitoring, unlimited content edits, and a quarterly check-in on what's working and what to fix next. Both are month to month.",
+    a: "The $50 keeps your site online and secure: managed hosting, SSL, daily backups, and uptime monitoring, nothing more. Genova Care includes all of that plus lead-system monitoring, unlimited content edits, and a quarterly check-in on what's working and what to fix next. Both are month to month.",
   },
   {
     q: "How many pages do I get?",
@@ -58,7 +58,7 @@ const faq = [
   },
   {
     q: "Who owns the website when it's done?",
-    a: "You do — the site, the code, the content, and the domain. There's no proprietary platform to stay subscribed to and nothing held back as leverage.",
+    a: "You do: the site, the code, the content, and the domain. There's no proprietary platform to stay subscribed to and nothing held back as leverage.",
   },
   {
     q: "What happens if I want changes after launch?",
@@ -80,7 +80,7 @@ function Cell({ value }: { value: boolean | string }) {
   if (value === false)
     return (
       <span className="no" aria-label="Not included">
-        —
+        ✕
       </span>
     );
   return <>{value}</>;
@@ -107,7 +107,7 @@ export default function PricingPage() {
           </h1>
           <p className="sub">
             One-time build cost, split 50% up front and 50% on delivery. AI lead capture is included
-            in every plan — not sold back to you as an upgrade.
+            in every plan, not sold back to you as an upgrade.
           </p>
           <div className="actions">
             <Link href="#packages" className="btn-primary">
@@ -126,13 +126,13 @@ export default function PricingPage() {
           <SectionHead
             kicker="Build packages"
             title="Pick the plan built for where your business is headed."
-            lead="Every plan is a complete, finished website — the difference is how much ground it covers and how hard it works to get you found."
+            lead="Every plan is a complete, finished website. The difference is how much ground it covers and how hard it works to get you found."
           />
           <PricingTiers plans={buildPlans} />
 
           <div className="pricing-notes reveal">
             <div className="rush">
-              <b>Need it sooner?</b> Rush delivery available —{" "}
+              <b>Need it sooner?</b> Rush delivery available:{" "}
               {rushOptions.map((r, i) => (
                 <span key={r.plan}>
                   {i > 0 ? ", " : ""}
@@ -165,11 +165,11 @@ export default function PricingPage() {
               <thead>
                 <tr>
                   <th scope="col">Feature</th>
-                  <th scope="col">Starter — $750</th>
+                  <th scope="col">Starter · $750</th>
                   <th scope="col" className="hi">
-                    Growth — $2,000
+                    Growth · $2,000
                   </th>
-                  <th scope="col">Pro — $3,500</th>
+                  <th scope="col">Pro · $3,500</th>
                 </tr>
               </thead>
               <tbody>
@@ -211,7 +211,7 @@ export default function PricingPage() {
               <h2>What is one extra customer a month worth to you?</h2>
               <p>
                 Enter your average job value and close rate, and see what extra inquiries are worth
-                per year — plus how quickly a build pays for itself. Your numbers, no assumptions
+                per year, plus how quickly a build pays for itself. Your numbers, no assumptions
                 from us.
               </p>
               <Link href="/roi-calculator" className="btn-primary">
@@ -241,7 +241,7 @@ export default function PricingPage() {
           />
           <PricingTiers plans={carePlans} className="care-tiers" />
           <p className="care-note reveal">
-            You keep the website no matter what. Both are month to month, no contract — if
+            You keep the website no matter what. Both are month to month, no contract. If
             we&rsquo;re not earning it, you leave and take everything with you.
           </p>
         </div>

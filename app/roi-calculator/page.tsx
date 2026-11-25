@@ -7,14 +7,14 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Website ROI Calculator — What Is a Lead Actually Worth?",
+  title: "Website ROI Calculator: What Is a Lead Actually Worth?",
   description:
     "Free ROI calculator for local businesses. Enter your average job value and close rate to see what extra inquiries are worth per year, and how fast a website pays for itself.",
   alternates: { canonical: "/roi-calculator" },
   openGraph: {
     title: "Website ROI Calculator | Genova Web",
     description:
-      "Work out what one extra customer a month is worth to your business — and how quickly a website pays for itself.",
+      "Work out what one extra customer a month is worth to your business, and how quickly a website pays for itself.",
     url: "/roi-calculator",
   },
 };
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "How does this calculator work?",
-    a: "It multiplies the extra monthly inquiries you enter by your close rate to get new customers per month, multiplies that by your average job value to get added revenue, then divides the build cost by that monthly figure to get a payback period. That's the whole calculation — no hidden multipliers.",
+    a: "It multiplies the extra monthly inquiries you enter by your close rate to get new customers per month, multiplies that by your average job value to get added revenue, then divides the build cost by that monthly figure to get a payback period. That's the whole calculation. No hidden multipliers.",
   },
   {
     q: "Why don't you estimate the extra leads for me?",
@@ -34,7 +34,7 @@ const faq = [
   },
   {
     q: "Is this a guarantee of results?",
-    a: "No. It's a planning tool built entirely from figures you supply — an arithmetic model, not a forecast. No one can guarantee website performance, and we don't.",
+    a: "No. It's a planning tool built entirely from figures you supply, an arithmetic model, not a forecast. No one can guarantee website performance, and we don't.",
   },
   {
     q: "What should I do with the result?",
@@ -61,7 +61,7 @@ export default function RoiCalculatorPage() {
           </h1>
           <p className="sub">
             Set your own numbers below. This is the calculation worth doing before you accept any
-            website quote — including ours.
+            website quote, including ours.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function RoiCalculatorPage() {
               <h3>Close rate</h3>
               <p>
                 Of the people who contact you, how many book. If this is low, more traffic
-                won&rsquo;t fix it — the bottleneck is response speed or the conversation, not the
+                won&rsquo;t fix it. The bottleneck is response speed or the conversation, not the
                 website.
               </p>
             </div>

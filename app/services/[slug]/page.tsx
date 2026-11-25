@@ -273,7 +273,7 @@ export default async function ServicePage({ params }: Params) {
             <span className="chrome-purple">for your business?</span>
           </>
         }
-        sub={`Tell us what you do and where you're losing customers. We'll come back within 24 hours with a straight answer — serving ${site.city} and all of ${site.regionName}.`}
+        sub={`Tell us what you do and where you're losing customers. We'll come back within 24 hours with a straight answer, serving ${site.city} and all of ${site.regionName}.`}
         cta="Start a Project"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />

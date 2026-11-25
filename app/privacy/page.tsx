@@ -73,7 +73,7 @@ export default function PrivacyPage() {
             This site uses Google Analytics 4 to count visits and see which pages people
             actually read. It sets cookies in your browser (named <code>_ga</code> and{" "}
             <code>_ga_*</code>) that hold a randomly generated ID. That ID tells us a browser
-            came back &mdash; it does not tell us who you are.
+            came back. It does not tell us who you are.
           </p>
           <p>
             What it collects: pages viewed, roughly how long you stayed, whether you came from
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
 
           <h2 className="kicker">Contact</h2>
           <p>
-            {site.name}, {site.city}, {site.region}, {site.country} —{" "}
+            {site.name}, {site.city}, {site.region}, {site.country}:{" "}
             <a href={`mailto:${site.email}`} style={{ color: "var(--accent)" }}>
               {site.email}
             </a>

@@ -120,7 +120,7 @@ export default function Nav() {
         // Keyboard users tabbing into a hidden nav bring it back.
         onFocus={() => setHidden(false)}
       >
-        <Link href="/" className="wordmark" aria-label="Genova Web — home">
+        <Link href="/" className="wordmark" aria-label="Genova Web home">
           <Wordmark />
         </Link>
 

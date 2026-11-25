@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About — Why We Build Websites This Way",
+  title: "About: Why We Build Websites This Way",
   description:
     "Genova Web builds conversion-focused websites with AI lead capture for local businesses in Orlando and across Florida. Here's how we work and what we won't promise.",
   alternates: { canonical: "/about" },
@@ -37,7 +37,7 @@ const beliefs = [
   },
   {
     title: "Fast is a feature, not a shortcut",
-    body: "Most sites go live in under two weeks — not because we cut corners, but because a tight, well-defined scope removes the eight weeks of meetings that usually pad a project.",
+    body: "Most sites go live in under two weeks, not because we cut corners, but because a tight, well-defined scope removes the eight weeks of meetings that usually pad a project.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
             </p>
             <p>
               We built a third option: a tight, well-defined scope, a fixed price stated publicly, a
-              one-week turnaround, and lead capture wired in from day one — because a website that
+              one-week turnaround, and lead capture wired in from day one, because a website that
               collects an inquiry and doesn&rsquo;t tell you about it for fourteen hours has failed
               at the only job that matters.
             </p>
@@ -120,7 +120,7 @@ export default function AboutPage() {
             <span className="chrome-purple">let&rsquo;s talk.</span>
           </>
         }
-        sub={`Tell us about your business. We reply to every inquiry within 24 hours — or email ${site.email} directly.`}
+        sub={`Tell us about your business. We reply to every inquiry within 24 hours, or email ${site.email} directly.`}
         cta="Start a Project"
         secondary={{ label: "See pricing", href: "/pricing" }}
       />

@@ -172,7 +172,7 @@ export default async function CityPage({ params }: Params) {
             <SectionHead
               kicker="Nearby areas we serve"
               title={`Around ${city.name} and across Central Florida.`}
-              lead="We build a real local page for each area we work in — pick the one closest to you."
+              lead="We build a real local page for each area we work in. Pick the one closest to you."
             />
             <div className="grid-4">
               {nearby.map((n) => (

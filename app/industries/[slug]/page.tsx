@@ -129,7 +129,7 @@ export default async function IndustryPage({ params }: Params) {
           <SectionHead
             kicker="What we build you to rank for"
             title="The searches that turn into work."
-            lead="Each of these is a different page with different content — not one homepage trying to be all of them."
+            lead="Each of these is a different page with different content, not one homepage trying to be all of them."
           />
           <div className="grid-4">
             {industry.searchTerms.map((term) => (
@@ -141,7 +141,7 @@ export default async function IndustryPage({ params }: Params) {
             ))}
           </div>
           <p className="timeline-note reveal" style={{ marginTop: 24 }}>
-            Example terms for illustration — we research the actual search volume and competition in
+            Example terms for illustration. We research the actual search volume and competition in
             your area before deciding which pages to build. No one can promise a ranking position,
             and we don&rsquo;t.
           </p>

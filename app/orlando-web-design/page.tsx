@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Orlando Web Design | Genova Web",
     description:
-      "Websites for Orlando local businesses — built to convert, found on Google, live in under two weeks.",
+      "Websites for Orlando local businesses, built to convert, found on Google, live in under two weeks.",
     url: "/orlando-web-design",
   },
 };
@@ -38,7 +38,7 @@ const faq = [
   },
   {
     q: "Can we meet in person?",
-    a: "Everything from intake to launch runs over email, phone, and a shared preview link — that's how we keep the timeline to under two weeks and the price where it is. If a call would help, we'll set one up.",
+    a: "Everything from intake to launch runs over email, phone, and a shared preview link. That's how we keep the timeline to under two weeks and the price where it is. If a call would help, we'll set one up.",
   },
   {
     q: "How do I rank in the Orlando map pack?",
@@ -46,7 +46,7 @@ const faq = [
   },
   {
     q: "Which areas around Orlando do you cover?",
-    a: `We build service-area pages for wherever you actually work — commonly ${site.serviceAreas.slice(1, 6).join(", ")}, and the rest of Central Florida.`,
+    a: `We build service-area pages for wherever you actually work, commonly ${site.serviceAreas.slice(1, 6).join(", ")}, and the rest of Central Florida.`,
   },
   {
     q: "How much does a website cost in Orlando?",
@@ -85,7 +85,7 @@ export default function OrlandoPage() {
           </h1>
           <p className="sub">
             Central Florida is a crowded market with a lot of tourist-facing noise. If you serve
-            locals, your site has to win a specific search from a specific neighbourhood — not just
+            locals, your site has to win a specific search from a specific neighbourhood, not just
             look good.
           </p>
           <div className="actions">
@@ -108,14 +108,14 @@ export default function OrlandoPage() {
                 Orlando has more small service businesses competing for the same searches than
                 almost anywhere in Florida.
               </strong>{" "}
-              Metro Orlando covers a wide, sprawling area — a customer in Winter Garden and one in
+              Metro Orlando covers a wide, sprawling area. A customer in Winter Garden and one in
               Oviedo are forty minutes apart and searching for completely different things, even
               when they want the same service.
             </p>
             <p>
               That&rsquo;s why a single homepage that says &ldquo;serving Central Florida&rdquo;
               underperforms. Google ranks on proximity and relevance, so the business with a genuine
-              page for the suburb someone is standing in wins the click — even against a bigger
+              page for the suburb someone is standing in wins the click, even against a bigger
               competitor downtown.
             </p>
             <p>
@@ -133,7 +133,7 @@ export default function OrlandoPage() {
           <SectionHead
             kicker="Service areas"
             title="Built for the whole metro, not just downtown."
-            lead="We create real pages for the areas you actually work in — with content specific to each, not a list of city names stuffed in a footer."
+            lead="We create real pages for the areas you actually work in, with content specific to each, not a list of city names stuffed in a footer."
           />
           <div className="grid-4">
             {site.serviceAreas.map((area) => (

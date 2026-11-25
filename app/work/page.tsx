@@ -23,7 +23,7 @@ import { site } from "@/lib/site";
  */
 
 export const metadata: Metadata = {
-  title: "Our Work — What's Actually Inside a Genova Build",
+  title: "Our Work: What's Actually Inside a Genova Build",
   description:
     "A page-by-page breakdown of how we build a local business website: the structure, the lead path, the SEO layer, and what gets measured after launch.",
   alternates: { canonical: "/work" },
@@ -39,12 +39,12 @@ const anatomy = [
   {
     n: "02",
     t: "Structure that can rank",
-    b: "The homepage is built to win your main search, and from Growth up every service gets its own page — its own URL, title, and content — so each can rank on its own instead of competing on one.",
+    b: "The homepage is built to win your main search, and from Growth up every service gets its own page (its own URL, title, and content), so each can rank on its own instead of competing on one.",
   },
   {
     n: "03",
     t: "Proof placed where doubt happens",
-    b: "Licences, warranty terms, and guarantees — plus a reviews section from Growth up — sit next to the moment someone hesitates, beside the price and the CTA, not parked on a page nobody visits.",
+    b: "Licences, warranty terms, and guarantees (plus a reviews section from Growth up) sit next to the moment someone hesitates, beside the price and the CTA, not parked on a page nobody visits.",
   },
   {
     n: "04",
@@ -69,7 +69,7 @@ const anatomy = [
   {
     n: "08",
     t: "Measurement from day one",
-    b: "Analytics connected at launch — plus Search Console on Pro — so month two is a conversation about data instead of a conversation about opinions.",
+    b: "Analytics connected at launch (plus Search Console on Pro), so month two is a conversation about data instead of a conversation about opinions.",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function WorkPage() {
             <span className="chrome-purple">Real sites, live right now.</span>
           </h1>
           <p className="sub">
-            Click through to any of them — these are working sites doing the job, not mockups. Below
+            Click through to any of them. These are working sites doing the job, not mockups. Below
             them is the eight-part anatomy that goes into every build.
           </p>
           <div className="actions">
@@ -112,7 +112,7 @@ export default function WorkPage() {
             <SectionHead
               kicker="Selected work"
               title="Sites we built, live and working."
-              lead="Every one links straight to the real, published site — see it the way its customers do."
+              lead="Every one links straight to the real, published site. See it the way its customers do."
             />
             <div className={`work-grid${portfolio.length === 1 ? " solo" : ""}`}>
               {portfolio.map((p) => (
@@ -188,7 +188,7 @@ export default function WorkPage() {
           <SectionHead
             kicker="Anatomy of a build"
             title="Eight things every Genova site does."
-            lead="The fundamentals every site needs to work, built in from the start — with the higher tiers layering more on top."
+            lead="The fundamentals every site needs to work, built in from the start, with the higher tiers layering more on top."
           />
           <div className="grid-2">
             {anatomy.map((a) => (
@@ -223,7 +223,7 @@ export default function WorkPage() {
                 <Link href="/pricing" style={{ color: "var(--accent)" }}>
                   pricing page
                 </Link>
-                , and the fact that this site is itself the product — built the same way, on the
+                , and the fact that this site is itself the product, built the same way, on the
                 same principles.
               </p>
               <p>

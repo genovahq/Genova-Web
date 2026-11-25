@@ -129,7 +129,7 @@ export default function RoiCalculator() {
             onChange={(e) => setExtraLeads(Number(e.target.value))}
           />
           <p className="hint">
-            Your estimate — how many more inquiries a site that actually converts would bring in.
+            Your estimate: how many more inquiries a site that actually converts would bring in.
             We don&rsquo;t assume a number for you.
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function RoiCalculator() {
             >
               {buildPlans.map((p) => (
                 <option key={p.slug} value={p.slug}>
-                  {p.name} — {p.priceLabel}
+                  {p.name} · {p.priceLabel}
                 </option>
               ))}
             </select>
@@ -197,7 +197,7 @@ export default function RoiCalculator() {
             <span>Pays for itself in</span>
             <b>
               {result.payback === Infinity
-                ? "—"
+                ? "N/A"
                 : result.payback < 1
                   ? "under a month"
                   : `${result.payback.toFixed(1)} months`}
@@ -210,7 +210,7 @@ export default function RoiCalculator() {
         </Link>
 
         <p className="calc-disclaimer" style={{ marginTop: 16 }}>
-          This is a planning estimate built entirely from the numbers you entered — not a
+          This is a planning estimate built entirely from the numbers you entered, not a
           projection, forecast, or guarantee of results. We don&rsquo;t assume a conversion lift on
           your behalf, because no honest agency can know one in advance.
         </p>

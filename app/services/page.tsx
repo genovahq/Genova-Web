@@ -8,7 +8,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — Web Design, AI Lead Capture & Local SEO",
+  title: "Services: Web Design, AI Lead Capture & Local SEO",
   description:
     "Website design, online stores, AI lead capture, local SEO, and ongoing care plans for local businesses in Orlando and across Florida.",
   alternates: { canonical: "/services" },
@@ -52,7 +52,7 @@ export default function ServicesPage() {
           <SectionHead
             kicker="What we do"
             title="Everything that adds up to one working system."
-            lead={`Every Genova build covers getting found, converting the visit, capturing the lead, and staying healthy after launch. Selling products? We build the store too — for businesses across ${site.regionName}.`}
+            lead={`Every Genova build covers getting found, converting the visit, capturing the lead, and staying healthy after launch. Selling products? We build the store too, for businesses across ${site.regionName}.`}
           />
           <div className="grid-2">
             {services.map((s) => (
