@@ -14,6 +14,8 @@ export type Plan = {
   cta: string;
   /** Soft upsell line rendered under the CTA. */
   footnote?: string;
+  /** External CTA (e.g. a Cal.com booking page) instead of the contact form. */
+  href?: string;
 };
 
 /** Build packages. */
@@ -197,6 +199,7 @@ export const storePlans: Plan[] = [
       { text: "Unlimited products" },
     ],
     cta: "Book a call",
+    href: "https://cal.com/genovaweb/discovery",
     footnote: "Final price depends on scope — we'll quote it after a call.",
   },
 ];
