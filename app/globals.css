@@ -3037,3 +3037,111 @@ footer .btn-ghost {
 .stars svg[data-on] {
   fill: #f5a524;
 }
+
+/* --------------------------------------------------------------------------
+   Price-lock announcement (components/PriceLockBanner.tsx)
+   Floats at the bottom so it never meets the nav pill fixed at the top, and
+   appearing after load never moves page content. Sits under the mobile menu.
+   -------------------------------------------------------------------------- */
+.price-lock {
+  position: fixed;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  translate: -50% 0;
+  z-index: calc(var(--z-menu) - 1);
+  width: max-content;
+  max-width: calc(100% - 28px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 8px 8px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 14px 40px rgba(78, 28, 125, 0.35);
+  animation: price-lock-in 420ms var(--ease-out) both;
+}
+@keyframes price-lock-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.price-lock-text {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+.price-lock-short {
+  display: none;
+}
+.price-lock-link {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.price-lock-link:hover {
+  text-decoration-thickness: 2px;
+}
+.price-lock-close {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur);
+}
+.price-lock-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.price-lock-close svg {
+  width: 12px;
+  height: 12px;
+}
+/* The site-wide focus ring is purple, which vanishes on the purple pill. */
+.price-lock-link:focus-visible,
+.price-lock-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .price-lock {
+    gap: 10px;
+    padding: 6px 6px 6px 18px;
+  }
+  .price-lock-long {
+    display: none;
+  }
+  .price-lock-short {
+    display: inline;
+  }
+  .price-lock-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .price-lock {
+    animation: none;
+  }
+}
+
+@media print {
+  .price-lock {
+    display: none;
+  }
+}

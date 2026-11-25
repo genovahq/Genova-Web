@@ -50,4 +50,11 @@ export const site = {
 
 // The main menu lives in lib/menu.ts.
 
+/**
+ * Price-lock announcement cutoff: Dec 31, 2026, 11:59:59 PM America/New_York
+ * (EST, UTC-5, in December). The site-wide banner checks this in the browser
+ * and hides itself once it passes, so no redeploy is needed. Change it here.
+ */
+export const priceLockEndsAt = "2026-12-31T23:59:59-05:00";
+
 export const absolute = (path: string) => new URL(path, site.url).toString();
