@@ -971,11 +971,13 @@
     grid-template-columns: 1fr;
     gap: 0;
   }
+  /* On phones the list is a plain row at the top of the section: it scrolls
+     away with the page instead of sticking (sticky only on desktop, where it
+     has its own column). */
   .svcList {
+    position: static;
     flex-direction: row;
     overflow-x: auto;
-    top: 72px;
-    z-index: 3;
     gap: 18px;
     padding: 12px 0;
     margin: 0 calc(var(--gut) * -1);
